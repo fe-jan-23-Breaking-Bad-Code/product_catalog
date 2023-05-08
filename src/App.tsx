@@ -8,15 +8,15 @@ import { PhonesPage } from './pages/PhonesPage';
 import { Navigation } from './components/Navigation';
 
 export const App = () => (
-  <main className="App">
+  <div className="App">
     <Navigation />
 
-    <section className='section'>
+    <main className='section'>
       <Routes>
         <Route path="/" element={<HomePage />} />
 
         <Route path="/phones" element={<PhonesPage />} />
       </Routes>
-    </section>
-  </main>
+    </main>
+  </div>
 );
