@@ -1,7 +1,7 @@
-
+import React from 'react';
 import './styles/main.scss';
-import Logo from './img/Logo.svg'
-import Button from './img/button.png'
+import Logo from './img/Logo.svg';
+import Button from './img/button.png';
 
 const Footer: React.FC = () => (
   <footer className='footer'>

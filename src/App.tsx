@@ -1,22 +1,28 @@
 import './App.css';
+import React from 'react';
 import { 
   Routes,
   Route,
- } from 'react-router-dom';
+} from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
-import { Navigation } from './components/Navigation';
+import { Header } from './components/Header';
+import Footer from './components/Footer/Footer';
 
 export const App = () => (
   <div className="App">
-    <Navigation />
+    
 
     <main className='section'>
+      <Header />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
 
         <Route path="/phones" element={<PhonesPage />} />
       </Routes>
+
+      <Footer />
     </main>
   </div>
 );
