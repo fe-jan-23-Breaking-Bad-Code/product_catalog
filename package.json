@@ -44,6 +44,10 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
+    "sass": "^1.62.1"
+=======
     "gh-pages": "^5.0.0"
+>>>>>>> 98f7bb433f199acc30eb2570eb99aa3a78741632
   }
 }

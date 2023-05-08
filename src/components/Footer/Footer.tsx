@@ -5,22 +5,24 @@ import Button from './img/button.png'
 
 const Footer: React.FC = () => (
   <footer className='footer'>
-    <div className='footer_info'>
-      <div className='footer_info__logo'>
+    <div className='footer_logo'>
+      <a href='/' className='logo'>
         <img src={Logo} alt='logo' />
-      </div>
-      <a href='/' className='footer_info__link' target='_blank' rel='noopener noreferrer'>
+      </a>
+    </div>
+    <div className='footer_info'>
+      <a href='/' className='footer_info__link'>
         Github
       </a>
-      <a href='/' className='footer_info__link' target='_blank' rel='noopener noreferrer'>
+      <a href='/' className='footer_info__link'>
         Contacts
       </a> 
-      <a href='/' className='footer_info__link' target='_blank' rel='noopener noreferrer'>
+      <a href='/' className='footer_info__link'>
         Rights
       </a>
     </div>
     <div className='footer_button'>
-      <p>Back to top</p>
+      <a href='/'>Back to top</a>
       <button className='button-back'>
         <img src={Button} alt="Go to top" />
       </button>
