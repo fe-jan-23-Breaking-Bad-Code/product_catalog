@@ -3,7 +3,7 @@ import logo from '../../logo.svg';
 
 export function Footer() {
     return (
-        <header className="App-header">
+        <header className="App">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
             Edit <code>src/App.tsx</code> and save to reload.
