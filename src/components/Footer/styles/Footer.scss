@@ -1,21 +1,3 @@
-@font-face {
-  font-family: 'Mont-SemiBold';
-  src: url('../../../../public/fonts/Mont-SemiBold.ttf');
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Mont-Regular';
-  src: url('../../../../public/fonts/Mont-Regular.ttf');
-  font-weight: 600;
-  font-style: normal;
-}
-
-body {
-  min-width: 320px;
-}
-
 .footer {
   height: $footer-height;
   display: flex;
