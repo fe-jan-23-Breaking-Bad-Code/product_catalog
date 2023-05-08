@@ -1,5 +1,6 @@
 {
   "name": "product_catalog",
+  "homepage": "https://fe-jan-23-breaking-bad-code.github.io/product_catalog",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,6 +18,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -41,6 +44,10 @@
     ]
   },
   "devDependencies": {
+<<<<<<< HEAD
     "sass": "^1.62.1"
+=======
+    "gh-pages": "^5.0.0"
+>>>>>>> 98f7bb433f199acc30eb2570eb99aa3a78741632
   }
 }
