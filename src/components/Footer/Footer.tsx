@@ -1,4 +1,4 @@
-
+import React from 'react';
 import './styles/main.scss';
 import Logo from './img/Logo.svg';
 import Button from './img/button.png';
