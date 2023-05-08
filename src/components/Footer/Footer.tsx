@@ -1,9 +1,11 @@
-// import './Header.module.scss'
-import logo from '../../logo.svg';
+
+import './styles/main.scss';
+import Logo from './img/Logo.svg'
+import Button from './img/button.png'
 
 export function Footer() {
     return (
-        <header className="App">
+        <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>
             Edit <code>src/App.tsx</code> and save to reload.
