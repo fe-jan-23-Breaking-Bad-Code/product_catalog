@@ -21,6 +21,7 @@ export const App = () => {
   
   const itemsPerPage = 16;
   const pageByDefault = 1;
+
   const [currentPage, setCurrentPage] = useState(pageByDefault);
 
   const firstItemIndex = itemsPerPage * (currentPage - 1);
@@ -34,7 +35,6 @@ export const App = () => {
   const selectPage = (page: number) => {
     setCurrentPage(page);
   };
-
 
   return (
     <div className="App">
