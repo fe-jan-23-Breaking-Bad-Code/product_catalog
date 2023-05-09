@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import Logo from './img/Logo.svg';
+// import Logo from './img/Logo.svg';
 
 const Footer: React.FC = () => (
   <footer className={styles.footer}>
     <div className={styles.footer__logo}>
       <a href='/' className={styles.logo}>
-        <img src={Logo} alt='logo' />
+        {/* <img src={Logo} alt='logo' /> */}
       </a>
     </div>
     <div className={styles.footer__info}>
