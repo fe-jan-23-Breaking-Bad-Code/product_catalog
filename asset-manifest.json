@@ -1,16 +1,25 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.95a7ca17.css",
-    "main.js": "/product_catalog/static/js/main.8cf7535b.js",
+    "main.css": "/product_catalog/static/css/main.d03cdbb1.css",
+    "main.js": "/product_catalog/static/js/main.202cf193.js",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.ba6cb610da24822ef9348ec48e2bf1c1.svg",
+    "static/media/Mont-Bold.ttf": "/product_catalog/static/media/Mont-Bold.55f2f911d04f1bbf1328.ttf",
     "static/media/Mont-Regular.ttf": "/product_catalog/static/media/Mont-Regular.48fedf56dfaee955e6a2.ttf",
     "static/media/Mont-SemiBold.ttf": "/product_catalog/static/media/Mont-SemiBold.e6aa7cc9a3c63bed306e.ttf",
+    "static/media/shop_cart.svg": "/product_catalog/static/media/shop_cart.13acbe4f48e4538900d85556f5d53763.svg",
+    "static/media/shoping-bar.svg": "/product_catalog/static/media/shoping-bar.a844f4cec32430f1c040.svg",
+    "static/media/Heart.svg": "/product_catalog/static/media/Heart.af92c070d2573cf07dec.svg",
+    "static/media/favorites.svg": "/product_catalog/static/media/favorites.dbd5bfb9c3bafc92b9b402bff325383f.svg",
+    "static/media/heart.svg": "/product_catalog/static/media/heart.b94e5d2f03b487d648cd.svg",
+    "static/media/Heart-red.svg": "/product_catalog/static/media/Heart-red.a3b711b5bd5e5f67f9a8.svg",
     "index.html": "/product_catalog/index.html",
-    "main.95a7ca17.css.map": "/product_catalog/static/css/main.95a7ca17.css.map",
-    "main.8cf7535b.js.map": "/product_catalog/static/js/main.8cf7535b.js.map"
+    "static/media/burger-close.svg": "/product_catalog/static/media/burger-close.b11c0434ab2a9f3b6727.svg",
+    "static/media/burger-menu.svg": "/product_catalog/static/media/burger-menu.3eda38e880976ed7dd57.svg",
+    "main.d03cdbb1.css.map": "/product_catalog/static/css/main.d03cdbb1.css.map",
+    "main.202cf193.js.map": "/product_catalog/static/js/main.202cf193.js.map"
   },
   "entrypoints": [
-    "static/css/main.95a7ca17.css",
-    "static/js/main.8cf7535b.js"
+    "static/css/main.d03cdbb1.css",
+    "static/js/main.202cf193.js"
   ]
 }
