@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import classNames from 'classnames';
 
 import styles from './Navigation.module.scss';
 
@@ -15,7 +16,10 @@ export const Navigation: React.FC = () => {
             : `/${link}`
           }
           key={link}
-          className={styles.nav_link}
+          className={({ isActive }) => classNames(
+            styles.nav_link,
+            {[styles.nav_link__active] : isActive}
+          )}
         >
           {link.toUpperCase()}
         </NavLink>
