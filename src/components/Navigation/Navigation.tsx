@@ -1,18 +1,23 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const Navigation: React.FC = () => (
-  <nav>
-    <div className="container">
-      <div>
-        <NavLink to="/">
-          Home
+export const Navigation: React.FC = () => {
+  const links = ['home', 'phones', 'tablets', 'accessories'];
+  
+  return (
+    <nav>
+      {links.map(link => (
+        <NavLink
+          to={
+            link === 'home'
+              ? '/'
+              : `/${link}`
+          }
+          key={link}
+        >
+          {link.toUpperCase()}
         </NavLink>
-
-        <NavLink to="/phones">
-          Phones
-        </NavLink>
-      </div>
-    </div>
-  </nav>
-);
+      ))}
+    </nav>
+  );
+};
