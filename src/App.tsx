@@ -11,7 +11,7 @@ import { useState } from 'react';
 import { Pagination } from './components/Pagination';
 
 export const App = () => {
-  // it for testing, start
+  // it only for testing, start
   const items = [];
 
   for (let i = 1; i < 100; i++) {
@@ -35,6 +35,7 @@ export const App = () => {
   const selectPage = (page: number) => {
     setCurrentPage(page);
   };
+  // should to send in helpers
 
   return (
     <div className="App">
@@ -53,7 +54,6 @@ export const App = () => {
     <ul>
       {shownItems.map(item => (
         <li
-          data-cy="item"
           key={item}
         >
           {item}
