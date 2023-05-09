@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Footer.module.scss';
-import Logo from './img/Logo.svg';
-import Vector from './img/vector-top.svg';
+import Logo from '../img/Logo.svg';
+import Vector from '../img/vector-top.svg';
 
 const Footer: React.FC = () => (
   <footer className={styles.footer}>

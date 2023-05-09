@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
 
 export const Navigation: React.FC = () => (
   <nav>
