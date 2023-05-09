@@ -84,9 +84,14 @@
       height: 40px;
       background-color: #ffffff;
       border: 1px solid #B4BDC3;
-      background-image: url('./img/Heart.svg');
+      background-image: url('./img/Heart-red.svg');
       background-position: center;
       background-repeat: no-repeat;
+
+      &:hover {
+        border-color: #313237;
+        background-image: url('./img/Heart-red.svg');
+      }
     }
   }
 }
