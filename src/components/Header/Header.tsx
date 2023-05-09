@@ -1,21 +1,65 @@
-// import './Header.module.scss'
-import logo from '../../logo.svg';
+import React, { useEffect, useState } from 'react';
+import styles from './Header.module.scss';
 
-export function Header() {
+import Logo from './img/Logo.svg';
+import Favorites from './img/favorites.svg';
+import Cart from './img/shop_cart.svg';
+import { Navigation } from '../Navigation';
+import BurgerMenu from '../BurgerMenu/BurgerMenu';
+
+export const Header: React.FC = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  });
+  
+  
+  if (windowWidth < 640) {
     return (
-        <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-            Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            Learn React
+      <header className={styles.header}>
+        <div className={styles.header_container}>
+          <a href='/' className={styles.header_logo_link}>
+            <img src={Logo} alt={styles.header_logo} />
+          </a>
+        </div>
+  
+        <BurgerMenu />
+      </header>
+    );
+  } else {
+    return (
+      <header className={styles.header}>
+        <div className={styles.header_container}>
+          <a href='/' className={styles.header_logo_link}>
+            <img src={Logo} alt={styles.header_logo} />
+          </a>
+          
+          <Navigation />
+        </div>
+        
+        <div className={styles.header_container}>
+          <p className={styles.header_cart}>
+            <a href="/" className={styles.header_cart}>
+              <img src={Favorites} alt="favorites" />
             </a>
-        </header>
-    )
-}
+          </p>
+  
+          <p className={styles.header_cart}>
+            <a href="/" className={styles.header_cart}>
+              <img src={Cart} alt="cart" />
+            </a>
+          </p>
+        </div>
+      </header>
+    );
+  }
+};

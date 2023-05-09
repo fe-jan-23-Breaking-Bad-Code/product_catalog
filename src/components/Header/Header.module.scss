@@ -1,0 +1,78 @@
+@import '../../../public/global-styles/index.scss';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding-left: 16px;
+  box-shadow: 0 1px 0 #E2E6E9;
+
+  @include onTablet {
+    height: 48px;
+    padding-left: 16px;
+  }
+
+  @include onDesktop {
+    height: 64px;
+    padding-left: 24px;
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+  }
+
+  &_logo {
+    width: 64px;
+    height: 21px;
+
+    @include onTablet {
+      width: 64px;
+      height: 21px;
+    }
+
+    @include onDesktop {
+      width: 80px;
+      height: 26.5px;
+    }
+  }
+
+  &_logo_link {
+    margin-right: 32px;
+
+    @include onTablet {
+      margin-right: 32px;
+    }
+
+    @include onDesktop {
+      margin-right: 48px;
+    }
+  }
+
+  &_cart {
+    display: none;
+    box-shadow: -1px 0px 0px #E2E6E9;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+      box-shadow: -1px 0px 0px #E2E6E9;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 64px;
+      height: 64px;
+      box-shadow: -1px 0px 0px #E2E6E9;
+    }
+  }
+}

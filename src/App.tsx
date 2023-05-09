@@ -1,14 +1,18 @@
-import './App.css';
+import './App.module.scss';
+import React from 'react';
 import { 
   Routes,
   Route,
- } from 'react-router-dom';
+} from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
-import { Navigation } from './components/Navigation';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { Header } from './components/Header';
+import Footer from './components/Footer/Footer';
+import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
+import { Navigation } from './components/Navigation';
 
 export const App = () => {
   // it only for testing, start
@@ -39,9 +43,12 @@ export const App = () => {
 
   return (
     <div className="App">
-    <Navigation />
 
     <main className='section'>
+      <Header />
+      
+      <PhoneCard />
+
       <Routes>
         <Route path="/" element={<HomePage />} />
 
@@ -49,6 +56,8 @@ export const App = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      <Footer />
     </main>
 
     <ul>
