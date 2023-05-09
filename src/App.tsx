@@ -12,7 +12,6 @@ import Footer from './components/Footer/Footer';
 import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
-import { Navigation } from './components/Navigation';
 
 export const App = () => {
   // it only for testing, start
@@ -57,6 +56,13 @@ export const App = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
+      <Pagination
+        total={items.length}
+        perPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={selectPage}
+      />
+
       <Footer />
     </main>
 
@@ -69,13 +75,6 @@ export const App = () => {
         </li>
       ))}
     </ul>
-
-    <Pagination
-        total={items.length}
-        perPage={itemsPerPage}
-        currentPage={currentPage}
-        onPageChange={selectPage}
-    />
   </div>
   )
 }
