@@ -1,8 +1,4 @@
-@import '../../../public/global-styles/reset.module';
-@import '../../../public/global-styles/normalize.module';
-
-@import '../../../public/global-styles/utils/mixins.module';
-@import '../../../public/global-styles/utils/variables.module';
+@import '../../../public/global-styles/index.scss';
 
 .footer {
   height: $footer-height;
@@ -103,9 +99,13 @@
 }
 
 .button_back {
-  padding: 10px 9px;
+  width: 32px;
+  height: 32px;
   border: 1px solid $footer-text-color;
   margin-left: 16px;
+  background-image: url(./img/vector-top.svg);
+  background-repeat: no-repeat;
+  background-position: center;
 
   &:hover {
     border: 1px solid black;

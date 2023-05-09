@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import Logo from './img/Logo.svg';
-import Vector from './img/vector-top.svg';
 
 const Footer: React.FC = () => (
   <footer className={styles.footer}>
@@ -23,9 +22,7 @@ const Footer: React.FC = () => (
     </div>
     <div className={styles.footer__button}>
       <a href='/' className={styles.footer__button__text}>Back to top</a>
-      <button className={styles.button_back}>
-        <img src={Vector} alt="Go to top" />
-      </button>
+      <button className={styles.button_back} />
     </div>
   </footer>
 );
