@@ -7,9 +7,37 @@ import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
 import { Navigation } from './components/Navigation';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { useState } from 'react';
+import { Pagination } from './components/Pagination';
 
-export const App = () => (
-  <div className="App">
+export const App = () => {
+  // it for testing, start
+  const items = [];
+
+  for (let i = 1; i < 100; i++) {
+    items.push(`Item ${i}`);
+  }
+  // end 
+  
+  const itemsPerPage = 16;
+  const pageByDefault = 1;
+  const [currentPage, setCurrentPage] = useState(pageByDefault);
+
+  const firstItemIndex = itemsPerPage * (currentPage - 1);
+  const lastItemIndex = currentPage === pageByDefault
+    ? itemsPerPage
+    : itemsPerPage * currentPage;
+
+  const shownItems = items.slice(firstItemIndex, lastItemIndex); 
+  //  instead, we will make a request to the server from firstItemIndex to lastItemIndex
+  
+  const selectPage = (page: number) => {
+    setCurrentPage(page);
+  };
+
+
+  return (
+    <div className="App">
     <Navigation />
 
     <main className='section'>
@@ -21,5 +49,24 @@ export const App = () => (
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>
+
+    <ul>
+      {shownItems.map(item => (
+        <li
+          data-cy="item"
+          key={item}
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
+
+    <Pagination
+        total={items.length}
+        perPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={selectPage}
+    />
   </div>
-);
+  )
+}
