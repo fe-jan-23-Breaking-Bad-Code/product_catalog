@@ -12,7 +12,7 @@
   }
 
   &_link {
-    font-family: 'Mont-Bold';
+    font-family: 'Mont-Bold', sans-serif;
     color: $secondary;
     font-size: 12px;
     margin-right: 32px;
@@ -32,6 +32,29 @@
 
     &:hover {
       color: $primary;
+    }
+    
+    &__active {
+      position: relative;
+      color: $primary;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -24px;
+        height: 3px;
+        background-color: $primary;
+        
+        @include onTablet {
+          bottom: -16px;
+        }
+        
+        @include onDesktop {
+          bottom: -24px;
+        }
+      }
     }
   }
 }
