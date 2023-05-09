@@ -1,0 +1,41 @@
+@import '../../../public/global-styles/reset.module';
+@import '../../../public/global-styles/normalize.module';
+
+@import '../../../public/global-styles/utils/mixins.module';
+@import '../../../public/global-styles/utils/variables.module';
+
+.nav {
+  display: none;
+
+  @include onTablet {
+    display: block;
+  }
+
+  @include onDesktop {
+    display: block;
+  }
+
+  &_link {
+    font-family: 'Mont-Bold';
+    color: $secondary;
+    font-size: 12px;
+    margin-right: 32px;
+    transition: 0.3s;
+
+    @include onTablet {
+      margin-right: 32px;
+    }
+
+    @include onDesktop {
+      margin-right: 64px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
