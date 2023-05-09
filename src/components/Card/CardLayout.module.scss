@@ -1,0 +1,114 @@
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url('../../../public/Mont-Bold.ttf');
+  font-weight: 800;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Mont-Semibold';
+  src: url('../../../public/Mont-SemiBold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mont-Regular';
+  src: url('../../../public/Mont-Regular.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+.card {
+  display: flex;
+  font-family: 'Mont-Regular';
+  flex-direction: column;
+  width: 287px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  padding: 32px;
+  align-items: center;
+  border: 1px solid #E2E6E9;;
+  
+  &__image {
+    display: block;
+    width: auto;
+    height: auto;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+    margin-bottom: 8px;
+    
+  }
+
+  &__price {
+    font-family: 'Mont-Bold';
+    font-weight: 800;
+    align-self: self-start;
+    margin-bottom: 8px;
+    font-size: 22px;
+    line-height: 31px;
+    color: #313237;
+  }
+
+  &__devider {
+    border: 1px solid #E2E6E9;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  &__information {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 8px;
+
+    &_description {
+      width: 34%;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-family: 'Mont-Semibold';
+      font-weight: 700;
+      color: #89939A;
+    }
+
+    &_description:nth-child(even) {
+      text-align: right;
+      color: #313237;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    &_buy {
+      font-family: 'Mont-Semibold';
+      font-weight: 700;
+      align-self: self-start;
+      height: 40px;
+      width: 175px;
+      color: #ffffff;
+      margin-right: 8px;
+      background-color: #313237;
+      border: none;
+    }
+
+    &_favourite {
+      width: 40px;
+      height: 40px;
+      background-color: #ffffff;
+      border: 1px solid #B4BDC3;
+    }
+  }
+}
+
+
+
+
+

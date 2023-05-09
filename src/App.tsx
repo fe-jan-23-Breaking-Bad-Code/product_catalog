@@ -8,6 +8,7 @@ import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
+import { PhoneCard } from './components/Card';
 
 export const App = () => (
   <div className="App">
@@ -15,6 +16,8 @@ export const App = () => (
 
     <main className='section'>
       <Header />
+      
+      <PhoneCard />
 
       <Routes>
         <Route path="/" element={<HomePage />} />
