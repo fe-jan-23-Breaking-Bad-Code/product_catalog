@@ -1,8 +1,4 @@
-@import '../../../public/global-styles/reset.module';
-@import '../../../public/global-styles/normalize.module';
-
-@import '../../../public/global-styles/utils/mixins.module';
-@import '../../../public/global-styles/utils/variables.module';
+@import '../../../public/global-styles/index.scss';
 
 .nav {
   display: none;
