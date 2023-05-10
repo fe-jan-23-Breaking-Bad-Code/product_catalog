@@ -63,6 +63,10 @@ export const App = () => {
 
   return (
     <div className="App">
+      <main className='section'>
+        <Header />
+        
+        <PhoneCard />
 
       <main className='section'>
         <Header />
@@ -92,6 +96,7 @@ export const App = () => {
         <Footer />
       </main>
 
+
       <ul>
         {shownItems.map(item => (
           <li
@@ -104,4 +109,3 @@ export const App = () => {
     </div>
   );
 };
-
