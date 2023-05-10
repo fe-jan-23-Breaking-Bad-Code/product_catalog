@@ -1,0 +1,114 @@
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Mont-Regular';
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 287px;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 5px;
+  padding: 32px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #E2E6E9;
+}
+
+.card__image {
+  display: block;
+  width: auto;
+  height: 130px;
+  margin-bottom: 24px;
+}
+
+.card__description {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  margin-bottom: 8px;
+}
+
+.card__price {
+  font-family: 'Mont-Bold';
+  font-weight: 800;
+  -ms-flex-item-align: self-start;
+      -ms-grid-row-align: self-start;
+      align-self: self-start;
+  margin-bottom: 8px;
+  font-size: 22px;
+  line-height: 31px;
+  color: #313237;
+}
+
+.card__devider {
+  border: 1px solid #E2E6E9;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.card__information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+.card__information_description {
+  width: 34%;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-family: 'Mont-Semibold';
+  font-weight: 700;
+  color: #89939A;
+}
+
+.card__information_description:nth-child(even) {
+  text-align: right;
+  color: #313237;
+}
+
+.card__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.card__buttons_buy {
+  font-family: 'Mont-Semibold';
+  font-weight: 700;
+  -ms-flex-item-align: self-start;
+      -ms-grid-row-align: self-start;
+      align-self: self-start;
+  height: 40px;
+  width: 175px;
+  color: #ffffff;
+  margin-right: 8px;
+  background-color: #313237;
+  border: none;
+}
+
+.card__buttons_favourite {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #B4BDC3;
+  background-image: url("./img/Heart-red.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card__buttons_favourite:hover {
+  border-color: #313237;
+  background-image: url("./img/Heart-red.svg");
+}
+/*# sourceMappingURL=CardLayout.module.css.map */

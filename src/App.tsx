@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
+import { CartItem } from './components/Cart/CartItem/CartItem';
 
 export const App = () => {
   // it only for testing, start
@@ -55,15 +56,17 @@ export const App = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
 
-        <Pagination
-          total={items.length}
-          perPage={itemsPerPage}
-          currentPage={currentPage}
-          onPageChange={selectPage}
-        />
-
         <Footer />
       </main>
+
+      <Pagination
+        total={items.length}
+        perPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={selectPage}
+      />
+      <CartItem />
+
 
       <ul>
         {shownItems.map(item => (

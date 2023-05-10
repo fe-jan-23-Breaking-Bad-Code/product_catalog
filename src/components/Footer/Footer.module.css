@@ -1,0 +1,267 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url("../fonts/Mont-Bold.ttf");
+  font-weight: 800;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Mont-SemiBold';
+  src: url("../fonts/Mont-SemiBold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mont-Regular';
+  src: url("../fonts/Mont-Regular.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  min-width: 320px;
+}
+
+.footer {
+  height: 257px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 16px;
+  font-size: 12px;
+  font-family: 'Mont-SemiBold';
+  font-weight: 700;
+  color: #89939a;
+}
+
+@media (min-width: 639px) {
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 96px;
+    margin: 0 32px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    height: 96px;
+    margin: 0 152px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.footer__logo {
+  margin-top: 33.75px;
+  margin-bottom: 32px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+@media (min-width: 1200px) {
+  .footer__logo {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin: 0;
+  }
+}
+
+.footer__info {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+}
+
+@media (min-width: 639px) {
+  .footer__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-item-align: center;
+        align-self: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: 13.50px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-item-align: center;
+        align-self: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: 108.63px;
+  }
+}
+
+.footer__info__link {
+  color: #89939a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.footer__info__link:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 639px) {
+  .footer__info__link {
+    margin: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .footer__info__link {
+    margin: 0;
+  }
+}
+
+.footer__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-self: flex-start;
+  font-family: 'Mont-Regular';
+  color: white;
+  font-weight: 600;
+  height: 96px;
+}
+
+.footer__button__text {
+  color: #89939a;
+}
+
+.button_back {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #89939a;
+  margin-left: 16px;
+  background-image: url(./img/vector-top.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.button_back:hover {
+  border: 1px solid black;
+}
+/*# sourceMappingURL=Footer.module.css.map */
