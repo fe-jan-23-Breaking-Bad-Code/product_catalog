@@ -42,39 +42,38 @@ export const App = () => {
 
   return (
     <div className="App">
+      <main className='section'>
+        <Header />
+        
+        <PhoneCard />
 
-    <main className='section'>
-      <Header />
-      
-      <PhoneCard />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+          <Route path="/phones" element={<PhonesPage />} />
 
-        <Route path="/phones" element={<PhonesPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+        <Pagination
+          total={items.length}
+          perPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={selectPage}
+        />
 
-      <Pagination
-        total={items.length}
-        perPage={itemsPerPage}
-        currentPage={currentPage}
-        onPageChange={selectPage}
-      />
+        <Footer />
+      </main>
 
-      <Footer />
-    </main>
-
-    <ul>
-      {shownItems.map(item => (
-        <li
-          key={item}
-        >
-          {item}
-        </li>
-      ))}
-    </ul>
-  </div>
-  )
-}
+      <ul>
+        {shownItems.map(item => (
+          <li
+            key={item}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
