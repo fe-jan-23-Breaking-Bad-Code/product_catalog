@@ -1,0 +1,23 @@
+.disabledPaginationButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px; //should make micsin
+  border: 1px solid #E2E6E9;
+}
+
+.paginationButton {
+  @extend .disabledPaginationButton;
+
+  &:hover {
+    border: 1px solid #313237;
+  }
+}
+
+.active {
+  background-color: #313237;
+  color: white;
+}
+
+
