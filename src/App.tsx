@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
+import { CartItem } from './components/Cart/CartItem/CartItem';
 
 export const App = () => {
   // it only for testing, start
@@ -62,6 +63,7 @@ export const App = () => {
         currentPage={currentPage}
         onPageChange={selectPage}
       />
+      <CartItem />
 
       <Footer />
     </main>
