@@ -7,7 +7,7 @@
   align-items: center;
   margin: 0 16px;
   font-size: 12px;
-  font-family: 'Mont-SemiBold';
+  font-family: 'Mont-SemiBold', sans-serif;
   font-weight: 700;
   color: $footer-text-color;
 
@@ -86,7 +86,7 @@
     display: flex;
     align-items: center;
     justify-self: flex-start;
-    font-family: 'Mont-Regular';
+    font-family: 'Mont-Regular', sans-serif;
 
     color: white;
     font-weight: 600;
@@ -103,7 +103,7 @@
   height: 32px;
   border: 1px solid $footer-text-color;
   margin-left: 16px;
-  // background-image: url(./img/vector-top.svg);
+   //background-image: url(./img/vector-top.svg);
   background-repeat: no-repeat;
   background-position: center;
 

@@ -23,6 +23,9 @@ function getNumbers(from: number, to: number): number[] {
   for (let n = from; n <= to; n += 1) {
     numbers.push(n);
   }
+  
+  return numbers;
+}
 
   return numbers;
 }
@@ -93,16 +96,19 @@ export const Pagination: FC<Props> = (props) => {
           onClick={handlePrev}
           className={styles.pagination_link}
         >
-          <PaginationButton 
-            image={prevPaginationPage} 
+          <PaginationButton
+            image={prevPaginationPage}
             currentPage={currentPage}
-            isDisabled={isFirstPage} 
+            isDisabled={isFirstPage}
           />
         </a>
       </li>
 
       {pages.map((page => (
-        <li className={styles.pagination_item} key={page}>  
+        <li
+          className={styles.pagination_item}
+          key={page}
+        >
           <a
             href={`#${page}`}
             onClick={() => onPageChange(page)}
@@ -123,9 +129,9 @@ export const Pagination: FC<Props> = (props) => {
           onClick={handleNext}
           className={styles.pagination_link}
         >
-          <PaginationButton 
-            image={nextPaginationPage} 
-            currentPage={currentPage} 
+          <PaginationButton
+            image={nextPaginationPage}
+            currentPage={currentPage}
             isDisabled={isLastPage}
           />
         </a>

@@ -1,0 +1,237 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: 'Mont-Bold';
+  src: url("../fonts/Mont-Bold.ttf");
+  font-weight: 800;
+  font-style: bold;
+}
+
+@font-face {
+  font-family: 'Mont-SemiBold';
+  src: url("../fonts/Mont-SemiBold.ttf");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mont-Regular';
+  src: url("../fonts/Mont-Regular.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  min-width: 320px;
+}
+
+.cartItem {
+  padding: 24px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #E2E6E9;
+  max-width: 752px;
+}
+
+.cartItem__blockforicon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (min-width: 639px) {
+  .cartItem {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.cartItem:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.cartItem__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 16px;
+}
+
+.cartItem__countblock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media (min-width: 639px) {
+  .cartItem__countblock {
+    -webkit-box-pack: baseline;
+        -ms-flex-pack: baseline;
+            justify-content: baseline;
+  }
+}
+
+.cartItem__icon {
+  background-image: url("./images/Close.svg");
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 16px;
+}
+
+@media (min-width: 639px) {
+  .cartItem__icon {
+    margin-right: 31px;
+  }
+}
+
+.cartItem__phone {
+  width: 80px;
+  height: 80px;
+  margin-right: 16px;
+}
+
+@media (min-width: 639px) {
+  .cartItem__phone {
+    margin-right: 24px;
+  }
+}
+
+.cartItem__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cartItem__buttons--plus, .cartItem__buttons--minus {
+  width: 32px;
+  height: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 1px solid;
+}
+
+.cartItem__buttons--plus:hover, .cartItem__buttons--minus:hover {
+  border-color: #313237;
+}
+
+.cartItem__buttons--minus {
+  background-image: url(./images/Minus.svg);
+  margin-right: 13px;
+  border-color: #E2E6E9;
+}
+
+.cartItem__buttons--plus {
+  background-image: url(./images/Plus.svg);
+  margin-right: 53px;
+  border-color: #B4BDC4;
+}
+
+.cartItem__name {
+  font-size: 14px;
+  color: #313237;
+  width: 176px;
+}
+
+@media (min-width: 1200px) {
+  .cartItem__name {
+    margin-right: 24px;
+  }
+}
+
+.cartItem__price {
+  font-family: 'Mont-Bold';
+  font-style: 22px;
+  color: #313237;
+}
+
+.cartItem__quantity {
+  font-size: 14px;
+  margin-right: 13px;
+}
+/*# sourceMappingURL=CartItem.module.css.map */
