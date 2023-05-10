@@ -12,6 +12,7 @@ import Footer from './components/Footer/Footer';
 import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
+import { SuccessModal } from './components/SuccessModal';
 
 export const App = () => {
   // it only for testing, start
@@ -55,6 +56,8 @@ export const App = () => {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      <SuccessModal />
 
       <Pagination
         total={items.length}
