@@ -9,7 +9,7 @@
   padding: 32px;
   align-items: center;
   border: 1px solid #E2E6E9;;
-  
+
   &__image {
     display: block;
     width: auto;
@@ -22,7 +22,7 @@
     font-weight: 600;
     line-height: 21px;
     margin-bottom: 8px;
-    
+
   }
 
   &__price {
@@ -66,18 +66,6 @@
   &__buttons {
     display: flex;
 
-    &_buy {
-      font-family: 'Mont-Semibold', sans-serif;
-      font-weight: 700;
-      align-self: self-start;
-      height: 40px;
-      width: 175px;
-      color: #ffffff;
-      margin-right: 8px;
-      background-color: #313237;
-      border: none;
-    }
-
     &_favourite {
       width: 40px;
       height: 40px;
@@ -89,6 +77,9 @@
 
       &:hover {
         border-color: #313237;
+      }
+
+      &--selected {
         background-image: url('./img/Heart-red.svg');
       }
     }

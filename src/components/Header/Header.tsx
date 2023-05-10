@@ -6,6 +6,7 @@ import Favorites from './img/favorites.svg';
 import Cart from './img/shop_cart.svg';
 import { Navigation } from '../Navigation';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
+import { NavLink } from 'react-router-dom';
 
 export const Header: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -54,9 +55,13 @@ export const Header: React.FC = () => {
           </p>
 
           <p className={styles.header_cart}>
-            <a href="/" className={styles.header_cart}>
+            <NavLink
+              to={'/cart'}
+              key={'cart'}
+              className={styles.header_cart}
+            >
               <img src={Cart} alt="cart" />
-            </a>
+            </NavLink>
           </p>
         </div>
       </header>

@@ -14,7 +14,7 @@ const favouritesSlice = createSlice({
       favourites.push(action.payload);
     },
     remove: (favourites, action: PayloadAction<string>) => {
-      favourites = favourites.filter(id => id !== action.payload);
+      return favourites.filter(id => id !== action.payload);
     },
   }
 });

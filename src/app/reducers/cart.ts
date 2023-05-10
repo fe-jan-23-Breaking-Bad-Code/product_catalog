@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 interface CartItem {
   id: string,
-  count: number,
+  quantity: number,
 }
 
 const defaultState: CartItem[] = [];
@@ -18,8 +18,20 @@ const cartSlice = createSlice({
       cart.push(action.payload);
     },
     remove: (cart, action: PayloadAction<string>) => {
-      cart = cart.filter(
+      return cart.filter(
         ({ id }) => id !== action.payload);
+    },
+    setCount: (cart, action: PayloadAction<CartItem>) => {
+      const { id, quantity} = action.payload;
+
+      return cart.map(
+        cartItem => {
+          if (cartItem.id === id) {
+            return { ...cartItem, quantity };
+          }
+
+          return cartItem;
+        });
     },
   }
 });

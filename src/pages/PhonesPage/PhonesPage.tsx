@@ -8,6 +8,8 @@ import { PhoneCard } from '../../components/Card';
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
   const { list } = useAppSelector(store => store.phones);
+  const favourites = useAppSelector(store => store.favourites);
+  const cart = useAppSelector(store => store.cart);
 
   useEffect(() => {
     getPhones(0, 5).then(phones => {
@@ -20,7 +22,12 @@ export const PhonesPage: React.FC = () => {
       <h1 className="title">Phones Page</h1>
 
       {list.map(phone => (
-        <PhoneCard key={phone.id} phone={phone}/>
+        <PhoneCard
+          key={phone.id}
+          phone={phone}
+          isInCart={cart.some(({ id }) => id === phone.id)}
+          isInFavourites={favourites.includes(phone.id)}
+        />
       ))}
     </div>
   );
