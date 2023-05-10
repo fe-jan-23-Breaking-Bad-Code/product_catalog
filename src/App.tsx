@@ -15,6 +15,7 @@ import { Pagination } from './components/Pagination';
 import { SuccessModal } from './components/SuccessModal';
 
 export const App = () => {
+  const [isModalVisible, setIsModalVisible] = useState(true);
   // it only for testing, start
   const items = [];
 
@@ -41,6 +42,10 @@ export const App = () => {
   };
   // should to send in helpers
 
+  const handleCloseModal = () => {
+    setIsModalVisible(false)
+  }
+
   return (
     <div className="App">
 
@@ -57,7 +62,8 @@ export const App = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
-      <SuccessModal />
+      {isModalVisible && (
+        <SuccessModal onClose={handleCloseModal} />)}
 
       <Pagination
         total={items.length}

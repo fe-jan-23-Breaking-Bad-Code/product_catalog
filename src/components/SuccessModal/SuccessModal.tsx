@@ -2,9 +2,15 @@ import React from 'react';
 import styles from './SuccessModal.module.scss';
 import successIcon from './success.svg';
 
-export const SuccessModal = () => {
+type Props = {
+  onClose: () => void;
+}
+
+export const SuccessModal: React.FC<Props> = (props) => {
+  const { onClose } = props;
+
   return (
-    <div className={styles.modal} onClick={() => false}>
+    <div className={styles.modal} onClick={onClose}>
       <div className={styles.modal_content} onClick={e => e.stopPropagation()}>
         <img
         src={successIcon}
@@ -13,7 +19,7 @@ export const SuccessModal = () => {
         />
         
         <h4 className={styles.modal_title}>
-        Awesome!
+          Awesome!
         </h4>
         
         <p className={styles.modal_text}>
@@ -23,6 +29,7 @@ export const SuccessModal = () => {
         <button 
             type='button'
             className={styles.modal_button}
+            onClick={onClose}
         >
           OK
         </button>
