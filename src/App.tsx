@@ -10,6 +10,7 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
 import { PhoneCard } from './components/Card';
+import { CartItem } from './components/Cart/CartItem/CartItem';
 
 export const App = () => (
   <div className="App">
@@ -27,6 +28,8 @@ export const App = () => (
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
+
+      <CartItem />
 
       <Footer />
     </main>
