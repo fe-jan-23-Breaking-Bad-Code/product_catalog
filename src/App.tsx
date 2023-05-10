@@ -16,7 +16,9 @@ import { Pagination } from './components/Pagination';
 import { SuccessModal } from './components/SuccessModal';
 import { CartItem } from './components/Cart/CartItem/CartItem';
 import { Phones } from './types/Phones';
+import { AboutSection } from './components/AboutSection/AboutSection';
 import { CartPage } from './pages/CartPage';
+
 
 
 export const App = () => {
@@ -76,6 +78,7 @@ export const App = () => {
           onPageChange={selectPage}
         />
 
+        <AboutSection />
         <Footer />
       </main>
 
