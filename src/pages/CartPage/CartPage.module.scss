@@ -87,5 +87,22 @@
       height: 1px;
       background-color: $borders;
     }
+
+    &:hover:not(:active) {
+      box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+    }
+
+    &:active {
+      color: #27AE60;
+      background-color: white;
+      box-shadow: 0;
+      border: 1px solid $icons;
+    }
   }
+}
+
+.cart__item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
