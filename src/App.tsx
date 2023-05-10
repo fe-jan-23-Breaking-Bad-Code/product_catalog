@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
+import { CartPage } from './pages/CartPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
@@ -43,38 +44,40 @@ export const App = () => {
   return (
     <div className="App">
 
-    <main className='section'>
-      <Header />
-      
-      <PhoneCard />
+      <main className='section'>
+        <Header />
+        
+        <PhoneCard />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        <Route path="/phones" element={<PhonesPage />} />
+          <Route path="/phones" element={<PhonesPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="/cart" element={<CartPage />} />
 
-      <Pagination
-        total={items.length}
-        perPage={itemsPerPage}
-        currentPage={currentPage}
-        onPageChange={selectPage}
-      />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
 
-      <Footer />
-    </main>
+        <Pagination
+          total={items.length}
+          perPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={selectPage}
+        />
 
-    <ul>
-      {shownItems.map(item => (
-        <li
-          key={item}
-        >
-          {item}
-        </li>
-      ))}
-    </ul>
-  </div>
-  )
+        <Footer />
+      </main>
+
+      <ul>
+        {shownItems.map(item => (
+          <li
+            key={item}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
