@@ -1,6 +1,6 @@
 import './App.module.scss';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
 
   Routes,
@@ -11,32 +11,18 @@ import { PhonesPage } from './pages/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
-import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
-// import { getPhones } from './API/FetchPhones';
+import { SuccessModal } from './components/SuccessModal';
 import { CartItem } from './components/Cart/CartItem/CartItem';
 import { Phones } from './types/Phones';
 import { AboutSection } from './components/AboutSection/AboutSection';
+import { CartPage } from './pages/CartPage';
+
 
 
 export const App = () => {
-  const [phones, setPhones] = useState<Phones[]>([]);
-  // const [hasError, setHasError] = useState(false);
-
-  // const getPhonesFromServer = async () => {
-  //   try {
-  //     const phonesFromServer = await getPhones();
-
-  //     setPhones(phonesFromServer);
-  //   } catch {
-  //     setHasError(true);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getPhonesFromServer();
-  // }, []);
+  const [isModalVisible, setIsModalVisible] = useState(true);
   // it only for testing, start
   const items = [];
 
@@ -63,23 +49,27 @@ export const App = () => {
   };
   // should to send in helpers
 
+  const handleCloseModal = () => {
+    setIsModalVisible(false)
+  }
+
   return (
     <div className="App">
       <main className='section'>
         <Header />
-
-        {phones.map(phone => (
-          <PhoneCard key={phone.id} phone={phone} />
-        ))}
-
 
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           <Route path="/phones" element={<PhonesPage />} />
 
+          <Route path="/cart" element={<CartPage />} />
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        
+       {isModalVisible && (
+          <SuccessModal onClose={handleCloseModal} />)}
 
         <Pagination
           total={items.length}
@@ -88,12 +78,9 @@ export const App = () => {
           onPageChange={selectPage}
         />
 
-        <CartItem />
         <AboutSection />
-
         <Footer />
       </main>
-
 
       <ul>
         {shownItems.map(item => (
@@ -107,3 +94,4 @@ export const App = () => {
     </div>
   );
 };
+
