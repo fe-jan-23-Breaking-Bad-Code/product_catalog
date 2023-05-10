@@ -2,25 +2,39 @@
 @import '../../../public/global-styles/utils/variables';
 @import '../../../public/global-styles/utils/mixins';
 
+.link {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .container {
   max-width: 1136px;
-  margin: 72px 16px 0 16px;
+  margin: 41px 16px 0 16px;
   position: relative;
 
   @include onTablet {
-    margin: 72px 32px 0 32px;
+    margin: 41px 32px 0 32px;
   }
 
   @include onDesktop {
-    margin: 72px auto;
+    margin: 41px auto;
   }
 }
 
 .title {
   display: block;
-  font-size: 48px;
+  font-size: 32px;
   font-family: 'Mont-Bold';
   margin-bottom: 32px;
+
+  @include onDesktop {
+    font-size: 48px;
+  }
 }
 
 .checkout-block {
