@@ -1,4 +1,5 @@
-import styles from './PaginationButton.module.scss'
+import React from 'react';
+import styles from './PaginationButton.module.scss';
 import classNames from 'classnames';
 
 export interface ImageProps {
@@ -20,12 +21,12 @@ export const PaginationButton: React.FC<Props> = (props) => {
     return (
       <div className={classNames(
         styles.paginationButton, 
-          { [styles.active]: page === currentPage }
-        )}
+        { [styles.active]: page === currentPage }
+      )}
       >
         {page}
       </div>
-    )
+    );
   }
 
   if (image) {
@@ -41,8 +42,8 @@ export const PaginationButton: React.FC<Props> = (props) => {
           className={styles.paginationImage}
         />
       </div>
-    )
+    );
   }
 
   return null;
-}
+};

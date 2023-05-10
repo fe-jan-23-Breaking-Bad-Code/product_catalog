@@ -1,5 +1,5 @@
-import { FC, useEffect, useState } from 'react';
-import styles from './Pagination.module.scss'
+import React, { FC, useEffect, useState } from 'react';
+import styles from './Pagination.module.scss';
 import { ImageProps, PaginationButton } from '../PaginationButton';
 
 import nextPageIcon from './images/nextPage.svg';
@@ -7,6 +7,7 @@ import nextPageIconDisabled from './images/nextPageDisabled.svg';
 
 import prevPageIcon from './images/prevPage.svg';
 import prevPageIconDisabled from './images/prevPageDisabled.svg';
+import { react } from '@babel/types';
 
 interface Props {
   total: number,
@@ -17,14 +18,17 @@ interface Props {
 
 //should to separete to helpers
 function getNumbers(from: number, to: number): number[] {
-    const numbers = [];
-  
-    for (let n = from; n <= to; n += 1) {
-      numbers.push(n);
-    }
-  
-    return numbers;
+  const numbers = [];
+
+  for (let n = from; n <= to; n += 1) {
+    numbers.push(n);
   }
+  
+  return numbers;
+}
+
+  return numbers;
+}
 
 export const Pagination: FC<Props> = (props) => {
   const {
@@ -61,26 +65,26 @@ export const Pagination: FC<Props> = (props) => {
 
   useEffect(() => {
     if (currentPage !== 1) {
-      setPrevPage(prevPageIcon)
+      setPrevPage(prevPageIcon);
     } else {
-      setPrevPage(prevPageIconDisabled)
+      setPrevPage(prevPageIconDisabled);
     }
 
     if (currentPage === pagesCount) {
-      setNextPage(nextPageIconDisabled)
+      setNextPage(nextPageIconDisabled);
     } else {
-      setNextPage(nextPageIcon)
+      setNextPage(nextPageIcon);
     }
-  }, [currentPage, pagesCount])
+  }, [currentPage, pagesCount]);
 
   const prevPaginationPage: ImageProps = {
     src: prevPage,
-    alt: "Previous page in pagination",
-  }
+    alt: 'Previous page in pagination',
+  };
 
   const nextPaginationPage: ImageProps = {
     src: nextPage,
-    alt: "Next page in pagination",
+    alt: 'Next page in pagination',
   };
 
   return (
@@ -92,16 +96,19 @@ export const Pagination: FC<Props> = (props) => {
           onClick={handlePrev}
           className={styles.pagination_link}
         >
-          <PaginationButton 
-            image={prevPaginationPage} 
+          <PaginationButton
+            image={prevPaginationPage}
             currentPage={currentPage}
-            isDisabled={isFirstPage} 
+            isDisabled={isFirstPage}
           />
         </a>
       </li>
 
       {pages.map((page => (
-        <li className={styles.pagination_item}>  
+        <li
+          className={styles.pagination_item}
+          key={page}
+        >
           <a
             href={`#${page}`}
             onClick={() => onPageChange(page)}
@@ -109,7 +116,7 @@ export const Pagination: FC<Props> = (props) => {
           >
             <PaginationButton 
               page={page} 
-              currentPage={currentPage} 
+              currentPage={currentPage}
             />
           </a>
         </li>
@@ -122,9 +129,9 @@ export const Pagination: FC<Props> = (props) => {
           onClick={handleNext}
           className={styles.pagination_link}
         >
-          <PaginationButton 
-            image={nextPaginationPage} 
-            currentPage={currentPage} 
+          <PaginationButton
+            image={nextPaginationPage}
+            currentPage={currentPage}
             isDisabled={isLastPage}
           />
         </a>
