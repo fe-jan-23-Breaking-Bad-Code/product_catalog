@@ -14,28 +14,28 @@ import Footer from './components/Footer/Footer';
 import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
-import { getPhones } from './API/FetchPhones';
+// import { getPhones } from './API/FetchPhones';
 import { CartItem } from './components/Cart/CartItem/CartItem';
 import { Phones } from './types/Phones';
 
 
 export const App = () => {
   const [phones, setPhones] = useState<Phones[]>([]);
-  const [hasError, setHasError] = useState(false);
+  // const [hasError, setHasError] = useState(false);
 
-  const getPhonesFromServer = async () => {
-    try {
-      const phonesFromServer = await getPhones();
+  // const getPhonesFromServer = async () => {
+  //   try {
+  //     const phonesFromServer = await getPhones();
 
-      setPhones(phonesFromServer);
-    } catch {
-      setHasError(true);
-    } 
-  };
+  //     setPhones(phonesFromServer);
+  //   } catch {
+  //     setHasError(true);
+  //   }
+  // };
 
-  useEffect(() => {
-    getPhonesFromServer();
-  }, []);
+  // useEffect(() => {
+  //   getPhonesFromServer();
+  // }, []);
   // it only for testing, start
   const items = [];
 
@@ -43,7 +43,7 @@ export const App = () => {
     items.push(`Item ${i}`);
   }
   // end
-  
+
   const itemsPerPage = 16;
   const pageByDefault = 1;
 
@@ -56,7 +56,7 @@ export const App = () => {
 
   const shownItems = items.slice(firstItemIndex, lastItemIndex);
   //  instead, we will make a request to the server from firstItemIndex to lastItemIndex
-  
+
   const selectPage = (page: number) => {
     setCurrentPage(page);
   };
@@ -66,7 +66,7 @@ export const App = () => {
     <div className="App">
       <main className='section'>
         <Header />
-        
+
         {phones.map(phone => (
           <PhoneCard key={phone.id} phone={phone} />
         ))}
