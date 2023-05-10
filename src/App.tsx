@@ -1,6 +1,6 @@
 import './App.module.scss';
 import React from 'react';
-import { 
+import {
   Routes,
   Route,
 } from 'react-router-dom';
@@ -20,7 +20,7 @@ export const App = () => {
   for (let i = 1; i < 100; i++) {
     items.push(`Item ${i}`);
   }
-  // end 
+  // end
   
   const itemsPerPage = 16;
   const pageByDefault = 1;
@@ -32,7 +32,7 @@ export const App = () => {
     ? itemsPerPage
     : itemsPerPage * currentPage;
 
-  const shownItems = items.slice(firstItemIndex, lastItemIndex); 
+  const shownItems = items.slice(firstItemIndex, lastItemIndex);
   //  instead, we will make a request to the server from firstItemIndex to lastItemIndex
   
   const selectPage = (page: number) => {
@@ -43,38 +43,38 @@ export const App = () => {
   return (
     <div className="App">
 
-    <main className='section'>
-      <Header />
+      <main className='section'>
+        <Header />
       
-      <PhoneCard />
+        <PhoneCard />
 
-      <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
 
-        <Route path="/phones" element={<PhonesPage />} />
+          <Route path="/phones" element={<PhonesPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
 
-      <Pagination
-        total={items.length}
-        perPage={itemsPerPage}
-        currentPage={currentPage}
-        onPageChange={selectPage}
-      />
+        <Pagination
+          total={items.length}
+          perPage={itemsPerPage}
+          currentPage={currentPage}
+          onPageChange={selectPage}
+        />
 
-      <Footer />
-    </main>
+        <Footer />
+      </main>
 
-    <ul>
-      {shownItems.map(item => (
-        <li
-          key={item}
-        >
-          {item}
-        </li>
-      ))}
-    </ul>
-  </div>
-  )
-}
+      <ul>
+        {shownItems.map(item => (
+          <li
+            key={item}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
