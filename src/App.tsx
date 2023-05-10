@@ -14,8 +14,9 @@ import Footer from './components/Footer/Footer';
 import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
-import { getPhones, Phones } from './API/FetchPhones';
+import { getPhones } from './API/FetchPhones';
 import { CartItem } from './components/Cart/CartItem/CartItem';
+import { Phones } from './types/Phones';
 
 
 export const App = () => {
@@ -63,11 +64,6 @@ export const App = () => {
 
   return (
     <div className="App">
-      <main className='section'>
-        <Header />
-        
-        <PhoneCard />
-
       <main className='section'>
         <Header />
         

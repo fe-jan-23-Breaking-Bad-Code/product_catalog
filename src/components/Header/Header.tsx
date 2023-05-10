@@ -21,8 +21,8 @@ export const Header: React.FC = () => {
       window.removeEventListener('resize', handleWindowResize);
     };
   });
-  
-  
+
+
   if (windowWidth < 640) {
     return (
       <header className={styles.header}>
@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
             <img src={Logo} alt={styles.header_logo} />
           </a>
         </div>
-  
+
         <BurgerMenu />
       </header>
     );
@@ -42,17 +42,17 @@ export const Header: React.FC = () => {
           <a href='/' className={styles.header_logo_link}>
             <img src={Logo} alt={styles.header_logo} />
           </a>
-          
+
           <Navigation />
         </div>
-        
+
         <div className={styles.header_container}>
           <p className={styles.header_cart}>
             <a href="/" className={styles.header_cart}>
               <img src={Favorites} alt="favorites" />
             </a>
           </p>
-  
+
           <p className={styles.header_cart}>
             <a href="/" className={styles.header_cart}>
               <img src={Cart} alt="cart" />

@@ -7,7 +7,6 @@ import nextPageIconDisabled from './images/nextPageDisabled.svg';
 
 import prevPageIcon from './images/prevPage.svg';
 import prevPageIconDisabled from './images/prevPageDisabled.svg';
-import { react } from '@babel/types';
 
 interface Props {
   total: number,
@@ -23,9 +22,6 @@ function getNumbers(from: number, to: number): number[] {
   for (let n = from; n <= to; n += 1) {
     numbers.push(n);
   }
-  
-  return numbers;
-}
 
   return numbers;
 }
@@ -114,8 +110,8 @@ export const Pagination: FC<Props> = (props) => {
             onClick={() => onPageChange(page)}
             className={styles.pagination_link}
           >
-            <PaginationButton 
-              page={page} 
+            <PaginationButton
+              page={page}
               currentPage={currentPage}
             />
           </a>

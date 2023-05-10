@@ -6,7 +6,7 @@ import styles from './Navigation.module.scss';
 
 export const Navigation: React.FC = () => {
   const links = ['home', 'phones', 'tablets', 'accessories'];
-  
+
   return (
     <nav className={styles.nav}>
       {links.map(link => (

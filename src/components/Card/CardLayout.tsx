@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './CardLayout.module.scss';
-
-import { Phones, BASE_URL} from '../../API/FetchPhones';
+import { BASE_URL} from '../../API/FetchPhones';
+import { Phones } from '../../types/Phones';
 
 type Props = {
   phone: Phones;
 }
 
 export const PhoneCard: React.FC<Props> = ({ phone }) => {
-  const { 
+  const {
     name,
     price,
     screen,
@@ -21,9 +21,9 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
 
   return (
     <div className={styles.card}>
-      <img 
+      <img
         src={imgUrl}
-        alt="Product_Image" 
+        alt="Product_Image"
         className={styles.card__image}
       />
 
@@ -34,7 +34,7 @@ export const PhoneCard: React.FC<Props> = ({ phone }) => {
       <p className={styles.card__price}>${price}</p>
 
       <hr className={styles.card__devider}/>
-      
+
       <div className={styles.card__information}>
         <p className={styles.card__information_description}>
           Screen

@@ -4,7 +4,7 @@ import styles from './BurgerMenu.module.scss';
 const MenuList: React.FC = () => (
   <ul className={styles['burger-menu__list']}>
     <li className={styles['burger-menu__link']}>
-      <a 
+      <a
         href="#"
         className={styles['burger-menu__link__text']}
       >
@@ -12,7 +12,7 @@ const MenuList: React.FC = () => (
       </a>
     </li>
     <li className={styles['burger-menu__link']}>
-      <a 
+      <a
         href="#"
         className={styles['burger-menu__link__text']}
       >
@@ -20,7 +20,7 @@ const MenuList: React.FC = () => (
       </a>
     </li>
     <li className={styles['burger-menu__link']}>
-      <a 
+      <a
         href="#"
         className={styles['burger-menu__link__text']}
       >
@@ -28,7 +28,7 @@ const MenuList: React.FC = () => (
       </a>
     </li>
     <li className={styles['burger-menu__link']}>
-      <a 
+      <a
         href="#"
         className={styles['burger-menu__link__text']}
       >

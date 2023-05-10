@@ -15,12 +15,12 @@ type Props = {
 }
 
 export const PaginationButton: React.FC<Props> = (props) => {
-  const {page, image, currentPage, isDisabled} = props; 
-    
+  const {page, image, currentPage, isDisabled} = props;
+
   if (page) {
     return (
       <div className={classNames(
-        styles.paginationButton, 
+        styles.paginationButton,
         { [styles.active]: page === currentPage }
       )}
       >
