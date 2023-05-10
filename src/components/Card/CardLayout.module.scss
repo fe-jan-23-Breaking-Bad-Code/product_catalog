@@ -1,16 +1,15 @@
 
 .card {
   display: flex;
-  font-family: 'Mont-Regular';
+  font-family: 'Mont-Regular', sans-serif;
   flex-direction: column;
   width: 287px;
   background-color: #fff;
-  border: 1px solid #e5e5e5;
   border-radius: 5px;
   padding: 32px;
   align-items: center;
   border: 1px solid #E2E6E9;;
-  
+
   &__image {
     display: block;
     width: auto;
@@ -23,11 +22,11 @@
     font-weight: 600;
     line-height: 21px;
     margin-bottom: 8px;
-    
+
   }
 
   &__price {
-    font-family: 'Mont-Bold';
+    font-family: 'Mont-Bold', sans-serif;
     font-weight: 800;
     align-self: self-start;
     margin-bottom: 8px;
@@ -53,7 +52,7 @@
       width: 34%;
       margin-bottom: 8px;
       font-size: 12px;
-      font-family: 'Mont-Semibold';
+      font-family: 'Mont-Semibold', sans-serif;
       font-weight: 700;
       color: #89939A;
     }
@@ -67,18 +66,6 @@
   &__buttons {
     display: flex;
 
-    &_buy {
-      font-family: 'Mont-Semibold';
-      font-weight: 700;
-      align-self: self-start;
-      height: 40px;
-      width: 175px;
-      color: #ffffff;
-      margin-right: 8px;
-      background-color: #313237;
-      border: none;
-    }
-
     &_favourite {
       width: 40px;
       height: 40px;
@@ -90,6 +77,9 @@
 
       &:hover {
         border-color: #313237;
+      }
+
+      &--selected {
         background-image: url('./img/Heart-red.svg');
       }
     }

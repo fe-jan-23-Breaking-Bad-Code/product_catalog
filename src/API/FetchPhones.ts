@@ -1,24 +1,23 @@
+import { Phones } from '../types/Phones';
+
 export const BASE_URL = 'https://product-page-duuh.onrender.com';
 
-export interface Phones {
-  id: string,
-  category: string,
-  phoneId: string,
-  itemId: string,
-  name: string,
-  fullPrice: number,
-  price: number,
-  screen: string,
-  capacity: string,
-  color: string,
-  ram: string,
-  year: number,
-  image: string,
-}
+export function getPhones(from?: number, to?: number): Promise<Phones[]> {
 
-export function getPhones(): Promise<Phones[]> {
-  return fetch(`${BASE_URL}/phones`)
+  if (from === undefined || to === undefined) {
+    return fetch(`${BASE_URL}/phones`)
+      .then(response => response.json());
+  }
+
+  
+  const queryParams = new URLSearchParams({
+    from: from.toString(), 
+    to: to.toString(), 
+  });
+
+  return fetch(`${BASE_URL}/phones?${queryParams.toString()}`)
     .then(response => response.json());
+ 
 }
 
 export function getPhoneById(id: string): Promise<string[]> {
