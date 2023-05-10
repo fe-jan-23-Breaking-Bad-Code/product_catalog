@@ -13,12 +13,13 @@ import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
-// import { getPhones } from './API/FetchPhones';
+import { SuccessModal } from './components/SuccessModal';
 import { CartItem } from './components/Cart/CartItem/CartItem';
 import { CartPage } from './pages/TestCartPage';
 
 
 export const App = () => {
+  const [isModalVisible, setIsModalVisible] = useState(true);
   // it only for testing, start
   const items = [];
 
@@ -45,6 +46,10 @@ export const App = () => {
   };
   // should to send in helpers
 
+  const handleCloseModal = () => {
+    setIsModalVisible(false)
+  }
+
   return (
     <div className="App">
       <main className='section'>
@@ -59,6 +64,9 @@ export const App = () => {
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
+        
+       {isModalVisible && (
+          <SuccessModal onClose={handleCloseModal} />)}
 
         <Pagination
           total={items.length}
@@ -69,7 +77,6 @@ export const App = () => {
 
         <Footer />
       </main>
-
 
       <ul>
         {shownItems.map(item => (
@@ -83,3 +90,4 @@ export const App = () => {
     </div>
   );
 };
+
