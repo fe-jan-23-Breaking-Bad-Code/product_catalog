@@ -17,6 +17,7 @@ import { Pagination } from './components/Pagination';
 // import { getPhones } from './API/FetchPhones';
 import { CartItem } from './components/Cart/CartItem/CartItem';
 import { Phones } from './types/Phones';
+import { AboutSection } from './components/AboutSection/AboutSection';
 
 
 export const App = () => {
@@ -88,6 +89,7 @@ export const App = () => {
         />
 
         <CartItem />
+        <AboutSection />
 
         <Footer />
       </main>

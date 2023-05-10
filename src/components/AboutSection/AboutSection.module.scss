@@ -1,0 +1,49 @@
+@import '../../../public/global-styles/index.scss';
+@import '../../../public/global-styles/utils/grid.scss';
+
+.about {
+
+    margin: 0 16px;
+
+    &__title{
+        font-size: 20px;
+        color: $primary;
+        font-family: 'Mont-SemiBold';
+        position: relative;
+        margin-bottom: 32px;
+
+        @include onTablet{
+        margin-bottom: 48px;
+        }
+
+        &::after{
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -16px;
+           
+            height: 1px;
+            background-color: #E2E6E9;
+        }
+    }
+
+    &__info:not(:last-child) {
+      margin-bottom: 32px;
+    }
+
+    &__info{
+        &--title{
+            font-size: 16px;
+            font-family: 'Mont-SemiBold';
+            color:$primary;
+            margin-bottom: 16px;
+        }
+        &--text{
+            font-size: 14px;
+            color: $secondary;
+
+        }
+    }
+
+}
