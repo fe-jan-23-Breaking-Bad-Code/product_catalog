@@ -1,6 +1,8 @@
 import './App.module.scss';
-import React from 'react';
+
+import React, { useEffect } from 'react';
 import {
+
   Routes,
   Route,
 } from 'react-router-dom';
@@ -12,9 +14,27 @@ import Footer from './components/Footer/Footer';
 import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
+import { getPhones, Phones } from './API/FetchPhones';
 import { CartItem } from './components/Cart/CartItem/CartItem';
 
+
 export const App = () => {
+  const [phones, setPhones] = useState<Phones[]>([]);
+  const [hasError, setHasError] = useState(false);
+
+  const getPhonesFromServer = async () => {
+    try {
+      const phonesFromServer = await getPhones();
+
+      setPhones(phonesFromServer);
+    } catch {
+      setHasError(true);
+    } 
+  };
+
+  useEffect(() => {
+    getPhonesFromServer();
+  }, []);
   // it only for testing, start
   const items = [];
 
@@ -46,8 +66,11 @@ export const App = () => {
 
       <main className='section'>
         <Header />
-      
-        <PhoneCard />
+        
+        {phones.map(phone => (
+          <PhoneCard key={phone.id} phone={phone} />
+        ))}
+
 
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -63,8 +86,8 @@ export const App = () => {
           currentPage={currentPage}
           onPageChange={selectPage}
         />
-        <CartItem />
 
+        <CartItem />
 
         <Footer />
       </main>
@@ -81,3 +104,4 @@ export const App = () => {
     </div>
   );
 };
+

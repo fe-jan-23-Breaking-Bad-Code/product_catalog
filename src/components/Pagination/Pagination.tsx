@@ -1,5 +1,4 @@
-import React from 'react';
-import { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './Pagination.module.scss';
 import { ImageProps, PaginationButton } from '../PaginationButton';
 
@@ -8,6 +7,7 @@ import nextPageIconDisabled from './images/nextPageDisabled.svg';
 
 import prevPageIcon from './images/prevPage.svg';
 import prevPageIconDisabled from './images/prevPageDisabled.svg';
+import { react } from '@babel/types';
 
 interface Props {
   total: number,
@@ -19,11 +19,14 @@ interface Props {
 //should to separete to helpers
 function getNumbers(from: number, to: number): number[] {
   const numbers = [];
-  
+
   for (let n = from; n <= to; n += 1) {
     numbers.push(n);
   }
   
+  return numbers;
+}
+
   return numbers;
 }
 
@@ -111,8 +114,8 @@ export const Pagination: FC<Props> = (props) => {
             onClick={() => onPageChange(page)}
             className={styles.pagination_link}
           >
-            <PaginationButton
-              page={page}
+            <PaginationButton 
+              page={page} 
               currentPage={currentPage}
             />
           </a>
