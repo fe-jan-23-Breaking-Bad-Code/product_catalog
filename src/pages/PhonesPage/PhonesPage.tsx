@@ -20,7 +20,7 @@ export const PhonesPage: React.FC = () => {
       <h1 className="title">Phones Page</h1>
 
       {list.map(phone => (
-        <PhoneCard key={phone.id} />
+        <PhoneCard key={phone.id} phone={phone}/>
       ))}
     </div>
   );

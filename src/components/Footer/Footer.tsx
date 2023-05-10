@@ -15,7 +15,7 @@ const Footer: React.FC = () => (
       </a>
       <a href='/' className={styles.footer__info__link}>
         Contacts
-      </a> 
+      </a>
       <a href='/' className={styles.footer__info__link}>
         Rights
       </a>
