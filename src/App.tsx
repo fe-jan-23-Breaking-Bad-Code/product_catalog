@@ -17,6 +17,7 @@ import { Pagination } from './components/Pagination';
 // import { getPhones } from './API/FetchPhones';
 import { CartItem } from './components/Cart/CartItem/CartItem';
 import { Phones } from './types/Phones';
+import { CartPage } from './pages/CartPage';
 
 
 export const App = () => {
@@ -67,9 +68,9 @@ export const App = () => {
       <main className='section'>
         <Header />
 
-        {phones.map(phone => (
+        {/* {phones.map(phone => (
           <PhoneCard key={phone.id} phone={phone} />
-        ))}
+        ))} */}
 
 
         <Routes>
@@ -77,23 +78,25 @@ export const App = () => {
 
           <Route path="/phones" element={<PhonesPage />} />
 
+          <Route path="/cart" element={<CartPage />} />
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
 
-        <Pagination
+        {/* <Pagination
           total={items.length}
           perPage={itemsPerPage}
           currentPage={currentPage}
           onPageChange={selectPage}
         />
 
-        <CartItem />
+        <CartItem /> */}
 
         <Footer />
       </main>
 
 
-      <ul>
+      {/* <ul>
         {shownItems.map(item => (
           <li
             key={item}
@@ -101,7 +104,7 @@ export const App = () => {
             {item}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
