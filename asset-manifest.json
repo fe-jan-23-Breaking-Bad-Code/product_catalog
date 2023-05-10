@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.d03cdbb1.css",
-    "main.js": "/product_catalog/static/js/main.202cf193.js",
+    "main.css": "/product_catalog/static/css/main.2dcecd03.css",
+    "main.js": "/product_catalog/static/js/main.fcc48d42.js",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.ba6cb610da24822ef9348ec48e2bf1c1.svg",
     "static/media/Mont-Bold.ttf": "/product_catalog/static/media/Mont-Bold.55f2f911d04f1bbf1328.ttf",
     "static/media/Mont-Regular.ttf": "/product_catalog/static/media/Mont-Regular.48fedf56dfaee955e6a2.ttf",
@@ -14,12 +14,19 @@
     "static/media/Heart-red.svg": "/product_catalog/static/media/Heart-red.a3b711b5bd5e5f67f9a8.svg",
     "index.html": "/product_catalog/index.html",
     "static/media/burger-close.svg": "/product_catalog/static/media/burger-close.b11c0434ab2a9f3b6727.svg",
+    "static/media/Close.svg": "/product_catalog/static/media/Close.50c10c10972396ba0238.svg",
     "static/media/burger-menu.svg": "/product_catalog/static/media/burger-menu.3eda38e880976ed7dd57.svg",
-    "main.d03cdbb1.css.map": "/product_catalog/static/css/main.d03cdbb1.css.map",
-    "main.202cf193.js.map": "/product_catalog/static/js/main.202cf193.js.map"
+    "static/media/Plus.svg": "/product_catalog/static/media/Plus.28f3b45af46b97e0365d.svg",
+    "static/media/nextPage.svg": "/product_catalog/static/media/nextPage.ef3eb04cb5af72031f476acf63c677e5.svg",
+    "static/media/nextPageDisabled.svg": "/product_catalog/static/media/nextPageDisabled.a36e74fa66c087c3db88ae6b2cd1af65.svg",
+    "static/media/prevPage.svg": "/product_catalog/static/media/prevPage.7d3c7204a569b14ca2c58f128de43b0a.svg",
+    "static/media/prevPageDisabled.svg": "/product_catalog/static/media/prevPageDisabled.4ef73287ca8607caae0d6c0ee3e8d264.svg",
+    "static/media/Minus.svg": "/product_catalog/static/media/Minus.4f727ec4693f6105d0f6.svg",
+    "main.2dcecd03.css.map": "/product_catalog/static/css/main.2dcecd03.css.map",
+    "main.fcc48d42.js.map": "/product_catalog/static/js/main.fcc48d42.js.map"
   },
   "entrypoints": [
-    "static/css/main.d03cdbb1.css",
-    "static/js/main.202cf193.js"
+    "static/css/main.2dcecd03.css",
+    "static/js/main.fcc48d42.js"
   ]
 }
