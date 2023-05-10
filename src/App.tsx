@@ -15,7 +15,8 @@ import { useState } from 'react';
 import { Pagination } from './components/Pagination';
 import { SuccessModal } from './components/SuccessModal';
 import { CartItem } from './components/Cart/CartItem/CartItem';
-import { CartPage } from './pages/TestCartPage';
+import { Phones } from './types/Phones';
+import { CartPage } from './pages/CartPage';
 
 
 export const App = () => {
