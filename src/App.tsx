@@ -23,35 +23,10 @@ import { CartPage } from './pages/CartPage';
 
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(true);
-  // it only for testing, start
-  const items = [];
-
-  for (let i = 1; i < 100; i++) {
-    items.push(`Item ${i}`);
-  }
-  // end
-
-  const itemsPerPage = 16;
-  const pageByDefault = 1;
-
-  const [currentPage, setCurrentPage] = useState(pageByDefault);
-
-  const firstItemIndex = itemsPerPage * (currentPage - 1);
-  const lastItemIndex = currentPage === pageByDefault
-    ? itemsPerPage
-    : itemsPerPage * currentPage;
-
-  const shownItems = items.slice(firstItemIndex, lastItemIndex);
-  //  instead, we will make a request to the server from firstItemIndex to lastItemIndex
-
-  const selectPage = (page: number) => {
-    setCurrentPage(page);
-  };
-  // should to send in helpers
 
   const handleCloseModal = () => {
-    setIsModalVisible(false)
-  }
+    setIsModalVisible(false);
+  };
 
   return (
     <div className="App">
@@ -67,30 +42,14 @@ export const App = () => {
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        
-       {isModalVisible && (
+
+        {isModalVisible && (
           <SuccessModal onClose={handleCloseModal} />)}
 
-        <Pagination
-          total={items.length}
-          perPage={itemsPerPage}
-          currentPage={currentPage}
-          onPageChange={selectPage}
-        />
-
-        <AboutSection />
         <Footer />
       </main>
 
-      <ul>
-        {shownItems.map(item => (
-          <li
-            key={item}
-          >
-            {item}
-          </li>
-        ))}
-      </ul>
+
     </div>
   );
 };
