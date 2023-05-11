@@ -5,6 +5,10 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Vector from '../../img/vector-left.svg';
 import { useAppSelector } from '../../hooks';
 
+type Props = {
+  setIsModalVisible: (boolean: boolean) => void;
+}
+
 interface CartItem {
   id: string,
   count: number,
@@ -14,12 +18,15 @@ const checkoutCost = (cart: CartItem[]): number => {
   return cart.reduce((total, item) => total + item.count, 0);
 };
 
-export const CartPage: React.FC = () => {
+export const CartPage: React.FC<Props> = ({ setIsModalVisible }) => {
   const cart = useAppSelector(store => store.cart);
   const navigate = useNavigate();
 
   const handleCheckoutClick = () => {
     navigate('/');
+    setTimeout(() => {
+      setIsModalVisible(true);
+    }, 1000);
   };
 
   return (

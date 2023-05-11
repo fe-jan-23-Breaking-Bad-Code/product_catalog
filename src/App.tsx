@@ -22,7 +22,7 @@ import { CartPage } from './pages/CartPage';
 
 
 export const App = () => {
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   // it only for testing, start
   const items = [];
 
@@ -50,8 +50,8 @@ export const App = () => {
   // should to send in helpers
 
   const handleCloseModal = () => {
-    setIsModalVisible(false)
-  }
+    setIsModalVisible(false);
+  };
 
   return (
     <div className="App">
@@ -63,12 +63,14 @@ export const App = () => {
 
           <Route path="/phones" element={<PhonesPage />} />
 
-          <Route path="/cart" element={<CartPage />} />
+          <Route
+            path="/cart"
+            element={<CartPage setIsModalVisible={setIsModalVisible} />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        
-       {isModalVisible && (
+
+        {isModalVisible && (
           <SuccessModal onClose={handleCloseModal} />)}
 
         <Pagination
