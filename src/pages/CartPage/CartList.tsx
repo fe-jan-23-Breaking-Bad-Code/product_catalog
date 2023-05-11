@@ -17,7 +17,7 @@ export const CartList: React.FC<Props> = ({ cart }) => {
       {cart.map((cartItem) => {
         return (
           <div key={cartItem.id} className={styles.cart__item}>
-            <CartItem />
+            {/* <CartItem /> */}
           </div>
         );
       })}

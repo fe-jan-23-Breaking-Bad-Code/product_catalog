@@ -36,13 +36,13 @@ export const CartPage: React.FC = () => {
             Cart
           </h1>
 
-          <CartList cart={cart} />
+          {/* <CartList cart={cart} /> */}
         </div>
 
         <div className={`${styles['checkout-block']} ${styles['grid__item--desktop-17-24']}`}>
           <div className={styles['checkout-block__info']}>
             <p className={styles['checkout-block__cost']}>
-              {`$${checkoutCost(cart)}`}
+              {/* {`$${checkoutCost(cart)}`} */}
             </p>
             <p className={styles['checkout-block__items-count']}>
               {`Total for ${cart.length} items`}

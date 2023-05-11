@@ -9,6 +9,7 @@ import {
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { CardPage } from './pages/ProductPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
 import { useState } from 'react';
@@ -50,25 +51,30 @@ export const App = () => {
   // should to send in helpers
 
   const handleCloseModal = () => {
-    setIsModalVisible(false)
-  }
+    setIsModalVisible(false);
+  };
 
   return (
     <div className="App">
       <main className='section'>
         <Header />
 
+        <CardPage />
+
+
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           <Route path="/phones" element={<PhonesPage />} />
 
-          <Route path="/cart" element={<CartPage />} />
+          {/* <Route path="/cart" element={<CartPage />} /> */}
+
+          {/* <Route path="/product/:productId" element={<CardPage />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        
-       {isModalVisible && (
+
+        {isModalVisible && (
           <SuccessModal onClose={handleCloseModal} />)}
 
         <Pagination
@@ -80,9 +86,10 @@ export const App = () => {
 
         <AboutSection />
         <Footer />
+
       </main>
 
-      <ul>
+      {/* <ul>
         {shownItems.map(item => (
           <li
             key={item}
@@ -90,7 +97,7 @@ export const App = () => {
             {item}
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };
