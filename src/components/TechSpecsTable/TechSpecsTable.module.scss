@@ -1,6 +1,7 @@
 @import '../../../public/global-styles/index.scss';
 @import '../../../public/global-styles/utils/grid.scss';
 
+
 .tech {
   margin: 0 16px;
 
@@ -22,21 +23,25 @@
         height: 1px;
         background-color: $borders;
     }
-
-
   }
 
   &__specs {
+    font-family: 'Mont-Regular';
+    display: flex;
+    flex-wrap: wrap;
 
     &--description {
-      font-family: 'Mont-Semibold';
+      margin-bottom: 8px;
+      font-family: 'Mont-Regular';
       font-size: 14px;
+      width: 50%;
       line-height: 21px;
       color: $secondary;
       font-weight: 500;
     }
 
     &--description:nth-child(even) {
+      text-align: right;
       color: $primary;
     }
   }

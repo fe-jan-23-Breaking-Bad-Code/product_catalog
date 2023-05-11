@@ -52,7 +52,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          12 Mp + 12 Mp + 12 Mp (Triple)
+          12 Mp + 12 Mp + 12 Mp
         </p>
 
         <p className={styles['tech__specs--description']}>
