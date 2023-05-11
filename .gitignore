@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+/src/pages/TestPage
 
 # production
 /build
