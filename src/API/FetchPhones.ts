@@ -2,10 +2,41 @@ import { Phones } from '../types/Phones';
 
 export const BASE_URL = 'https://product-page-duuh.onrender.com';
 
-export interface PhonesPage {
-  data: Phones[],
-  total: number,
+type Phone = {
+  'id': string,
+	'namespaceId': string,
+	'name': string,
+	'capacityAvailable': [string],
+	'capacity': string,
+	'priceRegular': number,
+	'priceDiscount': number,
+	'colorsAvailable': string[],
+	'color': string,
+	'images': string[],
+	'description': [
+		{
+			'title': string,
+			'text': [string]
+		},
+		{
+			'title': 'Camera',
+			'text': [string]
+		},
+		{
+			'title': string,
+			'text': [string]
+		}
+	],
+	'screen': string,
+	'resolution': string,
+	'processor': string,
+	'ram': string,
+	'camera': string,
+	'zoom': string,
+	'cell': string[],
 }
+
+export function getPhones(from?: number, to?: number): Promise<Phones[]> {
 
 export function getPhones(): Promise<Phones[]> {
   return fetch(`${BASE_URL}/phones`)
@@ -27,7 +58,7 @@ export function getPhonesInRange(
 
 }
 
-export function getPhoneById(id: string): Promise<string[]> {
+export function getPhoneById(id: string): Promise<Phone> {
   return fetch(`${BASE_URL}/phones/${id}`)
     .then(response => response.json());
 }
