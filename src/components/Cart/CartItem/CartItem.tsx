@@ -17,6 +17,8 @@ export const CartItem: React.FC<Props> = ({
   const {
     id,
     image,
+    fullPrice,
+    name,
   } = phone;
   const [quantity, setQuantity] = useState(count);
   const dispatch = useDispatch();
@@ -50,7 +52,7 @@ export const CartItem: React.FC<Props> = ({
       <img className={styles.cartitem__photo} src={exampleUrl} alt="" />
 
       <p className={styles.cartitem__name}>
-        Apple iPhone 14 Pro 128GB Silver (MQ023)
+        {name}
       </p>
 
       <div className={styles.cartitem__block}>
@@ -67,7 +69,7 @@ export const CartItem: React.FC<Props> = ({
         </div>
 
         <p className={styles.cartitem__price}>
-          $ {999 * quantity}
+          $ {fullPrice * quantity}
         </p>
       </div>
     </div>

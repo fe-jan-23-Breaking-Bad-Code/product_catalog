@@ -1,26 +1,23 @@
 import React from 'react';
 import { CartItem } from '../../components/Cart/CartItem/CartItem';
 import styles from './CartPage.module.scss';
+import { CartPhone } from '../../types/CartPhone';
 
-interface CartItem {
-  id: string,
-  count: number,
-}
 
 type Props = {
-  cart: CartItem[];
+  cart: CartPhone[];
 };
 
 export const CartList: React.FC<Props> = ({ cart }) => {
+
   return (
     <div>
-      {cart.map((cartItem) => {
-        return (
-          <div key={cartItem.id} className={styles.cart__item}>
-            {/* <CartItem /> */}
-          </div>
-        );
-      })}
+      {cart.map(({ phone, quantity }) => (
+        <div key={phone.id} className={styles.cart__item}>
+          <CartItem  phone={phone} count={quantity}/>
+        </div>
+      )
+      )}
     </div>
   );
 };
