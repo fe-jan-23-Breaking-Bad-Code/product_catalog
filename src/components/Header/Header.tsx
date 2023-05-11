@@ -49,15 +49,17 @@ export const Header: React.FC = () => {
 
         <div className={styles.header_container}>
           <p className={styles.header_cart}>
-            <a href="/" className={styles.header_cart}>
+            <NavLink
+              to="/favourites"
+              className={styles.header_cart}
+            >
               <img src={Favorites} alt="favorites" />
-            </a>
+            </NavLink>
           </p>
 
           <p className={styles.header_cart}>
             <NavLink
               to={'/cart'}
-              key={'cart'}
               className={styles.header_cart}
             >
               <img src={Cart} alt="cart" />

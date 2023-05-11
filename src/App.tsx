@@ -8,18 +8,19 @@ import {
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
-import { CardPage } from './pages/ProductPage';
+import { ProductPage } from './pages/ProductPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
 import { useState } from 'react';
 import { SuccessModal } from './components/SuccessModal';
 import { CartPage } from './pages/CartPage';
 import { TestPage } from './pages/TestPage';
+import { FavouritesPage } from './pages/FavouritesPage';
 
 
 
 export const App = () => {
-  const [isModalVisible, setIsModalVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
@@ -30,17 +31,16 @@ export const App = () => {
       <main className='section'>
         <Header />
 
-        <CardPage />
-
-
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           <Route path="/phones" element={<PhonesPage />} />
 
-          {/* <Route path="/cart" element={<CartPage />} /> */}
+          <Route path="/cart" element={<CartPage />} />
 
-          {/* <Route path="/product/:productId" element={<CardPage />} /> */}
+          <Route path="/product/:productId" element={<ProductPage />} />
+
+          <Route path="/favourites" element={<FavouritesPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
