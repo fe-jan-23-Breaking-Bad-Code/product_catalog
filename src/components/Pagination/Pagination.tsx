@@ -7,6 +7,7 @@ import nextPageIconDisabled from './images/nextPageDisabled.svg';
 
 import prevPageIcon from './images/prevPage.svg';
 import prevPageIconDisabled from './images/prevPageDisabled.svg';
+import { NavLink, useNavigate, useSearchParams } from 'react-router-dom';
 
 interface Props {
   total: number,
@@ -43,12 +44,19 @@ export const Pagination: FC<Props> = (props) => {
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === pagesCount;
 
+  const navigate = useNavigate();
+  const [searchParams, setSearchParams] =
+    useSearchParams({ page: currentPage.toString() });
+
   const handleNext = () => {
     if (isLastPage) {
       return;
     }
 
-    onPageChange(currentPage + 1);
+    const nextPage = currentPage + 1;
+    setSearchParams({ page: nextPage.toString() });
+    navigate(`?${searchParams.toString()}`);
+    onPageChange(nextPage);
   };
 
   const handlePrev = () => {
@@ -56,7 +64,10 @@ export const Pagination: FC<Props> = (props) => {
       return;
     }
 
-    onPageChange(currentPage - 1);
+    const prevPage = currentPage - 1;
+    setSearchParams({ page: prevPage.toString() });
+    navigate(`?${searchParams.toString()}`);
+    onPageChange(prevPage);
   };
 
   useEffect(() => {
@@ -73,12 +84,12 @@ export const Pagination: FC<Props> = (props) => {
     }
   }, [currentPage, pagesCount]);
 
-  const prevPaginationPage: ImageProps = {
+  const prevPaginationPage = {
     src: prevPage,
     alt: 'Previous page in pagination',
   };
 
-  const nextPaginationPage: ImageProps = {
+  const nextPaginationPage = {
     src: nextPage,
     alt: 'Next page in pagination',
   };
@@ -86,9 +97,8 @@ export const Pagination: FC<Props> = (props) => {
   return (
     <ul className={styles.pagination}>
       <li className={styles.pagination_item}>
-        <a
-          href="#prev"
-          aria-disabled={isFirstPage}
+        <NavLink
+          to={`?page=${!isFirstPage? currentPage - 1: currentPage}`}
           onClick={handlePrev}
           className={styles.pagination_link}
         >
@@ -97,7 +107,7 @@ export const Pagination: FC<Props> = (props) => {
             currentPage={currentPage}
             isDisabled={isFirstPage}
           />
-        </a>
+        </NavLink>
       </li>
 
       {pages.map((page => (
@@ -105,23 +115,22 @@ export const Pagination: FC<Props> = (props) => {
           className={styles.pagination_item}
           key={page}
         >
-          <a
-            href={`#${page}`}
-            onClick={() => onPageChange(page)}
+          <NavLink
+            to={`?page=${page}`}
             className={styles.pagination_link}
+            onClick={() => onPageChange(page)}
           >
             <PaginationButton
               page={page}
               currentPage={currentPage}
             />
-          </a>
+          </NavLink>
         </li>
       )))}
 
       <li className={styles.pagination_item}>
-        <a
-          href="#next"
-          aria-disabled={isLastPage}
+        <NavLink
+          to={`?page=${!isLastPage? currentPage + 1: currentPage}`}
           onClick={handleNext}
           className={styles.pagination_link}
         >
@@ -130,7 +139,7 @@ export const Pagination: FC<Props> = (props) => {
             currentPage={currentPage}
             isDisabled={isLastPage}
           />
-        </a>
+        </NavLink>
       </li>
     </ul>
   );

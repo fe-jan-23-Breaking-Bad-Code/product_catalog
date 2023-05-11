@@ -5,15 +5,18 @@ import { actions as phonesActions } from '../../app/reducers/phones';
 import { useAppSelector } from '../../hooks';
 import { PhoneCard } from '../../components/Card';
 import { Pagination } from '../../components/Pagination';
+import { useSearchParams } from 'react-router-dom';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
   const { currentPageList, total } = useAppSelector(store => store.phones);
   const favourites = useAppSelector(store => store.favourites);
   const cart = useAppSelector(store => store.cart);
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get('page');
 
   const itemsPerPage = 4;
-  const pageByDefault = 1;
+  const pageByDefault = Number(page) || 1;
 
   const [currentPage, setCurrentPage] = useState(pageByDefault);
 
