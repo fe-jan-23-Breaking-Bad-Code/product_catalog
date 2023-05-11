@@ -15,6 +15,7 @@ import { useState } from 'react';
 import { SuccessModal } from './components/SuccessModal';
 import { CartPage } from './pages/CartPage';
 import { TestPage } from './pages/TestPage';
+import { FavouritesPage } from './pages/FavouritesPage';
 
 
 
@@ -41,6 +42,8 @@ export const App = () => {
           {/* <Route path="/cart" element={<CartPage />} /> */}
 
           {/* <Route path="/product/:productId" element={<CardPage />} /> */}
+
+          <Route path="/favourites" element={<FavouritesPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
