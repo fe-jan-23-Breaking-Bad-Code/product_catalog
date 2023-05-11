@@ -1,6 +1,6 @@
 import './App.module.scss';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
 
   Routes,
@@ -11,32 +11,15 @@ import { PhonesPage } from './pages/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
-import { PhoneCard } from './components/Card';
 import { useState } from 'react';
 import { Pagination } from './components/Pagination';
 // import { getPhones } from './API/FetchPhones';
 import { CartItem } from './components/Cart/CartItem/CartItem';
+import { CartPage } from './pages/TestCartPage';
 import { Phones } from './types/Phones';
-import { AboutSection } from './components/AboutSection/AboutSection';
 
 
 export const App = () => {
-  const [phones, setPhones] = useState<Phones[]>([]);
-  // const [hasError, setHasError] = useState(false);
-
-  // const getPhonesFromServer = async () => {
-  //   try {
-  //     const phonesFromServer = await getPhones();
-
-  //     setPhones(phonesFromServer);
-  //   } catch {
-  //     setHasError(true);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getPhonesFromServer();
-  // }, []);
   // it only for testing, start
   const items = [];
 
@@ -68,15 +51,12 @@ export const App = () => {
       <main className='section'>
         <Header />
 
-        {phones.map(phone => (
-          <PhoneCard key={phone.id} phone={phone} />
-        ))}
-
-
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           <Route path="/phones" element={<PhonesPage />} />
+
+          <Route path="/cart" element={<CartPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
@@ -87,9 +67,6 @@ export const App = () => {
           currentPage={currentPage}
           onPageChange={selectPage}
         />
-
-        <CartItem />
-        <AboutSection />
 
         <Footer />
       </main>

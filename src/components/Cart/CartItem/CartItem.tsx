@@ -41,7 +41,7 @@ export const CartItem: React.FC<Props> = ({
   };
 
   return (
-    <div className={styles.cartitem}>
+    <div className={`${styles.cartitem} ${styles['grid__item--desktop-1-17']}`}>
       <button
         className={styles.cartitem__close}
         onClick={handleRemoveFromCart}
@@ -50,7 +50,7 @@ export const CartItem: React.FC<Props> = ({
       <img className={styles.cartitem__photo} src={exampleUrl} alt="" />
 
       <p className={styles.cartitem__name}>
-        Apple iPhone 14 Pro 128GB Silver (MQ023)
+        {phone.name}
       </p>
 
       <div className={styles.cartitem__block}>
@@ -67,7 +67,7 @@ export const CartItem: React.FC<Props> = ({
         </div>
 
         <p className={styles.cartitem__price}>
-          $ {999 * quantity}
+          $ {phone.price * quantity}
         </p>
       </div>
     </div>
