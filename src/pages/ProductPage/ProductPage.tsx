@@ -20,7 +20,7 @@ export const ProductPage: React.FC = () => {
 
 
   return (
-    <div className={styles.grid}>
+    <div>
       {/* Navigation component */}
 
       {/* back button */}
