@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { getPhones } from '../../API/FetchPhones';
+import { getPhonesInRange } from '../../API/FetchPhones';
 import { useDispatch } from 'react-redux';
 import { actions as phonesActions } from '../../app/reducers/phones';
 import { useAppSelector } from '../../hooks';
 import { PhoneCard } from '../../components/Card';
 import { Pagination } from '../../components/Pagination';
+import { useSearchParams } from 'react-router-dom';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { list } = useAppSelector(store => store.phones);
+  const { currentPageList, total } = useAppSelector(store => store.phones);
   const favourites = useAppSelector(store => store.favourites);
   const cart = useAppSelector(store => store.cart);
+  const [searchParams] = useSearchParams();
+  const page = searchParams.get('page');
 
   const itemsPerPage = 4;
-  const pageByDefault = 1;
+  const pageByDefault = Number(page) || 1;
 
   const [currentPage, setCurrentPage] = useState(pageByDefault);
 
@@ -22,25 +25,22 @@ export const PhonesPage: React.FC = () => {
     ? itemsPerPage
     : itemsPerPage * currentPage;
 
-  const shownItems = list.slice(firstItemIndex, lastItemIndex);
-  //  instead, we will make a request to the server from firstItemIndex to lastItemIndex
-
   const selectPage = (page: number) => {
     setCurrentPage(page);
   };
-  // should to send in helpers
 
   useEffect(() => {
-    getPhones().then(phones => {
-      dispatch(phonesActions.set(phones));
-    });
+    getPhonesInRange(firstItemIndex, lastItemIndex)
+      .then(({ data, total }) => {
+        dispatch(phonesActions.setPage({ data, total }));
+      });
   }, []);
 
   return (
     <div className="container">
       <h1 className="title">Phones Page</h1>
 
-      {shownItems.map(phone => (
+      {currentPageList.map(phone => (
         <PhoneCard
           key={phone.id}
           phone={phone}
@@ -50,7 +50,7 @@ export const PhonesPage: React.FC = () => {
       ))}
 
       <Pagination
-        total={list.length}
+        total={total}
         perPage={itemsPerPage}
         currentPage={currentPage}
         onPageChange={selectPage}

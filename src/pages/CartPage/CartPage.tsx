@@ -6,8 +6,9 @@ import Vector from '../../img/vector-left.svg';
 import { useAppSelector } from '../../hooks';
 import { CartPhone } from '../../types/CartPhone';
 
-
-
+// type Props = {
+//   setIsModalVisible: (boolean: boolean) => void;
+// }
 
 const checkoutCost = (cart: CartPhone[]): number => {
   return cart.reduce(
@@ -33,6 +34,9 @@ export const CartPage: React.FC = () => {
 
   const handleCheckoutClick = () => {
     navigate('/');
+    setTimeout(() => {
+      // setIsModalVisible(true);
+    }, 1000);
   };
 
   return (
