@@ -1,0 +1,18 @@
+@import '../../../public/global-styles/index.scss';
+@import '../../../public/global-styles/utils/_mixins.scss';
+
+.title {
+  font-family: 'Mont-Bold', sans-serif;
+  font-size: 32px;
+  margin-bottom: 24px;
+
+  @include onTablet {
+    font-size: 48px;
+    margin-bottom: 32px;
+  }
+
+  @include onDesktop {
+    font-size: 48px;
+    margin-bottom: 56px;
+  }
+}

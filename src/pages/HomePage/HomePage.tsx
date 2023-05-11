@@ -1,7 +1,11 @@
 import React from 'react';
+import styles from './HomePage.module.scss';
+import { HomeSlider } from '../../components/HomeSlider/HomeSlider';
 
 export const HomePage: React.FC = () => (
-  <div className="container">
-    <h1 className="title">Home Page</h1>
+  <div className={styles.container}>
+    <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
+
+    <HomeSlider />
   </div>
 );
