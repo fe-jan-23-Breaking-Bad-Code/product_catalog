@@ -1,0 +1,61 @@
+@import '../../../public/global-styles/utils/mixins';
+
+.photos_container {
+  @include square(max-content);
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+
+  @include onTablet {
+    display: flex;
+    flex-direction: row;
+  }
+
+  @include onDesktop {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__list_photos {
+    display: flex;
+    justify-content: space-between;
+
+    @include onTablet {
+      flex-direction: column;
+      order: 1;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+
+    &__photo {
+      @include square(50px);
+      border: 1px solid #C4C4C4;
+      padding: 20px;
+
+      @include onTablet {
+        @include square(35px);
+      }
+
+      @include onDesktop {
+        @include square(80px);
+      }
+    }
+  }
+
+  &__main_block {
+    @include square(275px);
+    border: 1px solid red;
+    align-self: center;
+
+    @include onTablet {
+      flex-direction: column;
+      order: 2;
+    }
+
+    @include onDesktop {
+      @include square(442px);
+      align-self: flex-start;
+    }
+  }
+}

@@ -14,6 +14,7 @@ import { useState } from 'react';
 import { SuccessModal } from './components/SuccessModal';
 import { CartPage } from './pages/CartPage';
 import { TestPage } from './pages/TestPage';
+import PhotosBlock from './components/PhotosBlock/PhotosBlock';
 
 
 
@@ -68,12 +69,11 @@ export const App = () => {
 
         {isModalVisible && (
           <SuccessModal onClose={handleCloseModal} />)}
+        <PhotosBlock />
 
         <TestPage />
         <Footer />
       </main>
-
-
     </div>
   );
 };
