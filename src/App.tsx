@@ -2,7 +2,6 @@ import './App.module.scss';
 
 import React from 'react';
 import {
-
   Routes,
   Route,
 } from 'react-router-dom';
@@ -12,12 +11,9 @@ import { NotFoundPage } from './pages/NotFoundPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
 import { useState } from 'react';
-import { Pagination } from './components/Pagination';
 import { SuccessModal } from './components/SuccessModal';
-import { CartItem } from './components/Cart/CartItem/CartItem';
-import { Phones } from './types/Phones';
-import { AboutSection } from './components/AboutSection/AboutSection';
 import { CartPage } from './pages/CartPage';
+import { TestPage } from './pages/TestPage';
 
 
 
@@ -46,6 +42,7 @@ export const App = () => {
         {isModalVisible && (
           <SuccessModal onClose={handleCloseModal} />)}
 
+        <TestPage />
         <Footer />
       </main>
 
