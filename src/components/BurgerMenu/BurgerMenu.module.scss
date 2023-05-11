@@ -26,6 +26,7 @@
 
 .burger-menu {
   display: none;
+  z-index: 1000;
 
   &__header {
     display: flex;
@@ -58,26 +59,45 @@
   }
 
   &__footer {
-    margin-top: auto; /* размещение footer внизу */
+    margin-top: auto;
     display: flex;
     height: 100px;
 
-    &__favorite-button {
-      height: 100px;
-      width: 50%;
-      background-image: url('../../img/heart.svg');
-      background-repeat: no-repeat;
-      background-position: center;
-      box-shadow: -1px -1px 0px #E2E6E9;
-    }
 
-    &__shoping-button {
+  &__quantity {
+    text-align: center;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    background-color: #EB5757;
+    border-radius: 50%;
+    bottom: 50%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+
+    font-weight: 700;
+    font-size: 9px;
+    color: white;
+  }
+
+    &__button {
+      position: relative;
       height: 100px;
       width: 50%;
-      background-image: url('../../img/shoping-bar.svg');
       background-repeat: no-repeat;
       background-position: center;
       box-shadow: -1px -1px 0px #E2E6E9;
+
+      &--cart {
+        background-image: url('../../img/shoping-bar.svg');
+
+      }
+
+      &--favourites {
+        background-image: url('../../img/heart.svg');
+      }
     }
   }
 }

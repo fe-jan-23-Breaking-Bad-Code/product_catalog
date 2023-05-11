@@ -7,9 +7,12 @@ import Cart from './img/shop_cart.svg';
 import { Navigation } from '../Navigation';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { NavLink } from 'react-router-dom';
+import { useAppSelector } from '../../hooks';
 
 export const Header: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const cartCount = useAppSelector(store => store.cart).length;
+  const favouritesCount = useAppSelector(store => store.favourites).length;
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -54,6 +57,11 @@ export const Header: React.FC = () => {
               className={styles.header_cart}
             >
               <img src={Favorites} alt="favorites" />
+              {favouritesCount > 0 && (
+                <div className={styles.header_quantity}>
+                  {favouritesCount}
+                </div>
+              )}
             </NavLink>
           </p>
 
@@ -63,6 +71,11 @@ export const Header: React.FC = () => {
               className={styles.header_cart}
             >
               <img src={Cart} alt="cart" />
+              {cartCount > 0 && (
+                <div className={styles.header_quantity}>
+                  {cartCount}
+                </div>
+              )}
             </NavLink>
           </p>
         </div>
