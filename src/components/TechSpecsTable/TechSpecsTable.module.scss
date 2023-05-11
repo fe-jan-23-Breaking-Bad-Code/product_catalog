@@ -1,0 +1,43 @@
+@import '../../../public/global-styles/index.scss';
+@import '../../../public/global-styles/utils/grid.scss';
+
+.tech {
+  margin: 0 16px;
+
+  &__title{
+    font-family: 'Mont-SemiBold';
+    font-size: 20px;
+    color: $primary;
+    position: relative;
+
+    margin-bottom: 46px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        right: 0;
+
+        height: 1px;
+        background-color: $borders;
+    }
+
+
+  }
+
+  &__specs {
+
+    &--description {
+      font-family: 'Mont-Semibold';
+      font-size: 14px;
+      line-height: 21px;
+      color: $secondary;
+      font-weight: 500;
+    }
+
+    &--description:nth-child(even) {
+      color: $primary;
+    }
+  }
+}
