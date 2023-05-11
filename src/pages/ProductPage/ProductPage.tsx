@@ -2,7 +2,7 @@ import React from 'react';
 
 import { AboutSection } from '../../components/AboutSection/AboutSection';
 import { TechSpecTable } from '../../components/TechSpecsTable';
-import styles from './CardPage.module.scss';
+import styles from './ProductPage.module.scss';
 
 export const CardPage: React.FC = () => {
   return (
