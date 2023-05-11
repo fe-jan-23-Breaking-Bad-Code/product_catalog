@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-
+import styles from './FavouritesPage.module.scss';
 import { useAppSelector } from '../../hooks';
-import { PhoneCard } from '../../components/Card';
+import { CardsGrid } from '../../components/CardsGrid';
 
 
 export const FavouritesPage: React.FC = () => {
@@ -14,17 +14,10 @@ export const FavouritesPage: React.FC = () => {
   }, [favourites]);
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <h1 className="title">Phones Page</h1>
 
-      {favouritePhones.map(phone => (
-        <PhoneCard
-          key={phone.id}
-          phone={phone}
-          isInCart={cart.some(({ id }) => id === phone.id)}
-          isInFavourites={favourites.includes(phone.id)}
-        />
-      ))}
+      <CardsGrid productList={favouritePhones} />
     </div>
   );
 };

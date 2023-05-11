@@ -1,0 +1,10 @@
+@import '../../../public/global-styles/index.scss';
+
+
+.cards_grid {
+  margin-top: -40px;
+
+  &__item {
+    margin-top: 40px;
+  }
+}
