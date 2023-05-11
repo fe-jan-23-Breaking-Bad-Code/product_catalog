@@ -13,15 +13,10 @@
     margin-bottom: 24px;
      
     @include onTablet {
-        &:not(:last-child){
-            margin-right: 16px;
-        }
-
     }
 
     &--container {
         position: relative;
-        width: max-content;
         overflow: hidden;
     }
     

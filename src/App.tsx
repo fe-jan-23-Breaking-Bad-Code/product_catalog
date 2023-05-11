@@ -15,6 +15,8 @@ import { useState } from 'react';
 import { SuccessModal } from './components/SuccessModal';
 import { CartPage } from './pages/CartPage';
 import { TestPage } from './pages/TestPage';
+import { TabletsPage } from './pages/TabletsPage/TabletsPage';
+import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 
 
 
@@ -37,6 +39,10 @@ export const App = () => {
           <Route path="/" element={<HomePage />} />
 
           <Route path="/phones" element={<PhonesPage />} />
+
+          <Route path="/tablets" element={<TabletsPage />} />
+          
+          <Route path="/accesories" element={<AccessoriesPage />} />
 
           {/* <Route path="/cart" element={<CartPage />} /> */}
 
