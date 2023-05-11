@@ -8,7 +8,7 @@ import {
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
-import { CardPage } from './pages/ProductPage';
+import { ProductPage } from './pages/ProductPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
 import { useState } from 'react';
@@ -21,31 +21,6 @@ import { FavouritesPage } from './pages/FavouritesPage';
 
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  // it only for testing, start
-  const items = [];
-
-  for (let i = 1; i < 100; i++) {
-    items.push(`Item ${i}`);
-  }
-  // end
-
-  const itemsPerPage = 16;
-  const pageByDefault = 1;
-
-  const [currentPage, setCurrentPage] = useState(pageByDefault);
-
-  const firstItemIndex = itemsPerPage * (currentPage - 1);
-  const lastItemIndex = currentPage === pageByDefault
-    ? itemsPerPage
-    : itemsPerPage * currentPage;
-
-  const shownItems = items.slice(firstItemIndex, lastItemIndex);
-  //  instead, we will make a request to the server from firstItemIndex to lastItemIndex
-
-  const selectPage = (page: number) => {
-    setCurrentPage(page);
-  };
-  // should to send in helpers
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
@@ -56,17 +31,14 @@ export const App = () => {
       <main className='section'>
         <Header />
 
-        <CardPage />
-
-
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           <Route path="/phones" element={<PhonesPage />} />
 
-          {/* <Route path="/cart" element={<CartPage />} /> */}
+          <Route path="/cart" element={<CartPage />} />
 
-          {/* <Route path="/product/:productId" element={<CardPage />} /> */}
+          <Route path="/product/:productId" element={<ProductPage />} />
 
           <Route path="/favourites" element={<FavouritesPage />} />
 
@@ -75,7 +47,6 @@ export const App = () => {
 
         {isModalVisible && (
           <SuccessModal onClose={handleCloseModal} />)}
-        <PhotosBlock />
 
         <TestPage />
         <Footer />

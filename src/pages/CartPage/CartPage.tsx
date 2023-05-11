@@ -6,16 +6,16 @@ import Vector from '../../img/vector-left.svg';
 import { useAppSelector } from '../../hooks';
 import { CartPhone } from '../../types/CartPhone';
 
-type Props = {
-  setIsModalVisible: (boolean: boolean) => void;
-}
+// type Props = {
+//   setIsModalVisible: (boolean: boolean) => void;
+// }
 
 const checkoutCost = (cart: CartPhone[]): number => {
   return cart.reduce(
     (total, { quantity, phone }) => total + quantity * phone.fullPrice , 0);
 };
 
-export const CartPage: React.FC<Props> = ({ setIsModalVisible }) => {
+export const CartPage: React.FC = () => {
   const navigate = useNavigate();
   const cart = useAppSelector(store => store.cart);
   const { list } = useAppSelector(store => store.phones);
@@ -35,7 +35,7 @@ export const CartPage: React.FC<Props> = ({ setIsModalVisible }) => {
   const handleCheckoutClick = () => {
     navigate('/');
     setTimeout(() => {
-      setIsModalVisible(true);
+      // setIsModalVisible(true);
     }, 1000);
   };
 
