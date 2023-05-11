@@ -12,7 +12,7 @@ const PhotosBlock = () => {
         setPhoneImages(res.images);
         setSelectedPhoto(res.images[0]);
       })
-      .catch((err) => {
+      .catch((err: Error) => {
         console.log(err);
       });
   }, []);

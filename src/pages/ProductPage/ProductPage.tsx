@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { AboutSection } from '../../components/AboutSection/AboutSection';
 import { TechSpecTable } from '../../components/TechSpecsTable';
-import styles from './CardPage.module.scss';
+import styles from './ProductPage.module.scss';
+import { useParams } from 'react-router-dom';
+import { Phone } from '../../types/Phone';
+import { getPhoneById } from '../../API/FetchPhones';
 
-export const CardPage: React.FC = () => {
+export const ProductPage: React.FC = () => {
+  const [phone, setPhone] = useState<Phone>();
+  const { productId } = useParams();
+
+  useEffect(() => {
+    if (productId) {
+      getPhoneById(productId)
+        .then(data => setPhone(data));
+    }
+  },[productId]);
+
+
   return (
     <div className={styles.grid}>
       {/* Navigation component */}
