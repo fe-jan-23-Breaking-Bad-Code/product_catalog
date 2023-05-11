@@ -3,7 +3,8 @@
 
 .about {
 
-    margin: 0 16px;
+    margin: 0 16px 56px;
+
 
     &__title{
         font-size: 20px;
@@ -22,9 +23,9 @@
             left: 0;
             right: 0;
             bottom: -16px;
-           
+
             height: 1px;
-            background-color: #E2E6E9;
+            background-color: $borders;
         }
     }
 

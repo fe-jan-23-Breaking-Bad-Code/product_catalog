@@ -8,13 +8,14 @@ import {
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { CardPage } from './pages/ProductPage';
 import { Header } from './components/Header';
 import Footer from './components/Footer/Footer';
 import { useState } from 'react';
 import { SuccessModal } from './components/SuccessModal';
 import { CartPage } from './pages/CartPage';
 import { TestPage } from './pages/TestPage';
-import PhotosBlock from './components/PhotosBlock/PhotosBlock';
+import { FavouritesPage } from './pages/FavouritesPage';
 
 
 
@@ -55,14 +56,19 @@ export const App = () => {
       <main className='section'>
         <Header />
 
+        <CardPage />
+
+
         <Routes>
           <Route path="/" element={<HomePage />} />
 
           <Route path="/phones" element={<PhonesPage />} />
 
-          <Route
-            path="/cart"
-            element={<CartPage setIsModalVisible={setIsModalVisible} />} />
+          {/* <Route path="/cart" element={<CartPage />} /> */}
+
+          {/* <Route path="/product/:productId" element={<CardPage />} /> */}
+
+          <Route path="/favourites" element={<FavouritesPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
@@ -73,7 +79,9 @@ export const App = () => {
 
         <TestPage />
         <Footer />
+
       </main>
+
     </div>
   );
 };

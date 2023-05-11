@@ -54,6 +54,7 @@ export const CartPage: React.FC<Props> = ({ setIsModalVisible }) => {
           </h1>
 
           <CartList cart={phonesInCart} />
+
         </div>
 
         <div className={`${styles['checkout-block']} ${styles['grid__item--desktop-17-24']}`}>

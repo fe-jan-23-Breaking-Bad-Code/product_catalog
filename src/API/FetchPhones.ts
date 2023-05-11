@@ -38,12 +38,16 @@ type Phone = {
 
 export function getPhones(from?: number, to?: number): Promise<Phones[]> {
 
-  if (from === undefined || to === undefined) {
-    return fetch(`${BASE_URL}/phones`)
-      .then(response => response.json());
-  }
+export function getPhones(): Promise<Phones[]> {
+  return fetch(`${BASE_URL}/phones`)
+    .then(response => response.json());
+}
 
 
+export function getPhonesInRange(
+  from: number,
+  to: number,
+): Promise<PhonesPage> {
   const queryParams = new URLSearchParams({
     from: from.toString(),
     to: to.toString(),
