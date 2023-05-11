@@ -18,7 +18,6 @@ export const ProductPage: React.FC = () => {
     }
   },[productId]);
 
-
   return (
     <div>
       {/* Navigation component */}
