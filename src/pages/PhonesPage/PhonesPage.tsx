@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { getPhones } from '../../API/FetchPhones';
 import { useDispatch } from 'react-redux';
 import { actions as phonesActions } from '../../app/reducers/phones';
 import { useAppSelector } from '../../hooks';
 import { PhoneCard } from '../../components/Card';
+import { Pagination } from '../../components/Pagination';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -11,8 +12,26 @@ export const PhonesPage: React.FC = () => {
   const favourites = useAppSelector(store => store.favourites);
   const cart = useAppSelector(store => store.cart);
 
+  const itemsPerPage = 4;
+  const pageByDefault = 1;
+
+  const [currentPage, setCurrentPage] = useState(pageByDefault);
+
+  const firstItemIndex = itemsPerPage * (currentPage - 1);
+  const lastItemIndex = currentPage === pageByDefault
+    ? itemsPerPage
+    : itemsPerPage * currentPage;
+
+  const shownItems = list.slice(firstItemIndex, lastItemIndex);
+  //  instead, we will make a request to the server from firstItemIndex to lastItemIndex
+
+  const selectPage = (page: number) => {
+    setCurrentPage(page);
+  };
+  // should to send in helpers
+
   useEffect(() => {
-    getPhones(0, 5).then(phones => {
+    getPhones().then(phones => {
       dispatch(phonesActions.set(phones));
     });
   }, []);
@@ -21,7 +40,7 @@ export const PhonesPage: React.FC = () => {
     <div className="container">
       <h1 className="title">Phones Page</h1>
 
-      {list.map(phone => (
+      {shownItems.map(phone => (
         <PhoneCard
           key={phone.id}
           phone={phone}
@@ -29,6 +48,13 @@ export const PhonesPage: React.FC = () => {
           isInFavourites={favourites.includes(phone.id)}
         />
       ))}
+
+      <Pagination
+        total={list.length}
+        perPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={selectPage}
+      />
     </div>
   );
 };
