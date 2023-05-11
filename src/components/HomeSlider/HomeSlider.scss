@@ -1,0 +1,178 @@
+@import '../../../public/global-styles/utils/mixins.scss';
+
+.helper__container {
+  position: relative;
+}
+
+.slider_container {
+  width: 100%;
+  margin: 0 auto;
+
+  @include onTablet {
+    width: 490px;
+  }
+
+  @media (min-width: 800px) {
+    width: 640px;
+  }
+
+  @media (min-width: 1000px) {
+    width: 800px;
+  }
+
+  @include onDesktop {
+    width: 1040px;
+  }
+}
+
+.slider {
+  position: relative;
+
+  &_item {
+    height: 320px;
+
+    @media (min-width: 400px) {
+      height: 500px;
+    }
+
+    @include onTablet {
+      height: 189px;
+    }
+
+    @media (min-width: 800px) {
+      height: 240px;
+    }
+
+    @media (min-width: 1000px) {
+      height: 300px;
+    }
+
+    @include onDesktop {
+      height: 400px;
+    }
+
+    &--first {
+      background-image: url('./images/previev_banner_mobile.png');
+      background-position: center;
+      background-size: cover;
+
+      @include onTablet {
+        background-image: url('./images/preview_banner.png');
+      }
+
+      @include onDesktop {
+        background-image: url('./images/preview_banner.png');
+      }
+    }
+
+    &--temp {
+      text-align: center;
+      background-color: #000;
+      color: #fff;
+    }
+  }
+}
+
+.slick-list {
+  height: 320px;
+
+  @media (min-width: 400px) {
+    height: 500px;
+  }
+
+  @include onTablet {
+    height: 189px;
+  }
+
+  @media (min-width: 800px) {
+    height: 240px;
+  }
+
+  @media (min-width: 1000px) {
+    height: 300px;
+  }
+
+  @include onDesktop {
+    height: 400px;
+  }
+}
+
+.slick-next, .slick-prev {
+  display: none;
+  width: 32px;
+  height: 189px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #B4BDC4;
+  top: 0;
+  transform: translateY(0%);
+
+  @include onTablet {
+    display: flex;
+    height: 189px;
+  }
+
+  @media (min-width: 800px) {
+    height: 240px;
+  }
+
+  @media (min-width: 1000px) {
+    height: 300px;
+  }
+
+  @include onDesktop {
+    display: flex;
+    height: 400px;
+  }
+}
+
+.slick-prev {
+  left: -51px;
+
+  @include onTablet {
+    left: -51px;
+  }
+
+  @include onDesktop {
+    left: -48px;
+  }
+}
+
+.slick-next {
+  right: -51px;
+
+  @include onTablet {
+    right: -51px;
+  }
+
+  @include onDesktop {
+    right: -48px;
+  }
+}
+
+.slick-next::before, .slick-prev::before {
+  display: none;
+}
+
+.custom-dots {
+  padding-top: 12px;
+  text-align: center;
+
+  & li {
+    display: inline-block;
+    margin: 0 14px;
+    width: 14px;
+    height: 4px;
+    background-color: #E2E6E9;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.slick-active {
+      background-color: #313237;
+    }
+
+    & button {
+      display: none;
+    }
+  }
+}
