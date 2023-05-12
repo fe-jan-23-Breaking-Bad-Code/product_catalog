@@ -1,8 +1,15 @@
 @import '../../../public/global-styles/utils/mixins';
 @import '../../../public/global-styles/utils/variables';
+@import '../../../public/global-styles/utils/grid.scss';
 
 .product-acions {
-  margin: 0 16px;
+  &--margin {
+    margin: 56px 16px;
+  }
+
+  &--line {
+    opacity: 0;
+  }
 
   &__available-colors-container {
     display: flex;
@@ -43,6 +50,7 @@
     margin-bottom: 24px;
     padding-bottom: 24px;
     border-bottom: 1px solid #E2E6E9;
+    gap: 8px;
 
     &--capacity {
       display: flex;
@@ -67,4 +75,21 @@
   justify-content: space-between;
   margin-bottom: 8px;
   color: $secondary;
+}
+
+.price_container {
+  display: flex;
+  gap: 8px;
+
+  &--price {
+    font-size: 32px;
+  }
+
+  &--price-discount {
+    font-size: 22px;
+    font-family: 'Mont-SemiBold';
+    font-weight: 500;
+    text-decoration-line: line-through;
+    color: $secondary;
+  }
 }
