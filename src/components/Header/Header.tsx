@@ -8,6 +8,7 @@ import { Navigation } from '../Navigation';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { NavLink } from 'react-router-dom';
 import { useAppSelector } from '../../hooks';
+import classNames from 'classnames';
 
 export const Header: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -54,7 +55,10 @@ export const Header: React.FC = () => {
           <p className={styles.header_cart}>
             <NavLink
               to="/favourites"
-              className={styles.header_cart}
+              className={({ isActive }) => classNames(
+                styles.header_cart,
+                {[styles.header_cart__active] : isActive}
+              )}
             >
               <img src={Favorites} alt="favorites" />
               {favouritesCount > 0 && (
@@ -68,7 +72,10 @@ export const Header: React.FC = () => {
           <p className={styles.header_cart}>
             <NavLink
               to={'/cart'}
-              className={styles.header_cart}
+              className={({ isActive }) => classNames(
+                styles.header_cart,
+                {[styles.header_cart__active] : isActive}
+              )}
             >
               <img src={Cart} alt="cart" />
               {cartCount > 0 && (

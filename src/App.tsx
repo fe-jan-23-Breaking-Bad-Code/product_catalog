@@ -51,6 +51,7 @@ export const App = () => {
         {isModalVisible && <SuccessModal onClose={handleCloseModal} />}
 
         <TestPage />
+
         <Footer />
       </main>
     </div>

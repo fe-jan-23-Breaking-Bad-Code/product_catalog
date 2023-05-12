@@ -12,11 +12,11 @@
     width: 490px;
   }
 
-  @media (min-width: 800px) {
+  @include breakpoint_800 {
     width: 640px;
   }
 
-  @media (min-width: 1000px) {
+  @include breakpoint_1000 {
     width: 800px;
   }
 
@@ -39,11 +39,11 @@
       height: 189px;
     }
 
-    @media (min-width: 800px) {
+    @include breakpoint_800 {
       height: 240px;
     }
 
-    @media (min-width: 1000px) {
+    @include breakpoint_1000 {
       height: 300px;
     }
 
@@ -90,11 +90,11 @@
     height: 189px;
   }
 
-  @media (min-width: 800px) {
+  @include breakpoint_800 {
     height: 240px;
   }
 
-  @media (min-width: 1000px) {
+  @include breakpoint_1000 {
     height: 300px;
   }
 
@@ -118,11 +118,11 @@
     height: 189px;
   }
 
-  @media (min-width: 800px) {
+  @include breakpoint_800 {
     height: 240px;
   }
 
-  @media (min-width: 1000px) {
+  @include breakpoint_1000 {
     height: 300px;
   }
 
