@@ -16,6 +16,8 @@ import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 
+das
+
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -35,14 +37,14 @@ export const App = () => {
 
           <Route path="/tablets" element={<TabletsPage />} />
 
-          <Route path="/accessories" element={<AccessoriesPage />} />
+          <Route path="/accesories" element={<AccessoriesPage />} />
 
           <Route path="/cart" element={<CartPage />} />
 
           <Route path="/product/:productId" element={<ProductPage />} />
-          
+
           <Route path="/page-not-found" element={<NotFoundPage />} />
-          
+
           <Route path="/favourites" element={<FavouritesPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
