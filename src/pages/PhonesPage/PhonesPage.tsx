@@ -15,6 +15,8 @@ export const PhonesPage: React.FC = () => {
   const [searchParams] = useSearchParams();
   const page = searchParams.get('page');
 
+  console.log(cart);
+
   const itemsPerPage = 4;
   const pageByDefault = Number(page) || 1;
 

@@ -20,6 +20,8 @@ export const CartPage: React.FC = () => {
   const cart = useAppSelector(store => store.cart);
   const { list } = useAppSelector(store => store.phones);
 
+  console.log(cart);
+
   const phonesInCart = useMemo(() => {
     return list.reduce((acc: CartPhone[], phone) => {
       const cartItem = cart.find(item => item.id === phone.id);
