@@ -7,7 +7,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { getPhoneById } from '../../API/FetchPhones';
 
-
 export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
   const { productId } = useParams();
@@ -16,23 +15,23 @@ export const ProductPage: React.FC = () => {
   useEffect(() => {
     if (productId) {
       getPhoneById(productId)
-        .then(data => {
+        .then((data) => {
           setPhone(data);
         })
         .catch(() => {
           navigate('/page-not-found');
         });
     }
-  },[productId, navigate]);
+  }, [productId, navigate]);
 
-  if(!phone){
+  if (!phone) {
     return null;
   }
 
   console.log(phone);
 
   return (
-    <div>
+    <div className={`${styles.techspecs__info} ${styles.grid} ${styles['grid--desktop']}`}>
       {/* Navigation component */}
 
       {/* back button */}
@@ -44,13 +43,11 @@ export const ProductPage: React.FC = () => {
       {/* images component */}
 
       {/* Variants,actions component */}
-
-      <AboutSection phone={phone} />
-
+      <AboutSection phone={phone}/>
+    
       <TechSpecTable phoneTechInfo={phone} />
 
       {/* You may also like component */}
-
     </div>
   );
 };
