@@ -19,7 +19,7 @@ import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 
-
+dsa
 
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -39,7 +39,7 @@ export const App = () => {
           <Route path="/phones" element={<PhonesPage />} />
 
           <Route path="/tablets" element={<TabletsPage />} />
-          
+
           <Route path="/accesories" element={<AccessoriesPage />} />
 
           <Route path="/cart" element={<CartPage />} />
