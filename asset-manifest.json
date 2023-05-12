@@ -1,16 +1,24 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.ce886d98.css",
-    "main.js": "/product_catalog/static/js/main.dc202e5d.js",
+    "main.css": "/product_catalog/static/css/main.69b3e8d8.css",
+    "main.js": "/product_catalog/static/js/main.f30e9262.js",
+    "static/media/banner-phones.png": "/product_catalog/static/media/banner-phones.b4eeda8bd82b712057a2.png",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.ba6cb610da24822ef9348ec48e2bf1c1.svg",
+    "static/media/banner-tablets.png": "/product_catalog/static/media/banner-tablets.a962057c1043a08f7737.png",
     "static/media/Mont-Bold.ttf": "/product_catalog/static/media/Mont-Bold.55f2f911d04f1bbf1328.ttf",
     "static/media/Mont-Regular.ttf": "/product_catalog/static/media/Mont-Regular.48fedf56dfaee955e6a2.ttf",
     "static/media/Mont-SemiBold.ttf": "/product_catalog/static/media/Mont-SemiBold.e6aa7cc9a3c63bed306e.ttf",
+    "static/media/preview_banner.png": "/product_catalog/static/media/preview_banner.d709dd3c1afa1b286ce4.png",
+    "static/media/previev_banner_mobile.png": "/product_catalog/static/media/previev_banner_mobile.bfc30e4c397ce2b5d293.png",
+    "static/media/slick.svg": "/product_catalog/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/product_catalog/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/product_catalog/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/shop_cart.svg": "/product_catalog/static/media/shop_cart.13acbe4f48e4538900d85556f5d53763.svg",
     "static/media/shoping-bar.svg": "/product_catalog/static/media/shoping-bar.a844f4cec32430f1c040.svg",
     "static/media/Heart.svg": "/product_catalog/static/media/Heart.af92c070d2573cf07dec.svg",
     "static/media/favorites.svg": "/product_catalog/static/media/favorites.dbd5bfb9c3bafc92b9b402bff325383f.svg",
     "static/media/heart.svg": "/product_catalog/static/media/heart.b94e5d2f03b487d648cd.svg",
+    "static/media/slick.woff": "/product_catalog/static/media/slick.295183786cd8a1389865.woff",
     "static/media/Heart-red.svg": "/product_catalog/static/media/Heart-red.a3b711b5bd5e5f67f9a8.svg",
     "index.html": "/product_catalog/index.html",
     "static/media/burger-close.svg": "/product_catalog/static/media/burger-close.b11c0434ab2a9f3b6727.svg",
@@ -21,15 +29,17 @@
     "static/media/nextPageDisabled.svg": "/product_catalog/static/media/nextPageDisabled.a36e74fa66c087c3db88ae6b2cd1af65.svg",
     "static/media/prevPage.svg": "/product_catalog/static/media/prevPage.7d3c7204a569b14ca2c58f128de43b0a.svg",
     "static/media/prevPageDisabled.svg": "/product_catalog/static/media/prevPageDisabled.4ef73287ca8607caae0d6c0ee3e8d264.svg",
+    "static/media/right-icon.svg": "/product_catalog/static/media/right-icon.6243519801266c067430d205c5f51f88.svg",
     "static/media/success.svg": "/product_catalog/static/media/success.542cf6b3006c6e5b897706b884231771.svg",
     "static/media/vector-left.svg": "/product_catalog/static/media/vector-left.911fec69bc4dbef52b3c6beda4da8be8.svg",
     "static/media/vector-top.svg": "/product_catalog/static/media/vector-top.7a596121a6fc9bfe5d9f.svg",
+    "static/media/left-icon.svg": "/product_catalog/static/media/left-icon.df6bf99a8d32da8c7d1c0239e55cf2ef.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.4f727ec4693f6105d0f6.svg",
-    "main.ce886d98.css.map": "/product_catalog/static/css/main.ce886d98.css.map",
-    "main.dc202e5d.js.map": "/product_catalog/static/js/main.dc202e5d.js.map"
+    "main.69b3e8d8.css.map": "/product_catalog/static/css/main.69b3e8d8.css.map",
+    "main.f30e9262.js.map": "/product_catalog/static/js/main.f30e9262.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce886d98.css",
-    "static/js/main.dc202e5d.js"
+    "static/css/main.69b3e8d8.css",
+    "static/js/main.f30e9262.js"
   ]
 }
