@@ -3,6 +3,7 @@ import styles from './ProductAcions.module.scss';
 import { getPhoneById } from '../../API/FetchPhones';
 import { Phone } from '../../types/Phone';
 import { MainButton } from '../MainButton';
+import { Link, NavLink } from 'react-router-dom';
 
 const ProductAcions: React.FC = () => {
   const [currentPhone, setCurrentPhone] = useState<Phone | null>(null);
@@ -11,18 +12,31 @@ const ProductAcions: React.FC = () => {
     setSelectedColor,
   ] = useState<string>('');
   const [selectedCapacity, setSelectedCapacity] = useState<string>('');
+  const [fullPhoneUrl, setFullPhoneUrl] = useState<string>('');
+
+  async function fetchPhone() {
+    try {
+      const phone = await getPhoneById('apple-iphone-11-128gb-green');
+      setCurrentPhone(phone);
+      setSelectedColor(phone.color);
+      setSelectedCapacity(phone.capacity);
+      setFullPhoneUrl(phone.id);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   useEffect(() => {
-    getPhoneById('apple-iphone-7-32gb-black')
-      .then((phone) => {
-        setCurrentPhone(phone);
-        setSelectedColor(phone.color);
-        setSelectedCapacity(phone.capacity);
-      })
-      .catch((err: Error) => {
-        console.log(err);
-      });
+    fetchPhone();
   }, []);
+
+  useEffect(() => {
+    const parts = fullPhoneUrl.split('-');
+    parts.splice(-1, 1, selectedColor);
+    parts.splice(-2, 1, selectedCapacity.toLocaleLowerCase());
+    const updatedUrl = parts.join('-');
+    setFullPhoneUrl(updatedUrl);
+  }, [selectedColor, selectedCapacity, fullPhoneUrl]);
 
   const availableColors = currentPhone?.colorsAvailable;
   const availableCapacity = currentPhone?.capacityAvailable;
@@ -50,7 +64,8 @@ const ProductAcions: React.FC = () => {
             const isSelectedColor = selectedColor === color;
 
             return (
-              <div
+              <Link
+                to={`/product/${fullPhoneUrl}`}
                 key={color}
                 className={`${styles['product-acions__available-color-container']}`}
                 style={{
@@ -66,7 +81,7 @@ const ProductAcions: React.FC = () => {
                   }}
                   onClick={() => setSelectedColor(color)}
                 />
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -82,22 +97,27 @@ const ProductAcions: React.FC = () => {
         <div className={`${styles['product-acions__available-capacity-container']}`}>
           {availableCapacity?.map((capacity) => {
             const isSelectedCapacity = selectedCapacity === capacity;
+            // fullPhoneUrlCopy.splice(-2, 1, capacity.toLocaleLowerCase());
+            // console.log(fullPhoneUrlCopy);
 
             return (
-              <button
-                key={capacity}
-                className={`${styles['product-acions__available-capacity-container--capacity']}`}
-                style={{
-                  backgroundColor: isSelectedCapacity
-                    ? '#313237'
-                    : 'white',
-                  border: isSelectedCapacity ? '0px' : '1px solid #B4BDC4',
-                  color: isSelectedCapacity ? 'white' : '#313237',
-                }}
-                onClick={() => setSelectedCapacity(capacity)}
-              >
-                {capacity}
-              </button>
+              <Link
+                to={`/product/${fullPhoneUrl}`}
+                key={capacity}>
+                <button
+                  className={`${styles['product-acions__available-capacity-container--capacity']}`}
+                  style={{
+                    backgroundColor: isSelectedCapacity
+                      ? '#313237'
+                      : 'white',
+                    border: isSelectedCapacity ? '0px' : '1px solid #B4BDC4',
+                    color: isSelectedCapacity ? 'white' : '#313237',
+                  }}
+                  onClick={() => setSelectedCapacity(capacity)}
+                >
+                  {capacity}
+                </button>
+              </Link>
             );
           })}
         </div>
