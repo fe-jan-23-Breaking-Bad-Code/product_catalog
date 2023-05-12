@@ -10,8 +10,21 @@
   }
 }
 
+
 @mixin square($size) {
   width: $size;
   height: $size;
+}
+
+@mixin breakpoint_800 {
+  @media (min-width: 800px) {
+    @content;
+  }
+}
+
+@mixin breakpoint_1000 {
+  @media (min-width: 1000px) {
+    @content;
+  }
 }
 

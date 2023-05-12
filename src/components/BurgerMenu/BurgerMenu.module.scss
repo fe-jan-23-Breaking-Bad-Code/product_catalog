@@ -35,25 +35,33 @@
     border-bottom: 1px solid #E2E6E9;
 
     &__logo {
-      margin-left: 20px;
+      margin-left: 16px;
     }
   }
 
   &__link {
-    text-transform: uppercase;
     font-family: 'Mont-Bold', sans-serif;
     text-decoration: none;
+    color: $secondary;
     display: flex;
     justify-content: center;
     margin-top: 32px;
 
-    &__text {
-      color: $footer-text-color;
-      height: 27px;
+    &--active {
+      position: relative;
+      display: inline-block;
+      margin-left: 50%;
+      transform: translateX(-50%);
+      color: $primary;
 
-      &:hover {
-        color: black;
-        border-bottom: 1px solid black;
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -10px;
+        height: 3px;
+        background-color: $primary;
       }
     }
   }
@@ -62,7 +70,6 @@
     margin-top: auto;
     display: flex;
     height: 100px;
-
 
   &__quantity {
     text-align: center;
@@ -97,6 +104,21 @@
 
       &--favourites {
         background-image: url('../../img/heart.svg');
+      }
+
+      &--active {
+        position: relative;
+        color: $primary;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          height: 3px;
+          background-color: $primary;
+        }
       }
     }
   }
