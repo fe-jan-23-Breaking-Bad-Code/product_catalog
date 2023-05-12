@@ -64,7 +64,7 @@ export const CartPage: React.FC = () => {
             Back
           </p>
         </p>
-        <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']}`}>
+        <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']} ${styles['grid--tablet']}`}>
           <div className={styles.title}>
             <PagesTitle title="Cart" />
           </div>

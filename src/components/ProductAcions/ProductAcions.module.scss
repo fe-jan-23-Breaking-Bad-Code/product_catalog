@@ -1,12 +1,14 @@
 @import '../../../public/global-styles/utils/mixins';
 @import '../../../public/global-styles/utils/variables';
 @import '../../../public/global-styles/utils/grid.scss';
+@import '../../../public/global-styles/index.scss';
 
 .product-acions {
-  &--margin {
-    margin: 56px 16px;
-  }
+  margin: 56px 0;
 
+  @include onDesktop {
+    margin: 0;
+  }
   &--line {
     opacity: 0;
   }

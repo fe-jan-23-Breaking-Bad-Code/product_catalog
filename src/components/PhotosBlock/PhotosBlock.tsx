@@ -5,14 +5,14 @@ import { Phone } from '../../types/Phone';
 
 type Props = {
   phone: Phone | undefined,
-  images: string[] | undefined,
 }
 
-const PhotosBlock: React.FC<Props> = ({ phone, images }) => {
+const PhotosBlock: React.FC<Props> = ({ phone }) => {
   const [phoneImages, setPhoneImages] = useState<string[] | undefined>([]);
   const [selectedPhoto, setSelectedPhoto] = useState<string>('');
 
   useEffect(() => {
+    const images = phone?.images;
     setPhoneImages(images);
 
     if (images) {
@@ -38,7 +38,13 @@ const PhotosBlock: React.FC<Props> = ({ phone, images }) => {
   };
 
   return (
-    <div className={styles.photos_container}>
+    <div className={`
+        ${styles.photos_container}
+        ${styles.container}
+        ${styles['photos_container--margin']}
+        ${styles['grid__item--desktop-1-12']}
+      `}
+    >
       <div
         className={`
           ${styles.photos_container__main_block}

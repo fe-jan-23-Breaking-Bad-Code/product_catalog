@@ -56,11 +56,14 @@ const CardInfo: React.FC<Props> = ({ phone }) => {
     <div>
       <div className={stylesAcions.price_container}>
         <p className={`${styles.card__price} ${stylesAcions['price_container--price']}`}>
-            ${priceRegular}
+            ${priceDiscount || priceRegular}
         </p>
-        <p className={`${styles.card__price} ${stylesAcions['price_container--price-discount']}`}>
-            ${priceDiscount}
-        </p>
+
+        {priceDiscount && (
+          <p className={`${styles.card__price} ${stylesAcions['price_container--price-discount']}`}>
+            {priceRegular}
+          </p>
+        )}
       </div>
 
 

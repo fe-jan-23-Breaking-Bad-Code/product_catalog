@@ -1,11 +1,21 @@
 @import '../../../public/global-styles/utils/mixins';
+@import '../../../public/global-styles/utils/grid.scss';
+@import '../../../public/global-styles/index.scss';
 
 .photos_container {
   @include square(max-content);
-  border: 1px solid black;
+  // border: 1px solid black;
   display: flex;
   flex-direction: column;
+  justify-self: center;
   gap: 23px;
+
+  &--margin {
+    margin-bottom: 56px;
+    @include onDesktop {
+      justify-self: flex-start;
+    }
+  }
 
   @include onTablet {
     display: flex;
@@ -44,8 +54,8 @@
   }
 
   &__main_block {
-    @include square(275px);
-    border: 1px solid red;
+    @include square(300px);
+    // border: 1px solid red;
     align-self: center;
 
     @include onTablet {

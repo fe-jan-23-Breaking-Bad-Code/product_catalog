@@ -25,7 +25,10 @@ export const App = () => {
 
   return (
     <div className="App">
-      <main className="section">
+      <main
+        className="section"
+        style={{ display: 'grid' }}
+      >
         <Header />
 
         <Routes>
@@ -40,9 +43,9 @@ export const App = () => {
           <Route path="/cart" element={<CartPage />} />
 
           <Route path="/product/:productId" element={<ProductPage />} />
-          
+
           <Route path="/page-not-found" element={<NotFoundPage />} />
-          
+
           <Route path="/favourites" element={<FavouritesPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
