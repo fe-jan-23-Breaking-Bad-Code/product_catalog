@@ -55,34 +55,36 @@ export const PhoneCard: React.FC<Props> = ({
       />
 
       <p className={styles.card__description}>
-        {name}
+        {name} (MQ023)
       </p>
 
-      <p className={styles.card__price}>${price}</p>
+      <p className={styles.card__price}>
+        ${price}
+      </p>
 
       <hr className={styles.card__devider}/>
 
       <div className={styles.card__information}>
-        <p className={styles.card__information_description}>
+        <p className={styles['card__information--description']}>
           Screen
         </p>
 
-        <p className={styles.card__information_description}>
+        <p className={styles['card__information--description']}>
           {screen}
         </p>
 
-        <p className={styles.card__information_description}>
+        <p className={styles['card__information--description']}>
           Capacity
         </p>
 
-        <p className={styles.card__information_description}>
+        <p className={styles['card__information--description']}>
           {capacity}
         </p>
-        <p className={styles.card__information_description}>
+        <p className={styles['card__information--description']}>
           RAM
         </p>
 
-        <p className={styles.card__information_description}>
+        <p className={styles['card__information--description']}>
           {ram}
         </p>
       </div>
