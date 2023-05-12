@@ -25,6 +25,13 @@ const phonesSlice = createSlice({
     set: (phones, action: PayloadAction<Phones[]>) => {
       phones.list = action.payload;
     },
+    setMany: (phones, action: PayloadAction<Phones[]>) => {
+      phones.list.push(
+        ...action.payload.filter(
+          ({ id }) => !phones.list.some(phone => phone.id === id)
+        ),
+      );
+    },
     setPage: (phones, action: PayloadAction<PhonesPage>) => {
       phones.currentPageList = action.payload.data;
       phones.total = action.payload.total;
