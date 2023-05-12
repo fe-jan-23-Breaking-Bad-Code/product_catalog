@@ -16,6 +16,8 @@ import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 
+das
+
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -38,7 +40,7 @@ export const App = () => {
 
           <Route path="/tablets" element={<TabletsPage />} />
 
-          <Route path="/accessories" element={<AccessoriesPage />} />
+          <Route path="/accesories" element={<AccessoriesPage />} />
 
           <Route path="/cart" element={<CartPage />} />
 
@@ -54,6 +56,7 @@ export const App = () => {
         {isModalVisible && <SuccessModal onClose={handleCloseModal} />}
 
         <TestPage />
+
         <Footer />
       </main>
     </div>
