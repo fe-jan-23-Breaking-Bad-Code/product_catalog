@@ -3,20 +3,33 @@ import React, { useEffect, useState } from 'react';
 import { AboutSection } from '../../components/AboutSection/AboutSection';
 import { TechSpecTable } from '../../components/TechSpecsTable';
 import styles from './ProductPage.module.scss';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { getPhoneById } from '../../API/FetchPhones';
+
 
 export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
   const { productId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (productId) {
       getPhoneById(productId)
-        .then(data => setPhone(data));
+        .then(data => {
+          setPhone(data);
+        })
+        .catch(() => {
+          navigate('/page-not-found');
+        });
     }
-  },[productId]);
+  },[productId, navigate]);
+
+  if(!phone){
+    return null;
+  }
+
+  console.log(phone);
 
   return (
     <div>
@@ -32,9 +45,9 @@ export const ProductPage: React.FC = () => {
 
       {/* Variants,actions component */}
 
-      <AboutSection />
+      <AboutSection phone={phone} />
 
-      <TechSpecTable />
+      <TechSpecTable phoneTechInfo={phone} />
 
       {/* You may also like component */}
 

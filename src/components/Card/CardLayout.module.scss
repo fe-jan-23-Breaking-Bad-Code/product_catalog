@@ -1,3 +1,4 @@
+@import '../../../public/global-styles/index.scss';
 
 $name-height: 21px;
 
@@ -23,11 +24,16 @@ $name-height: 21px;
   }
 
   &__description {
+    color: $primary;
     font-size: 14px;
     font-weight: 600;
     line-height: $name-height;
     height: $name-height * 2;
     margin-bottom: 8px;
+
+    &:hover{
+      color: $secondary;
+    }
 
   }
 

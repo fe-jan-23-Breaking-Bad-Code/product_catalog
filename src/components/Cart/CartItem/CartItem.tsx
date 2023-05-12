@@ -1,31 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import styles from './CartItem.module.scss';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { actions as cartActions } from '../../../app/reducers/cart';
 import { Phones } from '../../../types/Phones';
 import { BASE_URL } from '../../../API/FetchPhones';
 
 interface Props {
-  phone: Phones,
-  count: number,
+  phone: Phones;
+  count: number;
 }
 
-export const CartItem: React.FC<Props> = ({
-  phone,
-  count,
-}) => {
-  const {
-    id,
-    image,
-    fullPrice,
-    name,
-  } = phone;
+export const CartItem: React.FC<Props> = ({ phone, count }) => {
+  const { id, image, fullPrice, name, phoneId } = phone;
   const [quantity, setQuantity] = useState(count);
   const dispatch = useDispatch();
   const exampleUrl = BASE_URL + '/' + image;
 
   useEffect(() => {
-    dispatch(cartActions.setCount({id, quantity: quantity}));
+    dispatch(cartActions.setCount({ id, quantity: quantity }));
   }, [quantity]);
 
   const handleIncrement = () => {
@@ -48,12 +41,19 @@ export const CartItem: React.FC<Props> = ({
         className={styles.cartitem__close}
         onClick={handleRemoveFromCart}
       />
+      <Link to={`/product/${phoneId}`}>
+        <img 
+          className={styles.cartitem__photo} 
+          src={exampleUrl} 
+          alt={name} />
+      </Link>
 
-      <img className={styles.cartitem__photo} src={exampleUrl} alt="" />
-
-      <p className={styles.cartitem__name}>
+      <Link 
+        to={`/product/${phoneId}`} 
+        className={styles.cartitem__name}
+      >
         {name}
-      </p>
+      </Link>
 
       <div className={styles.cartitem__block}>
         <div className={styles.cartitem__icons}>
@@ -68,9 +68,7 @@ export const CartItem: React.FC<Props> = ({
           />
         </div>
 
-        <p className={styles.cartitem__price}>
-          $ {fullPrice * quantity}
-        </p>
+        <p className={styles.cartitem__price}>$ {fullPrice * quantity}</p>
       </div>
     </div>
   );

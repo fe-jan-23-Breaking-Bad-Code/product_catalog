@@ -1,7 +1,23 @@
 import React from 'react';
+import { Phone } from '../../types/Phone';
 import styles from './TechSpecsTable.module.scss';
 
-export const TechSpecTable = () => {
+type Props = {
+  phoneTechInfo: Phone
+}
+
+export const TechSpecTable:React.FC<Props> = ({ phoneTechInfo }) => {
+  const { 
+    screen, 
+    resolution,
+    processor,
+    ram,
+    capacity,
+    camera,
+    zoom,
+    cell 
+  } = phoneTechInfo;
+
   return (
     <div className={styles.tech}>
       <h3 className={styles.tech__title}>Tech specs</h3>
@@ -12,7 +28,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          6.5” OLED
+          {screen}
         </p>
 
         <p className={styles['tech__specs--description']}>
@@ -20,7 +36,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          2688x1242
+          {resolution}
         </p>
 
         <p className={styles['tech__specs--description']}>
@@ -28,7 +44,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          Apple A12 Bionic
+          {processor}
         </p>
 
         <p className={styles['tech__specs--description']}>
@@ -36,7 +52,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          3 GB
+          {ram}
         </p>
 
         <p className={styles['tech__specs--description']}>
@@ -44,7 +60,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          64 GB
+          {capacity}
         </p>
 
         <p className={styles['tech__specs--description']}>
@@ -52,7 +68,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          12 Mp + 12 Mp + 12 Mp
+          {camera}
         </p>
 
         <p className={styles['tech__specs--description']}>
@@ -60,7 +76,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          Optical, 2x
+          {zoom}
         </p>
 
         <p className={styles['tech__specs--description']}>
@@ -68,7 +84,7 @@ export const TechSpecTable = () => {
         </p>
 
         <p className={styles['tech__specs--description']}>
-          GSM, LTE, UMTS
+          {cell}
         </p>
       </div>
     </div>
