@@ -10,6 +10,12 @@
   }
 }
 
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
+
 @mixin breakpoint_800 {
   @media (min-width: 800px) {
     @content;

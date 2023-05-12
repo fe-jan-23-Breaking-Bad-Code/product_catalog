@@ -27,7 +27,10 @@ export const App = () => {
 
   return (
     <div className="App">
-      <main className="section">
+      <main
+        className="section"
+        style={{ display: 'grid' }}
+      >
         <Header />
 
         <Routes>
