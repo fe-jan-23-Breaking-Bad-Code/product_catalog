@@ -1,6 +1,8 @@
 import React from 'react';
-import { Header } from '../../components/Header';
+import styles from './TabletsPage.module.scss';
 
 export const TabletsPage: React.FC = () => {
-  return <Header />;
+  return <h1 className={styles.title}>
+    Tablets
+  </h1>;
 };
