@@ -1,17 +1,39 @@
-@import '../../../public/global-styles/index.scss';
 @import '../../../public/global-styles/utils/_mixins.scss';
+
+.container {
+  padding-top: 24px;
+  margin: 0 auto;
+
+  @include onTablet {
+    max-width: 592px;
+    padding-top: 32px;
+  }
+
+  @include breakpoint_800 {
+    max-width: 800px;
+  }
+
+  @include onDesktop {
+    max-width: 1136px;
+    padding-top: 56px;
+  }
+}
+
 
 .title {
   font-family: 'Mont-Bold', sans-serif;
   font-size: 32px;
   margin-bottom: 24px;
+  padding: 0 16px;
 
   @include onTablet {
+    padding: 0;
     font-size: 48px;
     margin-bottom: 32px;
   }
 
   @include onDesktop {
+    padding: 0;
     font-size: 48px;
     margin-bottom: 56px;
   }

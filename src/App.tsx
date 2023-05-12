@@ -39,7 +39,7 @@ export const App = () => {
           <Route path="/phones" element={<PhonesPage />} />
 
           <Route path="/tablets" element={<TabletsPage />} />
-          
+
           <Route path="/accessories" element={<AccessoriesPage />} />
 
           <Route path="/cart" element={<CartPage />} />
@@ -55,7 +55,7 @@ export const App = () => {
           <SuccessModal onClose={handleCloseModal} />)}
 
         <TestPage />
-        <Footer />
+        {/*<Footer />*/}
 
       </main>
 

@@ -58,6 +58,21 @@
     display: none;
     box-shadow: -1px 0px 0px #E2E6E9;
 
+    &__active {
+      position: relative;
+      color: $primary;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background-color: $primary;
+      }
+    }
+
     @include onTablet {
       display: flex;
       justify-content: center;

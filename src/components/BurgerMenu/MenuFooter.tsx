@@ -11,9 +11,10 @@ const MenuFooter: React.FC = () => {
     <div className={styles['burger-menu__footer']}>
       <NavLink
         to="/favourites"
-        className={classNames(
+        className={({ isActive }) => classNames(
           styles['burger-menu__footer__button'],
-          styles['burger-menu__footer__button--favourites']
+          styles['burger-menu__footer__button--favourites'],
+          {[styles['burger-menu__footer__button--active']] : isActive}
         )}
       >
         {favouritesCount > 0 && (
@@ -25,9 +26,10 @@ const MenuFooter: React.FC = () => {
 
       <NavLink
         to="/cart"
-        className={classNames(
+        className={({ isActive }) => classNames(
           styles['burger-menu__footer__button'],
-          styles['burger-menu__footer__button--cart']
+          styles['burger-menu__footer__button--cart'],
+          {[styles['burger-menu__footer__button--active']] : isActive}
         )}
       >
         {cartCount > 0 && (
@@ -36,14 +38,6 @@ const MenuFooter: React.FC = () => {
           </div>
         )}
       </NavLink>
-      {/* <a
-        href='/favorites'
-        className={styles['burger-menu__footer__favorite-button']}>
-      </a>
-      <a
-        href='/shopping'
-        className={styles['burger-menu__footer__shoping-button']}>
-      </a> */}
     </div>
   );
 };
