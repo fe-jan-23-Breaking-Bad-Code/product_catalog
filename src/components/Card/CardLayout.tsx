@@ -52,21 +52,35 @@ export const PhoneCard: React.FC<Props> = ({
         {name}
       </Link>
 
-      <p className={styles.card__price}>${price}</p>
+      <p className={styles.card__price}>
+        ${price}
+      </p>
 
       <hr className={styles.card__devider} />
 
       <div className={styles.card__information}>
-        <p className={styles.card__information_description}>Screen</p>
+        <p className={styles['card__information--description']}>
+          Screen
+        </p>
 
-        <p className={styles.card__information_description}>{screen}</p>
+        <p className={styles['card__information--description']}>
+          {screen}
+        </p>
 
-        <p className={styles.card__information_description}>Capacity</p>
+        <p className={styles['card__information--description']}>
+          Capacity
+        </p>
 
-        <p className={styles.card__information_description}>{capacity}</p>
-        <p className={styles.card__information_description}>RAM</p>
+        <p className={styles['card__information--description']}>
+          {capacity}
+        </p>
+        <p className={styles['card__information--description']}>
+          RAM
+        </p>
 
-        <p className={styles.card__information_description}>{ram}</p>
+        <p className={styles['card__information--description']}>
+          {ram}
+        </p>
       </div>
 
       <div className={styles.card__buttons}>
