@@ -8,6 +8,7 @@ import { CartPhone } from '../../types/CartPhone';
 import { getPhonesByIds } from '../../API/FetchPhones';
 import { useDispatch } from 'react-redux';
 import { actions as phonesActions} from '../../app/reducers/phones';
+import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 
 // type Props = {
 //   setIsModalVisible: (boolean: boolean) => void;
@@ -64,9 +65,9 @@ export const CartPage: React.FC = () => {
           </p>
         </p>
         <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']}`}>
-          <h1 className={`${styles.title}`}>
-            Cart
-          </h1>
+          <div className={styles.title}>
+            <PagesTitle title="Cart" />
+          </div>
 
           <CartList cart={phonesInCart} />
 
