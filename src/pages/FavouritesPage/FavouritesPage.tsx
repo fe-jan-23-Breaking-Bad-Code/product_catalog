@@ -5,6 +5,7 @@ import { CardsGrid } from '../../components/CardsGrid';
 import { getPhonesByIds } from '../../API/FetchPhones';
 import { useDispatch } from 'react-redux';
 import { actions as phonesActions } from '../../app/reducers/phones';
+import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 
 
 export const FavouritesPage: React.FC = () => {
@@ -29,7 +30,9 @@ export const FavouritesPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className="title">Phones Page</h1>
+      <div className={styles.title}>
+        <PagesTitle title='Favourites'/>
+      </div>
 
       <CardsGrid productList={favouritePhones} />
     </div>

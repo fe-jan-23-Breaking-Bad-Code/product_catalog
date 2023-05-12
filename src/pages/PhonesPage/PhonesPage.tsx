@@ -6,6 +6,7 @@ import { actions as phonesActions } from '../../app/reducers/phones';
 import { useAppSelector } from '../../hooks';
 import { Pagination } from '../../components/Pagination';
 import { CardsGrid } from '../../components/CardsGrid';
+import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -34,7 +35,11 @@ export const PhonesPage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className="title">Phones Page</h1>
+      <div className={styles.title}>
+        <PagesTitle 
+          title={'Phones Page'}
+        />
+      </div>
 
       <CardsGrid productList={currentPageList} />
 
