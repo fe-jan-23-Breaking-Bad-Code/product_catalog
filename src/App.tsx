@@ -1,10 +1,7 @@
 import './App.module.scss';
 
 import React from 'react';
-import {
-  Routes,
-  Route,
-} from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
 import { NotFoundPage } from './pages/NotFoundPage';
@@ -19,8 +16,6 @@ import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 
-
-
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -30,7 +25,7 @@ export const App = () => {
 
   return (
     <div className="App">
-      <main className='section'>
+      <main className="section">
         <Header />
 
         <Routes>
@@ -45,21 +40,20 @@ export const App = () => {
           <Route path="/cart" element={<CartPage />} />
 
           <Route path="/product/:productId" element={<ProductPage />} />
-
+          
+          <Route path="/page-not-found" element={<NotFoundPage />} />
+          
           <Route path="/favourites" element={<FavouritesPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
 
-        {isModalVisible && (
-          <SuccessModal onClose={handleCloseModal} />)}
+        {isModalVisible && <SuccessModal onClose={handleCloseModal} />}
 
         <TestPage />
-        {/*<Footer />*/}
 
+        <Footer />
       </main>
-
     </div>
   );
 };
-

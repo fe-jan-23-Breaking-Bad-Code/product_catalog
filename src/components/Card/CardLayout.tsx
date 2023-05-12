@@ -1,33 +1,26 @@
 import React from 'react';
 import styles from './CardLayout.module.scss';
-import { BASE_URL} from '../../API/FetchPhones';
+import { BASE_URL } from '../../API/FetchPhones';
 import { Phones } from '../../types/Phones';
 import { useDispatch } from 'react-redux';
 import { actions as cartActions } from '../../app/reducers/cart';
 import { actions as favouritesActions } from '../../app/reducers/favourites';
 import classNames from 'classnames';
 import { MainButton } from '../MainButton';
+import { Link } from 'react-router-dom';
 
 type Props = {
   phone: Phones;
   isInCart: boolean;
   isInFavourites: boolean;
-}
+};
 
 export const PhoneCard: React.FC<Props> = ({
   phone,
   isInCart,
   isInFavourites,
 }) => {
-  const {
-    id,
-    name,
-    price,
-    screen,
-    capacity,
-    ram,
-    image
-  } = phone;
+  const { id, name, price, screen, capacity, ram, image, phoneId } = phone;
   const dispatch = useDispatch();
   const imgUrl = BASE_URL + '/' + image;
 
@@ -43,26 +36,27 @@ export const PhoneCard: React.FC<Props> = ({
     } else {
       dispatch(favouritesActions.add(id));
     }
-
   };
 
   return (
     <div className={styles.card}>
-      <img
-        src={imgUrl}
-        alt="Product_Image"
-        className={styles.card__image}
-      />
+      <Link to={`/product/${phoneId}`}>
+        <img 
+          src={imgUrl} 
+          alt="Product_Image" 
+          className={styles.card__image} 
+        />
+      </Link>
 
-      <p className={styles.card__description}>
-        {name} (MQ023)
-      </p>
+      <Link to={`/product/${phoneId}`} className={styles.card__description}>
+        {name}
+      </Link>
 
       <p className={styles.card__price}>
         ${price}
       </p>
 
-      <hr className={styles.card__devider}/>
+      <hr className={styles.card__devider} />
 
       <div className={styles.card__information}>
         <p className={styles['card__information--description']}>
@@ -90,20 +84,16 @@ export const PhoneCard: React.FC<Props> = ({
       </div>
 
       <div className={styles.card__buttons}>
-
         <MainButton
-          content={ isInCart ? 'Added to cart' : 'Add to cart' }
+          content={isInCart ? 'Added to cart' : 'Add to cart'}
           handler={isInCart ? () => undefined : handleAddToCart}
           isSelected={isInCart}
         />
 
         <button
-          className={classNames(
-            styles.card__buttons_favourite,
-            {
-              [styles['card__buttons_favourite--selected']]: isInFavourites,
-            }
-          )}
+          className={classNames(styles.card__buttons_favourite, {
+            [styles['card__buttons_favourite--selected']]: isInFavourites,
+          })}
           onClick={handleAddToFavourite}
         />
       </div>

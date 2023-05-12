@@ -1,8 +1,10 @@
 import React from 'react';
-import styles from './AccesoriesPage.module.scss';
+import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
+import styles from './Accessories.module.scss';
 
-export const AccessoriesPage: React.FC =() => {
-  return <h1 className={styles.title}>
-    Accesories
-  </h1>;
-};
+
+export const AccessoriesPage = () => (
+  <div className={styles.container}>
+    <PagesTitle title="Accessories Page"/>
+  </div>
+);

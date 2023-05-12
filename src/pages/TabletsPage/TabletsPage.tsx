@@ -1,8 +1,9 @@
 import React from 'react';
+import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import styles from './TabletsPage.module.scss';
 
-export const TabletsPage: React.FC = () => {
-  return <h1 className={styles.title}>
-    Tablets
-  </h1>;
-};
+export const TabletsPage = () => (
+  <div className={styles.container}>
+    <PagesTitle title="Tablets Page"/>
+  </div>
+);

@@ -44,6 +44,10 @@
     font-size: 14px;
     max-width: 128px;
 
+    &:hover{
+      color: $secondary;
+    }
+
     @include onTablet {
       max-width: 176px;
       margin-right: 24px;
