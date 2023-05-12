@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.69b3e8d8.css",
-    "main.js": "/product_catalog/static/js/main.f30e9262.js",
+    "main.css": "/product_catalog/static/css/main.07130598.css",
+    "main.js": "/product_catalog/static/js/main.e1dbde31.js",
     "static/media/banner-phones.png": "/product_catalog/static/media/banner-phones.b4eeda8bd82b712057a2.png",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.ba6cb610da24822ef9348ec48e2bf1c1.svg",
     "static/media/banner-tablets.png": "/product_catalog/static/media/banner-tablets.a962057c1043a08f7737.png",
@@ -29,17 +29,17 @@
     "static/media/nextPageDisabled.svg": "/product_catalog/static/media/nextPageDisabled.a36e74fa66c087c3db88ae6b2cd1af65.svg",
     "static/media/prevPage.svg": "/product_catalog/static/media/prevPage.7d3c7204a569b14ca2c58f128de43b0a.svg",
     "static/media/prevPageDisabled.svg": "/product_catalog/static/media/prevPageDisabled.4ef73287ca8607caae0d6c0ee3e8d264.svg",
-    "static/media/right-icon.svg": "/product_catalog/static/media/right-icon.6243519801266c067430d205c5f51f88.svg",
     "static/media/success.svg": "/product_catalog/static/media/success.542cf6b3006c6e5b897706b884231771.svg",
+    "static/media/right-icon.svg": "/product_catalog/static/media/right-icon.d8be0d9488d520e08fa69a4dff6240a0.svg",
     "static/media/vector-left.svg": "/product_catalog/static/media/vector-left.911fec69bc4dbef52b3c6beda4da8be8.svg",
     "static/media/vector-top.svg": "/product_catalog/static/media/vector-top.7a596121a6fc9bfe5d9f.svg",
-    "static/media/left-icon.svg": "/product_catalog/static/media/left-icon.df6bf99a8d32da8c7d1c0239e55cf2ef.svg",
+    "static/media/left-icon.svg": "/product_catalog/static/media/left-icon.52b1de8135fb515af2ee1d445ea0ad0d.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.4f727ec4693f6105d0f6.svg",
-    "main.69b3e8d8.css.map": "/product_catalog/static/css/main.69b3e8d8.css.map",
-    "main.f30e9262.js.map": "/product_catalog/static/js/main.f30e9262.js.map"
+    "main.07130598.css.map": "/product_catalog/static/css/main.07130598.css.map",
+    "main.e1dbde31.js.map": "/product_catalog/static/js/main.e1dbde31.js.map"
   },
   "entrypoints": [
-    "static/css/main.69b3e8d8.css",
-    "static/js/main.f30e9262.js"
+    "static/css/main.07130598.css",
+    "static/js/main.e1dbde31.js"
   ]
 }
