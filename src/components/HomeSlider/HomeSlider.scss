@@ -65,10 +65,16 @@
       }
     }
 
-    &--temp {
-      text-align: center;
-      background-color: #000;
-      color: #fff;
+    &--second {
+      background-image: url('./images/banner-phones.png');
+      background-position: center;
+      background-size: cover;
+    }
+
+    &--third {
+      background-image: url('./images/banner-tablets.png');
+      background-position: center;
+      background-size: cover;
     }
   }
 }
