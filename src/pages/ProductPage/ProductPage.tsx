@@ -8,7 +8,7 @@ import { Phone } from '../../types/Phone';
 import { getPhoneById } from '../../API/FetchPhones';
 import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
 // eslint-disable-next-line max-len
-import InfoProductSection from '../../components/ProductAcions/ProductAcions';
+import ProductAcions from '../../components/ProductAcions/ProductAcions';
 
 export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
@@ -32,10 +32,15 @@ export const ProductPage: React.FC = () => {
       </h2> */}
 
       {/* images component */}
-      <PhotosBlock />
+      <PhotosBlock phone={phone} images={phone?.images} />
 
       {/* Variants,actions component */}
-      <InfoProductSection />
+      <ProductAcions
+        phone={phone}
+        color={phone?.color}
+        capacity={phone?.capacity}
+        id={phone?.id}
+      />
 
       <AboutSection />
 

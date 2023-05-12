@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import styles from './PhotosBlock.module.scss';
 import { BASE_URL, getPhoneById } from '../../API/FetchPhones';
+import { Phone } from '../../types/Phone';
 
-const PhotosBlock: React.FC = () => {
-  const [phoneImages, setPhoneImages] = useState<string[]>([]);
+type Props = {
+  phone: Phone | undefined,
+  images: string[] | undefined,
+}
+
+const PhotosBlock: React.FC<Props> = ({ phone, images }) => {
+  const [phoneImages, setPhoneImages] = useState<string[] | undefined>([]);
   const [selectedPhoto, setSelectedPhoto] = useState<string>('');
 
   useEffect(() => {
-    getPhoneById('apple-iphone-7-32gb-black')
-      .then((res) => {
-        setPhoneImages(res.images);
-        setSelectedPhoto(res.images[0]);
-      })
-      .catch((err: Error) => {
-        console.log(err);
-      });
-  }, []);
+    setPhoneImages(images);
+
+    if (images) {
+      setSelectedPhoto(images[0]);
+    }
+  }, [phone]);
 
   const imgUrl = (photoUrl: string) => {
     return BASE_URL + '/' + photoUrl;
@@ -44,7 +47,7 @@ const PhotosBlock: React.FC = () => {
       />
 
       <div className={styles.photos_container__list_photos}>
-        {phoneImages.map((image, index) => {
+        {phoneImages?.map((image, index) => {
           return (
             <div
               className={styles.photos_container__list_photos__photo}

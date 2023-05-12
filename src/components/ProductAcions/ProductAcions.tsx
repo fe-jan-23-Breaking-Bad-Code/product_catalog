@@ -4,49 +4,59 @@ import { getPhoneById } from '../../API/FetchPhones';
 import { Phone } from '../../types/Phone';
 import { MainButton } from '../MainButton';
 import { Link, NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { actions as cartActions } from '../../app/reducers/cart';
+import { actions as favouritesActions } from '../../app/reducers/favourites';
 
-const ProductAcions: React.FC = () => {
-  const [currentPhone, setCurrentPhone] = useState<Phone | null>(null);
+type Props = {
+  phone: Phone | undefined,
+  color: string | undefined,
+  capacity: string | undefined,
+  id: string | undefined,
+}
+
+const ProductAcions: React.FC<Props> = ({ phone, color, capacity, id }) => {
   const [
     selectedColor,
     setSelectedColor,
-  ] = useState<string>('');
-  const [selectedCapacity, setSelectedCapacity] = useState<string>('');
-  const [fullPhoneUrl, setFullPhoneUrl] = useState<string>('');
-
-  async function fetchPhone() {
-    try {
-      const phone = await getPhoneById('apple-iphone-11-128gb-green');
-      setCurrentPhone(phone);
-      setSelectedColor(phone.color);
-      setSelectedCapacity(phone.capacity);
-      setFullPhoneUrl(phone.id);
-    } catch (err) {
-      console.log(err);
-    }
-  }
+  ] = useState<string | undefined>('');
+  const [
+    selectedCapacity,
+    setSelectedCapacity,
+  ] = useState<string | undefined>('');
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchPhone();
-  }, []);
+    setSelectedColor(color);
+    setSelectedCapacity(capacity);
+  }, [phone]);
 
-  useEffect(() => {
-    const parts = fullPhoneUrl.split('-');
-    parts.splice(-1, 1, selectedColor);
-    parts.splice(-2, 1, selectedCapacity.toLocaleLowerCase());
-    const updatedUrl = parts.join('-');
-    setFullPhoneUrl(updatedUrl);
-  }, [selectedColor, selectedCapacity, fullPhoneUrl]);
+  // const handleAddToCart = () => {
+  //   const newCartItem = { id, quantity: 1 };
 
-  const availableColors = currentPhone?.colorsAvailable;
-  const availableCapacity = currentPhone?.capacityAvailable;
-  // const {
-  //   price,
-  //   screen,
-  //   resolution,
-  //   processor,
-  //   ram,
-  // } = currentPhone;
+  //   if (id) {
+  //     dispatch(cartActions.add(newCartItem));
+  //   }
+  // };
+
+  // const handleAddToFavourite = () => {
+  //   if (isInFavourites) {
+  //     id && dispatch(favouritesActions.remove(id));
+  //   } else {
+  //     id && dispatch(favouritesActions.add(id));
+  //   }
+
+  // };
+
+  const availableColors = phone?.colorsAvailable;
+  const availableCapacity = phone?.capacityAvailable;
+  const {
+    priceRegular = 0,
+    screen = '',
+    resolution = '',
+    processor = '',
+    ram = '',
+  } = phone || {};
 
   return (
     <div className={`${styles['product-acions']}}`}>
@@ -63,9 +73,13 @@ const ProductAcions: React.FC = () => {
           {availableColors?.map((color) => {
             const isSelectedColor = selectedColor === color;
 
+            const parts = id ? id.split('-') : [];
+            parts.splice(-1, 1, color);
+            const linkUrl = parts.join('-');
+
             return (
               <Link
-                to={`/product/${fullPhoneUrl}`}
+                to={`/product/${linkUrl}`}
                 key={color}
                 className={`${styles['product-acions__available-color-container']}`}
                 style={{
@@ -97,12 +111,16 @@ const ProductAcions: React.FC = () => {
         <div className={`${styles['product-acions__available-capacity-container']}`}>
           {availableCapacity?.map((capacity) => {
             const isSelectedCapacity = selectedCapacity === capacity;
+
+            const parts = id ? id.split('-') : [];
+            parts.splice(-2, 1, capacity.toLocaleLowerCase());
+            const linkUrl = parts.join('-');
             // fullPhoneUrlCopy.splice(-2, 1, capacity.toLocaleLowerCase());
             // console.log(fullPhoneUrlCopy);
 
             return (
               <Link
-                to={`/product/${fullPhoneUrl}`}
+                to={`/product/${linkUrl}`}
                 key={capacity}>
                 <button
                   className={`${styles['product-acions__available-capacity-container--capacity']}`}
@@ -125,7 +143,7 @@ const ProductAcions: React.FC = () => {
 
       <div className={`${styles['product-acions__main-info-container']}`}>
         <p>Main-Info-For-Buy</p>
-        {/* <p className={styles.card__price}>${price}</p>
+        <p className={styles.card__price}>${priceRegular}</p>
 
         <hr className={styles.card__devider}/>
 
@@ -163,7 +181,7 @@ const ProductAcions: React.FC = () => {
           </p>
         </div>
 
-        <div className={styles.card__buttons}>
+        {/* <div className={styles.card__buttons}>
 
           <MainButton
             content={ isInCart ? 'Added to cart' : 'Add to cart' }
