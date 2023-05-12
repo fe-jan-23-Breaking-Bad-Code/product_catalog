@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './PhotosBlock.module.scss';
 import { BASE_URL, getPhoneById } from '../../API/FetchPhones';
 
-const PhotosBlock = () => {
+const PhotosBlock: React.FC = () => {
   const [phoneImages, setPhoneImages] = useState<string[]>([]);
   const [selectedPhoto, setSelectedPhoto] = useState<string>('');
 

@@ -6,6 +6,9 @@ import styles from './ProductPage.module.scss';
 import { useParams } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { getPhoneById } from '../../API/FetchPhones';
+import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
+// eslint-disable-next-line max-len
+import InfoProductSection from '../../components/ProductAcions/ProductAcions';
 
 export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
@@ -29,8 +32,10 @@ export const ProductPage: React.FC = () => {
       </h2> */}
 
       {/* images component */}
+      <PhotosBlock />
 
       {/* Variants,actions component */}
+      <InfoProductSection />
 
       <AboutSection />
 
