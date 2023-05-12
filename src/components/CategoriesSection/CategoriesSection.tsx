@@ -3,6 +3,7 @@ import styles from './CategoriesSection.module.scss';
 import phonesImg from './images/phones.png';
 import tabletsImg from './images/tablets.png';
 import accImg from './images/accesorises.png';
+import { Link } from 'react-router-dom';
 
 export const CategoriesSection = () => {
   return (
@@ -23,7 +24,11 @@ export const CategoriesSection = () => {
             className={styles['categories__category--photo']}
           />
         </div>
-        <h2 className={styles['categories__category--title']}>Mobile phones</h2>
+        <Link 
+          to ="/phones "
+          className={styles['categories__category--title']}>
+        Mobile phones
+        </Link>
         <p className={styles['categories__category--text']}>95 models</p>
       </div>
 
@@ -37,7 +42,11 @@ export const CategoriesSection = () => {
             className={styles['categories__category--photo']}
           />
         </div>
-        <h2 className={styles['categories__category--title']}>Tablets</h2>
+        <Link 
+          to="/tablets" 
+          className={styles['categories__category--title']}>
+            Tablets
+        </Link>
         <p className={styles['categories__category--text']}>24 models</p>
       </div>
 
@@ -51,7 +60,11 @@ export const CategoriesSection = () => {
             className={styles['categories__category--photo']}
           />
         </div>
-        <h2 className={styles['categories__category--title']}>Accessories</h2>
+        <Link 
+          to="/accessories"
+          className={styles['categories__category--title']}>
+            Accessories
+        </Link>
         <p className={styles['categories__category--text']}>100 models</p>
       </div>
     </div>

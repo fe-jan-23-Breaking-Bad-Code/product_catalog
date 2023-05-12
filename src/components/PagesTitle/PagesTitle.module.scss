@@ -1,0 +1,11 @@
+@import '../../../public/global-styles/index.scss';
+
+.title {
+    font-size: 32px;
+    color:$primary;
+    font-family: 'Mont-Bold';
+
+    @include onTablet{
+        font-size: 48px;
+    }
+}

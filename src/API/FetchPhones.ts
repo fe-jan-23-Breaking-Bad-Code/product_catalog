@@ -13,6 +13,13 @@ export function getPhones(): Promise<Phones[]> {
     .then(response => response.json());
 }
 
+export function getPhonesByIds(ids: string[]): Promise<PhonesPage> {
+  const queryParams = new URLSearchParams(ids.map(id => ['id', id]));
+
+  return fetch(`${BASE_URL}/phones?${queryParams.toString()}`)
+    .then(response => response.json());
+}
+
 export function getPhonesInRange(
   from: number,
   to: number,
