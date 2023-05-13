@@ -38,7 +38,6 @@ export const ProductPage: React.FC = () => {
       <div className={`
       ${styles.techspecs__info}
       ${styles.grid}
-      ${styles.container}
       ${styles['grid--desktop']}
     `}>
         {/* Navigation component */}
