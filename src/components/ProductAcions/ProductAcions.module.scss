@@ -1,0 +1,97 @@
+@import '../../../public/global-styles/utils/mixins';
+@import '../../../public/global-styles/utils/variables';
+@import '../../../public/global-styles/utils/grid.scss';
+@import '../../../public/global-styles/index.scss';
+
+.product-acions {
+  margin: 56px 0;
+
+  @include onDesktop {
+    margin: 0;
+  }
+  &--line {
+    opacity: 0;
+  }
+
+  &__available-colors-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #E2E6E9;
+
+    &--description {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__available-colors {
+    display: flex;
+    gap: 8px;
+  }
+
+  &__available-color-container {
+    padding: 2px;
+    border-radius: 50%;
+
+    &--color {
+      @include square(32px);
+      border-radius: 50%;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__available-capacity-container {
+    display: flex;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #E2E6E9;
+    gap: 8px;
+
+    &--capacity {
+      display: flex;
+      text-align: center;
+      align-items: center;
+
+      padding: 8px;
+      height: 32px;
+      width: max-content;
+
+      &:hover {
+        box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+      }
+    }
+  }
+}
+
+.description {
+  display: flex;
+  font-size: 12px;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  color: $secondary;
+}
+
+.price_container {
+  display: flex;
+  gap: 8px;
+
+  &--price {
+    font-size: 32px;
+  }
+
+  &--price-discount {
+    font-size: 22px;
+    font-family: 'Mont-SemiBold';
+    font-weight: 500;
+    text-decoration-line: line-through;
+    color: $secondary;
+  }
+}

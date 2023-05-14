@@ -33,11 +33,11 @@
     &:hover {
       color: $primary;
     }
-    
+
     &__active {
       position: relative;
       color: $primary;
-      
+
       &::after {
         content: "";
         position: absolute;
@@ -46,11 +46,11 @@
         bottom: -24px;
         height: 3px;
         background-color: $primary;
-        
+
         @include onTablet {
           bottom: -16px;
         }
-        
+
         @include onDesktop {
           bottom: -24px;
         }

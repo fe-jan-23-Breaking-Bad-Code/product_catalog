@@ -2,3 +2,19 @@
 @import '../../../public/global-styles/utils/variables';
 @import '../../../public/global-styles/utils/mixins';
 
+.product__block {
+  max-width: 1136px;
+  justify-self: center;
+}
+
+.header {
+  width: auto;
+  margin: 0 16px;
+  font-family: 'Mont-Bold';
+  font-size: 22px;
+  margin-bottom: 38px;
+
+  @include onTablet {
+    font-size: 32px;
+  }
+}

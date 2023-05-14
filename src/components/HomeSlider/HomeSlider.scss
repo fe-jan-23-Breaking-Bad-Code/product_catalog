@@ -12,11 +12,11 @@
     width: 490px;
   }
 
-  @media (min-width: 800px) {
+  @include breakpoint_800 {
     width: 640px;
   }
 
-  @media (min-width: 1000px) {
+  @include breakpoint_1000 {
     width: 800px;
   }
 
@@ -39,11 +39,11 @@
       height: 189px;
     }
 
-    @media (min-width: 800px) {
+    @include breakpoint_800 {
       height: 240px;
     }
 
-    @media (min-width: 1000px) {
+    @include breakpoint_1000 {
       height: 300px;
     }
 
@@ -65,10 +65,16 @@
       }
     }
 
-    &--temp {
-      text-align: center;
-      background-color: #000;
-      color: #fff;
+    &--second {
+      background-image: url('./images/banner-phones.png');
+      background-position: center;
+      background-size: cover;
+    }
+
+    &--third {
+      background-image: url('./images/banner-tablets.png');
+      background-position: center;
+      background-size: cover;
     }
   }
 }
@@ -84,11 +90,11 @@
     height: 189px;
   }
 
-  @media (min-width: 800px) {
+  @include breakpoint_800 {
     height: 240px;
   }
 
-  @media (min-width: 1000px) {
+  @include breakpoint_1000 {
     height: 300px;
   }
 
@@ -112,11 +118,11 @@
     height: 189px;
   }
 
-  @media (min-width: 800px) {
+  @include breakpoint_800 {
     height: 240px;
   }
 
-  @media (min-width: 1000px) {
+  @include breakpoint_1000 {
     height: 300px;
   }
 

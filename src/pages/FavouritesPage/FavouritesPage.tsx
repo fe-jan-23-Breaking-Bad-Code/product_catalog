@@ -1,30 +1,40 @@
 import React, { useMemo } from 'react';
-
+import styles from './FavouritesPage.module.scss';
 import { useAppSelector } from '../../hooks';
-import { PhoneCard } from '../../components/Card';
+import { CardsGrid } from '../../components/CardsGrid';
+import { getPhonesByIds } from '../../API/FetchPhones';
+import { useDispatch } from 'react-redux';
+import { actions as phonesActions } from '../../app/reducers/phones';
+import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 
 
 export const FavouritesPage: React.FC = () => {
+  const dispatch = useDispatch();
   const { list } = useAppSelector(store => store.phones);
   const favourites = useAppSelector(store => store.favourites);
-  const cart = useAppSelector(store => store.cart);
 
   const favouritePhones = useMemo(() => {
+    const missingPhones = favourites.filter(
+      id => !list.some(phone => phone.id === id)
+    );
+
+    if (missingPhones.length > 0) {
+      getPhonesByIds(missingPhones)
+        .then(({ data }) => {
+          dispatch(phonesActions.setMany(data));
+        });
+    }
+
     return list.filter(({ id }) => favourites.includes(id));
-  }, [favourites]);
+  }, [favourites, list]);
 
   return (
-    <div className="container">
-      <h1 className="title">Phones Page</h1>
+    <div className={styles.container}>
+      <div className={styles.title}>
+        <PagesTitle title='Favourites'/>
+      </div>
 
-      {favouritePhones.map(phone => (
-        <PhoneCard
-          key={phone.id}
-          phone={phone}
-          isInCart={cart.some(({ id }) => id === phone.id)}
-          isInFavourites={favourites.includes(phone.id)}
-        />
-      ))}
+      <CardsGrid productList={favouritePhones} />
     </div>
   );
 };

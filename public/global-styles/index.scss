@@ -1,5 +1,17 @@
 @import './utils/variables';
 @import './utils/mixins';
+@import './utils/grid.scss';
 
 @import './reset.scss';
 @import './normalize.scss';
+
+.container {
+  box-sizing: content-box;
+  margin: auto;
+  max-width: 1200px;
+  padding: 0 16px;
+
+  @include onTablet {
+    padding: 0 32px;
+  }
+}

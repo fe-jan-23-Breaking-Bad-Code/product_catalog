@@ -4,32 +4,34 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 16px;
-  
+
   @include onTablet {
+    width: 100%;
     grid-template-columns: repeat(12, 1fr);
   }
-  
+
   @include onDesktop {
     grid-template-columns: repeat(24, 1fr);
   }
-  
-  &--tablet {
-    display: block;
-    
-    @include onTablet {
-      display: grid;
-    }
-  }
-  
+
   &--desktop {
     display: block;
-    
+
     @include onDesktop {
       display: grid;
     }
   }
-  
+
+  &--tablet {
+    display: block;
+
+    @include onTablet {
+      display: grid;
+    }
+  }
+
   &__item {
+
     @for $start from 1 through 12 {
       @for $end from $start through 12 {
         &--tablet-#{$start}-#{$end} {
@@ -37,10 +39,10 @@
             grid-column: #{$start} / #{$end + 1};
           }
         }
-        
+
       }
     }
-    
+
     @for $start from 1 through 24 {
       @for $end from $start through 24 {
         &--desktop-#{$start}-#{$end} {
@@ -48,7 +50,7 @@
             grid-column: #{$start} / #{$end + 1};
           }
         }
-        
+
       }
     }
   }

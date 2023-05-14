@@ -57,13 +57,9 @@ export const HomeSlider = () => {
         <Slider {...settings}>
           <div className='slider_item slider_item--first'></div>
 
-          <div className='slider_item slider_item--temp'>
-            2
-          </div>
+          <div className='slider_item slider_item--second'></div>
 
-          <div className='slider_item slider_item--temp'>
-            3
-          </div>
+          <div className='slider_item slider_item--third'></div>
         </Slider>
       </div>
     </div>

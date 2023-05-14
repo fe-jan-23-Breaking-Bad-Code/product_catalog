@@ -1,12 +1,8 @@
 import React from 'react';
 import styles from './FeaturedProducts.module.scss';
 import { Phones } from '../../types/Phones';
-
 import { Carousel } from './Carousel/Carousel';
-
-type Props = {
-  recommendedPhones: Phones[];
-}
+import { RecommededTitles } from '../../types/FeaturedPhonesTitles';
 
 interface State {
   phones: Phones[],
@@ -14,30 +10,34 @@ interface State {
   frameSize: number,
   itemWidth: number,
   animationDuration: number
-  infinite: boolean,
 }
 
-export const FeaturedProducts: React.FC<Props> = ({ recommendedPhones }) => {
+type Props = {
+  recommendedPhones: Phones[];
+  title: RecommededTitles;
+}
 
-  const defaultState: State = {
-    phones: recommendedPhones,
-    step: 1,
-    frameSize: 4,
-    itemWidth: 307,
-    animationDuration: 1000,
-    infinite: false,
+export const FeaturedProducts: React.FC<Props> =
+  ({ recommendedPhones, title }) => {
+    const state: State = {
+      phones: recommendedPhones,
+      step: 1,
+      frameSize: 4,
+      itemWidth: 272,
+      animationDuration: 1000,
+    };
+
+    return (
+      <div className={styles.container}>
+        <Carousel
+          title={title}
+          phones={state.phones}
+          step={state.step}
+          frameSize={state.frameSize}
+          itemWidth={state.itemWidth}
+          animationDuration={state.animationDuration}
+          infinite={false}
+        />
+      </div>
+    );
   };
-
-  return (
-    <div className={`${styles.container} ${styles.grid} ${styles['grid--tablet']} ${styles['grid--desktop']}`}>
-      <Carousel
-        phones={recommendedPhones}
-        step={1}
-        frameSize={4}
-        itemWidth={defaultState.itemWidth}
-        animationDuration={1000}
-        infinite={false}
-      />
-    </div>
-  );
-};

@@ -12,8 +12,11 @@ import {
   RightDisBtn
 } from '../../PaginationButton/AuxiliaryButtons';
 import { Description } from '../../../types/AuxiliaryButtons';
+import classNames from 'classnames';
+import { RecommededTitles } from '../../../types/FeaturedPhonesTitles';
 
 type Props = {
+  title: RecommededTitles;
   phones: Phones[];
   step: number;
   frameSize: number;
@@ -148,6 +151,7 @@ export class Carousel extends Component<Props, State> {
 
   render() {
     const {
+      title,
       phones,
       frameSize,
       itemWidth,
@@ -155,22 +159,21 @@ export class Carousel extends Component<Props, State> {
     } = this.props;
     const {
       currentFrame,
-      inTransition,
       hasNext,
       hasPrevious,
     } = this.state;
 
     return (
-      <div className={styles.container}>
-        <header className={styles.container__header}>
+      <div className={styles.content}>
+        <header className={styles.content__header}>
           <h1
-            className={`${styles.container__title} ${styles['grid__item--tablet-1-6']}`}
+            className={styles.content__title}
           >
-            Shop by category
+            {title}
           </h1>
 
-          <div className={styles.container__slider}>
-            {(!inTransition || hasPrevious)
+          <div className={styles.content__slider}>
+            {(hasPrevious)
               ? (
                 <div
                   onClick={this.handlePrevious}
@@ -183,11 +186,12 @@ export class Carousel extends Component<Props, State> {
                 <div>
                   <PaginationButton
                     image={LeftDisBtn(Description.MoveLeftDis)}
+                    isDisabled={true}
                   />
                 </div>
               )}
 
-            {(!inTransition || hasNext)
+            {(hasNext)
               ? (
                 <div
                   onClick={this.handleNext}
@@ -200,6 +204,7 @@ export class Carousel extends Component<Props, State> {
                 <div>
                   <PaginationButton
                     image={RightDisBtn(Description.MoveRightDis)}
+                    isDisabled={true}
                   />
                 </div>
               )}
@@ -209,27 +214,37 @@ export class Carousel extends Component<Props, State> {
         <div
           className={styles.carousel}
           style={{
-            width: (frameSize * itemWidth),
+            width: ((frameSize * itemWidth) + 48),
           }}
         >
 
           <ul
             className={styles.carousel__list}
             style={{
-              transform: `translateX(${(-itemWidth * currentFrame)}px)`,
+              transform: `translateX(${(-(itemWidth + 16) * currentFrame)}px)`,
               transitionDuration: `${animationDuration}ms`,
             }}
           >
-            {phones.map(phone => (
+            {phones.map((phone) => (
               <li
                 key={phone.id}
                 className={styles.carousel__item}
               >
-                <PhoneCard
-                  phone={phone}
-                  isInCart={false}
-                  isInFavourites={false}
-                />
+                <div
+                  className={
+                    classNames(styles['carousel__phone'],
+                      {
+                        'carousel__phone--visible':
+                          this.inVisibleArea(Number(phone.id)),
+                      })
+                  }
+                >
+                  <PhoneCard
+                    phone={phone}
+                    isInCart={false}
+                    isInFavourites={false}
+                  />
+                </div>
               </li>
             ))}
           </ul>

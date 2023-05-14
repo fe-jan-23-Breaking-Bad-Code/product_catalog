@@ -2,21 +2,30 @@
 @import '../../../../public/global-styles/utils/grid.scss';
 
 .carousel {
-  &__list {
-    display: flex;
-  }
+  overflow: hidden;
+  transition-duration: 500ms;
 
   &__list {
     display: flex;
+    padding: 0;
+    transition-property: "translate";
   };
 
   &__item {
     display: flex;
-    margin-right: 20px;
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+
+  &__phone {
+    width: 272px;
   }
 }
 
-.container {
+.content {
+  margin: 0;
+  padding: 0;
   &__header {
     display: flex;
     justify-content: space-between;

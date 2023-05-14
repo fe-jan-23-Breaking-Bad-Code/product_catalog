@@ -5,6 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import Vector from '../../img/vector-left.svg';
 import { useAppSelector } from '../../hooks';
 import { CartPhone } from '../../types/CartPhone';
+import { getPhonesByIds } from '../../API/FetchPhones';
+import { useDispatch } from 'react-redux';
+import { actions as phonesActions} from '../../app/reducers/phones';
+import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 
 // type Props = {
 //   setIsModalVisible: (boolean: boolean) => void;
@@ -17,12 +21,24 @@ const checkoutCost = (cart: CartPhone[]): number => {
 
 export const CartPage: React.FC = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cart = useAppSelector(store => store.cart);
   const { list } = useAppSelector(store => store.phones);
 
   console.log(cart);
 
   const phonesInCart = useMemo(() => {
+    const missingPhones = cart.map(({ id }) => id).filter(
+      id => !list.some(phone => phone.id === id)
+    );
+
+    if (missingPhones.length > 0) {
+      getPhonesByIds(missingPhones)
+        .then(({ data }) => {
+          dispatch(phonesActions.setMany(data));
+        });
+    }
+
     return list.reduce((acc: CartPhone[], phone) => {
       const cartItem = cart.find(item => item.id === phone.id);
 
@@ -50,10 +66,10 @@ export const CartPage: React.FC = () => {
             Back
           </p>
         </p>
-        <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']}`}>
-          <h1 className={`${styles.title}`}>
-            Cart
-          </h1>
+        <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']} ${styles['grid--tablet']}`}>
+          <div className={styles.title}>
+            <PagesTitle title="Cart" />
+          </div>
 
           <CartList cart={phonesInCart} />
 

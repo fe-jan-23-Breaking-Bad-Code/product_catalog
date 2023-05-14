@@ -27,9 +27,6 @@
 }
 
 .title {
-  display: block;
-  font-size: 32px;
-  font-family: 'Mont-Bold';
   margin-bottom: 32px;
 
   @include onDesktop {
@@ -102,7 +99,5 @@
 }
 
 .cart__item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  margin-bottom: 16px;
 }

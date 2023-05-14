@@ -1,41 +1,33 @@
 import React from 'react';
-import styles from './BurgerMenu.module.scss';
+import { NavLink } from 'react-router-dom';
 
-const MenuList: React.FC = () => (
-  <ul className={styles['burger-menu__list']}>
-    <li className={styles['burger-menu__link']}>
-      <a
-        href="#"
-        className={styles['burger-menu__link__text']}
-      >
-        Home
-      </a>
-    </li>
-    <li className={styles['burger-menu__link']}>
-      <a
-        href="#"
-        className={styles['burger-menu__link__text']}
-      >
-        Phones
-      </a>
-    </li>
-    <li className={styles['burger-menu__link']}>
-      <a
-        href="#"
-        className={styles['burger-menu__link__text']}
-      >
-        Tablets
-      </a>
-    </li>
-    <li className={styles['burger-menu__link']}>
-      <a
-        href="#"
-        className={styles['burger-menu__link__text']}
-      >
-        Accessories
-      </a>
-    </li>
-  </ul>
-);
+import styles from './BurgerMenu.module.scss';
+import classNames from 'classnames';
+
+const MenuList: React.FC = () => {
+  const burger_links = ['home', 'phones', 'tablets', 'accessories'];
+
+  return (
+    <div className={styles['burger-menu__list']}>
+      {burger_links.map(link => {
+        return (
+          <NavLink
+            to={link === 'home'
+              ? '/'
+              : `/${link}`
+            }
+            key={link}
+            className={({ isActive }) => classNames(
+              styles['burger-menu__link'],
+              {[styles['burger-menu__link--active']] : isActive}
+            )}
+          >
+            {link.toUpperCase()}
+          </NavLink>
+        );})
+      }
+    </div>
+  );
+};
 
 export default MenuList;

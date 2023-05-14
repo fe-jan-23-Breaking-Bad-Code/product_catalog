@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import styles from './PhonesPage.module.scss';
 import { getPhonesInRange } from '../../API/FetchPhones';
 import { useDispatch } from 'react-redux';
 import { actions as phonesActions } from '../../app/reducers/phones';
 import { useAppSelector } from '../../hooks';
-import { PhoneCard } from '../../components/Card';
 import { Pagination } from '../../components/Pagination';
-import { useSearchParams } from 'react-router-dom';
+import { CardsGrid } from '../../components/CardsGrid';
+import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
   const { currentPageList, total } = useAppSelector(store => store.phones);
-  const favourites = useAppSelector(store => store.favourites);
-  const cart = useAppSelector(store => store.cart);
-  const [searchParams] = useSearchParams();
-  const page = searchParams.get('page');
 
-  console.log(cart);
-
-  const itemsPerPage = 4;
-  const pageByDefault = Number(page) || 1;
+  const itemsPerPage = 8;
+  const pageByDefault = 1;
 
   const [currentPage, setCurrentPage] = useState(pageByDefault);
 
@@ -32,24 +27,21 @@ export const PhonesPage: React.FC = () => {
   };
 
   useEffect(() => {
-    getPhonesInRange(firstItemIndex, lastItemIndex)
+    getPhonesInRange(firstItemIndex, lastItemIndex - 1)
       .then(({ data, total }) => {
         dispatch(phonesActions.setPage({ data, total }));
       });
-  }, []);
+  }, [currentPage]);
 
   return (
-    <div className="container">
-      <h1 className="title">Phones Page</h1>
-
-      {currentPageList.map(phone => (
-        <PhoneCard
-          key={phone.id}
-          phone={phone}
-          isInCart={cart.some(({ id }) => id === phone.id)}
-          isInFavourites={favourites.includes(phone.id)}
+    <div className={styles.container}>
+      <div className={styles.title}>
+        <PagesTitle
+          title={'Phones Page'}
         />
-      ))}
+      </div>
+
+      <CardsGrid productList={currentPageList} />
 
       <Pagination
         total={total}
