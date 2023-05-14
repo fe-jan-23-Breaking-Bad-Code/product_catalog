@@ -6,11 +6,14 @@ import styles from './ProductPage.module.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { getPhoneById } from '../../API/FetchPhones';
+import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
+import { BackButton } from '../../components/BackButton/BackButton';
 
 export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
   const { productId } = useParams();
   const navigate = useNavigate();
+
 
   useEffect(() => {
     if (productId) {
@@ -28,13 +31,16 @@ export const ProductPage: React.FC = () => {
     return null;
   }
 
-  console.log(phone);
+  const breadcrumbs = [
+    { path: '/phones', title: 'Phones' },
+    { path: `/product/${phone.name.toLowerCase().replace(/ /g, '-')}`, title: phone.name },
+  ];
 
   return (
     <div className={`${styles.techspecs__info} ${styles.grid} ${styles['grid--desktop']}`}>
-      {/* Navigation component */}
+      <BreadCrumb items={breadcrumbs} />
 
-      {/* back button */}
+      <BackButton />
 
       {/* <h2>
         Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)

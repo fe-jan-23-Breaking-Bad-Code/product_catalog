@@ -1,0 +1,16 @@
+@import '../../../public/global-styles/index.scss';
+
+.link {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.title {
+  color: $secondary;
+  font-size: 12px;
+}

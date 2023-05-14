@@ -6,12 +6,17 @@ import { getPhonesByIds } from '../../API/FetchPhones';
 import { useDispatch } from 'react-redux';
 import { actions as phonesActions } from '../../app/reducers/phones';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
+import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
 
 
 export const FavouritesPage: React.FC = () => {
   const dispatch = useDispatch();
   const { list } = useAppSelector(store => store.phones);
   const favourites = useAppSelector(store => store.favourites);
+
+  const breadcrumbs = [
+    { path: '/favourites', title: 'Favourites' },
+  ];
 
   const favouritePhones = useMemo(() => {
     const missingPhones = favourites.filter(
@@ -33,6 +38,8 @@ export const FavouritesPage: React.FC = () => {
       <div className={styles.title}>
         <PagesTitle title='Favourites'/>
       </div>
+
+      <BreadCrumb items = {breadcrumbs} />
 
       <CardsGrid productList={favouritePhones} />
     </div>

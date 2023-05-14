@@ -7,6 +7,7 @@ import { useAppSelector } from '../../hooks';
 import { Pagination } from '../../components/Pagination';
 import { CardsGrid } from '../../components/CardsGrid';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
+import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,10 @@ export const PhonesPage: React.FC = () => {
       });
   }, [currentPage]);
 
+  const breadcrumbs = [
+    { path: '/phones', title: 'Phones' },
+  ];
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -40,6 +45,8 @@ export const PhonesPage: React.FC = () => {
           title={'Phones Page'}
         />
       </div>
+
+      <BreadCrumb items={breadcrumbs} />
 
       <CardsGrid productList={currentPageList} />
 

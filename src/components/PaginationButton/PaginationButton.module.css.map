@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,yBAAyB,EASzB,iBAAiB,CATS;EACxB,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM;EACnB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,MAAM,EAAE,iBAAiB;CAC1B;;AAED,AAGE,iBAHe,AAGd,MAAM,CAAC;EACN,MAAM,EAAE,iBAAiB;CAC1B;;AAGH,AAAA,OAAO,CAAC;EACN,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,KAAK;CACb",
+    "sources": [
+        "PaginationButton.module.scss"
+    ],
+    "names": [],
+    "file": "PaginationButton.module.css"
+}

@@ -3183,144 +3183,128 @@ body {
   }
 }
 
-.cartitem {
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: 'Mont-Regular', sans-serif;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 440px;
+  margin: auto;
+  max-width: 287px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 32px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid #E2E6E9;
+}
+
+@media (min-width: 639px) {
+  .card {
+    height: 505px;
+  }
+}
+
+.card__image {
+  display: block;
+  width: auto;
+  height: 130px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 639px) {
+  .card__image {
+    height: 195px;
+  }
+}
+
+.card__description {
+  color: #313237;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 21px;
+  height: 42px;
+  margin-bottom: 8px;
+}
+
+.card__description:hover {
+  color: #89939A;
+}
+
+.card__price {
+  font-family: 'Mont-Bold', sans-serif;
+  font-weight: 800;
+  -ms-flex-item-align: self-start;
+      -ms-grid-row-align: self-start;
+      align-self: self-start;
+  margin-bottom: 8px;
+  font-size: 22px;
+  line-height: 31px;
+  color: #313237;
+}
+
+.card__devider {
+  border: 1px solid #E2E6E9;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.card__information {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 16px;
-  border: 1px solid #e2e6e9;
-  margin: 0 16px;
-  max-width: 752px;
-}
-
-@media (min-width: 639px) {
-  .cartitem {
-    -ms-flex-wrap: nowrap;
-        flex-wrap: nowrap;
-    margin: 0 16px;
-  }
-}
-
-.cartitem__close {
-  background-image: url(./images/Close.svg);
-  width: 16px;
-  height: 16px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin-right: 16px;
-}
-
-@media (min-width: 639px) {
-  .cartitem__close {
-    margin-right: 24px;
-  }
-}
-
-.cartitem__photo {
-  width: 66px;
-  height: 66px;
-  margin-right: 16px;
-}
-
-@media (min-width: 639px) {
-  .cartitem__photo {
-    margin-right: 24px;
-  }
-}
-
-.cartitem__name {
-  color: #313237;
-  font-size: 14px;
-  max-width: 128px;
-}
-
-.cartitem__name:hover {
-  color: #89939A;
-}
-
-@media (min-width: 639px) {
-  .cartitem__name {
-    max-width: 176px;
-    margin-right: 24px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .cartitem__name {
-    max-width: none;
-    width: 336px;
-  }
-}
-
-.cartitem__icons {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.cartitem__icons--minus, .cartitem__icons--plus {
-  width: 32px;
-  height: 32px;
-  background-repeat: no-repeat;
-  background-size: 16px 16px;
-  background-position: center;
-  border: 1px solid #e2e6e9;
-}
-
-.cartitem__icons--minus:hover, .cartitem__icons--plus:hover {
-  border-color: #313237;
-}
-
-.cartitem__icons--minus {
-  background-image: url("./images/Minus.svg");
-  margin-right: 13px;
-}
-
-.cartitem__icons--quantity {
-  margin-right: 13px;
-}
-
-.cartitem__icons--plus {
-  background-image: url("./images/Plus.svg");
-  border-color: #B4BDC4;
-}
-
-.cartitem__block {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-preferred-size: 100%;
-      flex-basis: 100%;
-  margin-top: 16px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 8px;
 }
 
-@media (min-width: 639px) {
-  .cartitem__block {
-    -ms-flex-preferred-size: 0;
-        flex-basis: 0;
-    margin-top: 0;
-  }
+.card__information--description {
+  width: 34%;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-family: 'Mont-Semibold', sans-serif;
+  color: #89939A;
 }
 
-.cartitem__price {
-  font-family: 'Mont-Bold';
-  font-size: 22px;
+.card__information--description:nth-child(even) {
+  text-align: right;
+  color: #313237;
 }
-/*# sourceMappingURL=CartItem.module.css.map */
+
+.card__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.card__buttons_favourite {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  border: 1px solid #B4BDC3;
+  background-image: url("./img/Heart.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card__buttons_favourite:hover {
+  border-color: #313237;
+}
+
+.card__buttons_favourite--selected {
+  background-image: url("./img/Heart-red.svg");
+}
+/*# sourceMappingURL=CardLayout.module.css.map */
