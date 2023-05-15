@@ -60,7 +60,8 @@ export const CartPage: React.FC = () => {
     <>
       <div className={`${styles.container} ${styles.grid} ${styles['grid--desktop']} ${styles['grid--tablet']}`}>
         <BackButton />
-        <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']}`}>
+
+        <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']} ${styles['grid--tablet']}`}>
           <div className={styles.title}>
             <PagesTitle title="Cart" />
           </div>

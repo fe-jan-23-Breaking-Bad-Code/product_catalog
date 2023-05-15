@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import styles from './PhotosBlock.module.scss';
 import { BASE_URL, getPhoneById } from '../../API/FetchPhones';
+import { Phone } from '../../types/Phone';
 
-const PhotosBlock = () => {
-  const [phoneImages, setPhoneImages] = useState<string[]>([]);
+type Props = {
+  phone: Phone | undefined,
+}
+
+const PhotosBlock: React.FC<Props> = ({ phone }) => {
+  const [phoneImages, setPhoneImages] = useState<string[] | undefined>([]);
   const [selectedPhoto, setSelectedPhoto] = useState<string>('');
 
   useEffect(() => {
-    getPhoneById('apple-iphone-7-32gb-black')
-      .then((res) => {
-        setPhoneImages(res.images);
-        setSelectedPhoto(res.images[0]);
-      })
-      .catch((err: Error) => {
-        console.log(err);
-      });
-  }, []);
+    const images = phone?.images;
+    setPhoneImages(images);
+
+    if (images) {
+      setSelectedPhoto(images[0]);
+    }
+  }, [phone]);
 
   const imgUrl = (photoUrl: string) => {
     return BASE_URL + '/' + photoUrl;
@@ -35,7 +38,13 @@ const PhotosBlock = () => {
   };
 
   return (
-    <div className={styles.photos_container}>
+    <div className={`
+        ${styles.photos_container}
+        ${styles.container}
+        ${styles['photos_container--margin']}
+        ${styles['grid__item--desktop-1-12']}
+      `}
+    >
       <div
         className={`
           ${styles.photos_container__main_block}
@@ -44,7 +53,7 @@ const PhotosBlock = () => {
       />
 
       <div className={styles.photos_container__list_photos}>
-        {phoneImages.map((image, index) => {
+        {phoneImages?.map((image, index) => {
           return (
             <div
               className={styles.photos_container__list_photos__photo}

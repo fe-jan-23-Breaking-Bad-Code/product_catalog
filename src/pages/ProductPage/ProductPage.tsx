@@ -8,6 +8,9 @@ import { Phone } from '../../types/Phone';
 import { getPhoneById } from '../../API/FetchPhones';
 import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
 import { BackButton } from '../../components/BackButton/BackButton';
+import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
+// eslint-disable-next-line max-len
+import ProductAcions from '../../components/ProductAcions/ProductAcions';
 
 export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
@@ -37,23 +40,36 @@ export const ProductPage: React.FC = () => {
   ];
 
   return (
-    <div className={`${styles.techspecs__info} ${styles.grid} ${styles['grid--desktop']}`}>
-      <BreadCrumb items={breadcrumbs} />
 
-      <BackButton />
+    <div className={styles.product__block}>
+      <div className={`
+      ${styles.techspecs__info}
+      ${styles.grid}
+      ${styles['grid--desktop']}
+    `}>
+        <BreadCrumb items={breadcrumbs} />
 
-      {/* <h2>
-        Apple iPhone 11 Pro Max 64GB Gold (iMT9G2FS/A)
-      </h2> */}
+        <BackButton />
 
-      {/* images component */}
 
-      {/* Variants,actions component */}
-      <AboutSection phone={phone}/>
-    
-      <TechSpecTable phoneTechInfo={phone} />
+        <h2 className={`
+          ${styles.header}
+          ${styles['grid__item--desktop-1-18']}
+        `}>
+          {phone.name}
+        </h2>
 
-      {/* You may also like component */}
+        {/* images component */}
+        <PhotosBlock phone={phone} />
+        <ProductAcions phone={phone} />
+
+        {/* Variants,actions component */}
+        <AboutSection phone={phone}/>
+
+        <TechSpecTable phoneTechInfo={phone} />
+
+        {/* You may also like component */}
+      </div>
     </div>
   );
 };

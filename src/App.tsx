@@ -15,7 +15,7 @@ import { TestPage } from './pages/TestPage';
 import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
-
+import { AuthenticationPage } from './pages/AuthenticationPage';
 
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -26,7 +26,10 @@ export const App = () => {
 
   return (
     <div className="App">
-      <main className="section">
+      <main
+        className="section"
+        style={{ display: 'grid' }}
+      >
         <Header />
 
         <Routes>
@@ -45,6 +48,26 @@ export const App = () => {
           <Route path="/page-not-found" element={<NotFoundPage />} />
 
           <Route path="/favourites" element={<FavouritesPage />} />
+
+          <Route path="/registration" element={
+            <AuthenticationPage
+              title={'Registration'}
+              typeSign={'Sign Up'}
+              description={'Already have account? Sign In'}
+              typeToAuth={'login'}
+            />
+          }
+          />
+
+          <Route path="/login" element={
+            <AuthenticationPage
+              title={'Login'}
+              typeSign={'Sign In'}
+              description={'Do not have an account? Sign Up'}
+              typeToAuth={'registration'}
+            />
+          }
+          />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
