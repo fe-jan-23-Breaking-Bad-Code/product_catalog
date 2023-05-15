@@ -4,6 +4,7 @@
     font-size: 32px;
     color:$primary;
     font-family: 'Mont-Bold';
+    margin-bottom: 16px;
 
     @include onTablet{
         font-size: 48px;
