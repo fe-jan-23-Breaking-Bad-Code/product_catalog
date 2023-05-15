@@ -9,6 +9,7 @@ import { getPhonesByIds } from '../../API/FetchPhones';
 import { useDispatch } from 'react-redux';
 import { actions as phonesActions} from '../../app/reducers/phones';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
+import { BackButton } from '../../components/BackButton/BackButton';
 
 // type Props = {
 //   setIsModalVisible: (boolean: boolean) => void;
@@ -58,12 +59,8 @@ export const CartPage: React.FC = () => {
   return (
     <>
       <div className={`${styles.container} ${styles.grid} ${styles['grid--desktop']} ${styles['grid--tablet']}`}>
-        <p className={styles.link} onClick={() => window.history.go(-1)}>
-          <img className={styles.vector} src={Vector} alt="Back" />
-          <p>
-            Back
-          </p>
-        </p>
+        <BackButton />
+
         <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']} ${styles['grid--tablet']}`}>
           <div className={styles.title}>
             <PagesTitle title="Cart" />
