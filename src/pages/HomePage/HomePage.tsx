@@ -32,6 +32,11 @@ export const HomePage: React.FC = () => {
           recommendedPhones={itemsSubset}
           title={RecommededTitles.Brand_new_models}
         />
+
+        <FeaturedProducts
+          recommendedPhones={itemsSubset}
+          title={RecommededTitles.Hot_prices}
+        />
       </div>
     </div>
   );
