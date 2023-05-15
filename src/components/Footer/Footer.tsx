@@ -3,7 +3,7 @@ import styles from './Footer.module.scss';
 import Logo from '../../img/Logo.svg';
 
 const Footer: React.FC = () => (
-  <div className={styles.container}>
+  <div className={styles.footer_container}>
     <footer className={`${styles.footer} ${styles.grid} ${styles['grid--desktop']} ${styles['grid--tablet']}`}>
       <div className={styles.footer__logo}>
         <a href='/' className={styles.logo}>

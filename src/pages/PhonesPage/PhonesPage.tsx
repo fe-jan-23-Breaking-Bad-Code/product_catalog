@@ -8,6 +8,7 @@ import { Pagination } from '../../components/Pagination';
 import { CardsGrid } from '../../components/CardsGrid';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
+import classNames from 'classnames';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -39,9 +40,14 @@ export const PhonesPage: React.FC = () => {
   ];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>
-        <PagesTitle 
+    <div
+      className={classNames(
+        styles.container,
+        styles.page__container,
+      )}
+    >
+      <div className={styles.phones__title}>
+        <PagesTitle
           title={'Phones Page'}
         />
       </div>

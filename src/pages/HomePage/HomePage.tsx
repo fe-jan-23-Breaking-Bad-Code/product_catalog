@@ -2,6 +2,8 @@ import React from 'react';
 import styles from './HomePage.module.scss';
 import { HomeSlider } from '../../components/HomeSlider/HomeSlider';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
+import { CategoriesSection } from
+  '../../components/CategoriesSection/CategoriesSection';
 
 export const HomePage: React.FC = () => (
   <div className={styles.container}>
@@ -10,5 +12,7 @@ export const HomePage: React.FC = () => (
     </div>
 
     <HomeSlider />
+
+    <CategoriesSection />
   </div>
 );

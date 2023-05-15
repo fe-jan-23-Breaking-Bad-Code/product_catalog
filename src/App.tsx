@@ -1,4 +1,4 @@
-import './App.module.scss';
+import styles from './App.module.scss';
 
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -11,7 +11,6 @@ import Footer from './components/Footer/Footer';
 import { useState } from 'react';
 import { SuccessModal } from './components/SuccessModal';
 import { CartPage } from './pages/CartPage';
-import { TestPage } from './pages/TestPage';
 import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
@@ -25,11 +24,13 @@ export const App = () => {
   };
 
   return (
-    <div className="App">
+    <div className={styles.app}>
       <main
         className="section"
         style={{ display: 'grid' }}
       >
+
+
         <Header />
 
         <Routes>
@@ -74,10 +75,9 @@ export const App = () => {
 
         {isModalVisible && <SuccessModal onClose={handleCloseModal} />}
 
-        <TestPage />
-
-        <Footer />
       </main>
+
+      <Footer />
     </div>
   );
 };
