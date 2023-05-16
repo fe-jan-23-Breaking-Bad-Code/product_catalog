@@ -1,0 +1,48 @@
+@import '../../../../public/global-styles/index.scss';
+@import '../../../../public/global-styles/utils/grid.scss';
+
+.carousel {
+  overflow: hidden;
+  transition-duration: 500ms;
+
+  &__list {
+    display: flex;
+    padding: 0;
+    transition-property: "translate";
+  };
+
+  &__item {
+    display: flex;
+    &:not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+
+  &__phone {
+    width: 272px;
+  }
+}
+
+.content {
+  margin: 0;
+  padding: 0;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-family: 'Mont-Bold';
+    color: $primary;
+  }
+
+  &__slider {
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+  }
+}

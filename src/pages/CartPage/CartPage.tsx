@@ -26,6 +26,8 @@ export const CartPage: React.FC = () => {
   const cart = useAppSelector(store => store.cart);
   const { list } = useAppSelector(store => store.phones);
 
+  console.log(cart);
+
   const phonesInCart = useMemo(() => {
     const missingPhones = cart.map(({ id }) => id).filter(
       id => !list.some(phone => phone.id === id)

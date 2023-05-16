@@ -16,6 +16,7 @@ import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { AuthenticationPage } from './pages/AuthenticationPage';
 
+
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
