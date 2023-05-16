@@ -9,9 +9,16 @@
   box-sizing: content-box;
   margin: auto;
   max-width: 1200px;
-  padding: 0 16px;
+  min-width: 288px;
+  padding: 64px 16px;
 
   @include onTablet {
-    padding: 0 32px;
+    padding: 80px 32px;
+    min-width: 768px;
+  }
+
+  @include onDesktop {
+    min-width: 1136px;
   }
 }
+
