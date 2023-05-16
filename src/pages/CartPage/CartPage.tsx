@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, {useMemo, useState} from 'react';
 import CartList from './CartList';
 import styles from './CartPage.module.scss';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { actions as phonesActions} from '../../app/reducers/phones';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { BackButton } from '../../components/BackButton/BackButton';
+import { Loader } from '../../components/Loader/Loader';
 
 // type Props = {
 //   setIsModalVisible: (boolean: boolean) => void;
@@ -25,6 +26,7 @@ export const CartPage: React.FC = () => {
   const dispatch = useDispatch();
   const cart = useAppSelector(store => store.cart);
   const { list } = useAppSelector(store => store.phones);
+  const [isLoading, setIsLoading] = useState(false);
 
   console.log(cart);
 
@@ -34,10 +36,13 @@ export const CartPage: React.FC = () => {
     );
 
     if (missingPhones.length > 0) {
+      setIsLoading(true);
+
       getPhonesByIds(missingPhones)
         .then(({ data }) => {
           dispatch(phonesActions.setMany(data));
-        });
+        })
+        .finally(() => setIsLoading(false));
     }
 
     return list.reduce((acc: CartPhone[], phone) => {
@@ -68,7 +73,10 @@ export const CartPage: React.FC = () => {
             <PagesTitle title="Cart" />
           </div>
 
-          <CartList cart={phonesInCart} />
+          {isLoading
+            ? <Loader />
+            : <CartList cart={phonesInCart} />
+          }
 
         </div>
 
