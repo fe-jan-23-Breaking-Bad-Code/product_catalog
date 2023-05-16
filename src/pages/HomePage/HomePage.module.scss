@@ -1,7 +1,9 @@
 @import '../../../public/global-styles/utils/_mixins.scss';
+@import '../../../public/global-styles/utils/variables';
 
 .container {
   padding-top: 24px;
+  padding-bottom: 64px;
   margin: 0 auto;
 
   @include onTablet {
@@ -16,23 +18,26 @@
   @include onDesktop {
     max-width: 1136px;
     padding-top: 56px;
+    padding-bottom: 80px;
   }
 }
 
 
 .title {
+  font-family: 'Mont-Bold', sans-serif;
+  color: $primary;
   margin-bottom: 24px;
   padding: 0 16px;
 
   @include onTablet {
-    padding: 0;
     font-size: 48px;
+    padding: 0;
     margin-bottom: 32px;
   }
 
   @include onDesktop {
-    padding: 0;
     font-size: 48px;
+    padding: 0;
     margin-bottom: 56px;
   }
 }
