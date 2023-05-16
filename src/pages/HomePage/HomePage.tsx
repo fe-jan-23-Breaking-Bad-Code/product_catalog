@@ -5,19 +5,23 @@ import { FeaturedProducts } from '../../components/FeaturedProducts';
 import { RecommededTitles } from '../../types/FeaturedPhonesTitles';
 import { CategoriesSection } from
   '../../components/CategoriesSection/CategoriesSection';
-import { getNewModels } from '../../API/FetchPhones';
+import { getDiscountPhones, getNewPhones } from '../../API/FetchPhones';
 import { Phones } from '../../types/Phones';
 
 export const HomePage: React.FC = () => {
-  const [newModels, setNewModels] = useState<Phones[]>([]);
-  const [hotPrices, setHotPrices] = useState<Phones[]>([]);
+  const [newPhones, setNewPhones] = useState<Phones[]>([]);
+  const [discountPhones, setDiscountPhones] = useState<Phones[]>([]);
 
   useEffect(() => {
-    getNewModels(0, 7)
-      .then(responce => {
-        setNewModels(responce.data);
-      });
+    getNewPhones()
+      .then(data => setNewPhones(data.data));
+
+    getDiscountPhones()
+      .then(data => setDiscountPhones(data.data));
   }, []);
+
+  const visibleNewPhones = newPhones.slice(0, 20);
+  const visibleDiscountPhones = discountPhones.slice(0, 20);
 
   return (
     <div className={styles.container}>
@@ -25,14 +29,16 @@ export const HomePage: React.FC = () => {
       <HomeSlider />
 
       <FeaturedProducts
-        recommendedPhones={newModels}
+        recommendedPhones={visibleNewPhones}
+
         title={RecommededTitles.Brand_new_models}
       />
 
       <CategoriesSection />
 
       <FeaturedProducts
-        recommendedPhones={newModels}
+        recommendedPhones={visibleDiscountPhones}
+
         title={RecommededTitles.Hot_prices}
       />
     </div>
