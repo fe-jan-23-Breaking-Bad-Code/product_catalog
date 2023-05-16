@@ -81,3 +81,17 @@ export function getDiscountPhones(
     .then(response => response.json());
 }
 
+export function getRecommendedPhones(
+  from: number,
+  to: number,
+): Promise<PhonesPage> {
+  const queryParams = new URLSearchParams({
+    from: from.toString(),
+    to: to.toString(),
+  });
+
+  return fetch(`${BASE_URL}/products/apple-iphone-7-32gb-black/recomended?${queryParams.toString()}
+  `)
+    .then(response => response.json());
+}
+

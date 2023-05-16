@@ -5,16 +5,20 @@ import { TechSpecTable } from '../../components/TechSpecsTable';
 import styles from './ProductPage.module.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
-import { getPhoneById } from '../../API/FetchPhones';
+import { getPhoneById, getRecommendedPhones } from '../../API/FetchPhones';
 import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
 import { BackButton } from '../../components/BackButton/BackButton';
 import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
 // eslint-disable-next-line max-len
 import ProductAcions from '../../components/ProductAcions/ProductAcions';
 import classNames from 'classnames';
+import { FeaturedProducts } from '../../components/FeaturedProducts';
+import { RecommededTitles } from '../../types/FeaturedPhonesTitles';
+import { Phones } from '../../types/Phones';
 
 export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
+  const [phones, setPhones] = useState<Phones[]>([]);
   const { productId } = useParams();
   const navigate = useNavigate();
 
@@ -29,6 +33,9 @@ export const ProductPage: React.FC = () => {
           navigate('/page-not-found');
         });
     }
+
+    getRecommendedPhones(0, 20)
+      .then(data => setPhones(data.data));
   }, [productId, navigate]);
 
   if (!phone) {
@@ -71,9 +78,12 @@ export const ProductPage: React.FC = () => {
         <AboutSection phone={phone}/>
 
         <TechSpecTable phoneTechInfo={phone} />
-
-        {/* You may also like component */}
       </div>
+
+      <FeaturedProducts
+        recommendedPhones={phones}
+        title={RecommededTitles.You_may_also_like}
+      />
     </div>
   );
 };

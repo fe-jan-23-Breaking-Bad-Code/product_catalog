@@ -16,7 +16,7 @@ export const HomePage: React.FC = () => {
     getNewPhones(0, 20)
       .then(data => setNewPhones(data.data));
 
-    getDiscountPhones(0,20)
+    getDiscountPhones(0, 20)
       .then(data => setDiscountPhones(data.data));
   }, []);
 
