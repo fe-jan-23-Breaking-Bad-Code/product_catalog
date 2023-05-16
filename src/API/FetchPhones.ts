@@ -84,13 +84,14 @@ export function getDiscountPhones(
 export function getRecommendedPhones(
   from: number,
   to: number,
+  phoneId: string,
 ): Promise<PhonesPage> {
   const queryParams = new URLSearchParams({
     from: from.toString(),
     to: to.toString(),
   });
 
-  return fetch(`${BASE_URL}/products/apple-iphone-7-32gb-black/recomended?${queryParams.toString()}
+  return fetch(`${BASE_URL}/products/${phoneId}/recomended?${queryParams.toString()}
   `)
     .then(response => response.json());
 }
