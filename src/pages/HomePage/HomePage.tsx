@@ -21,7 +21,7 @@ export const HomePage: React.FC = () => {
       .then(data => setNewPhones(data.data))
       .finally(() => setIsLoading(false));
 
-    getDiscountPhones(0,20)
+    getDiscountPhones(0, 20)
       .then(data => setDiscountPhones(data.data));
   }, []);
 

@@ -82,6 +82,21 @@ export function getDiscountPhones(
     .then(response => response.json());
 }
 
+export function getRecommendedPhones(
+  from: number,
+  to: number,
+  phoneId: string,
+): Promise<PhonesPage> {
+  const queryParams = new URLSearchParams({
+    from: from.toString(),
+    to: to.toString(),
+  });
+
+  return fetch(`${BASE_URL}/products/${phoneId}/recomended?${queryParams.toString()}
+  `)
+    .then(response => response.json());
+}
+
 export function getOrders(): Orders[] {
   return [
     {
@@ -121,7 +136,3 @@ export function getOrders(): Orders[] {
   ];
 }
 
-// export function getPhones(): Promise<Phones[]> {
-//   return fetch(`${BASE_URL}/products`)
-//     .then(response => response.json());
-// }
