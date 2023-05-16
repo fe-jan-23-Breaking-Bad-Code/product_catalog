@@ -2,23 +2,26 @@ import React, { useEffect, useState } from 'react';
 import styles from './HomePage.module.scss';
 import { HomeSlider } from '../../components/HomeSlider/HomeSlider';
 import { FeaturedProducts } from '../../components/FeaturedProducts';
-import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { RecommededTitles } from '../../types/FeaturedPhonesTitles';
 import { CategoriesSection } from
   '../../components/CategoriesSection/CategoriesSection';
+import { getDiscountPhones, getNewPhones } from '../../API/FetchPhones';
+import { Phones } from '../../types/Phones';
 
 export const HomePage: React.FC = () => {
-  const [phones, setPhones] = useState([]);
+  const [newPhones, setNewPhones] = useState<Phones[]>([]);
+  const [discountPhones, setDiscountPhones] = useState<Phones[]>([]);
 
   useEffect(() => {
-    fetch('https://product-page-duuh.onrender.com/phones?limit=10')
-      .then((res) => res.json())
-      .then((data) => setPhones(data));
+    getNewPhones()
+      .then(data => setNewPhones(data.data));
+
+    getDiscountPhones()
+      .then(data => setDiscountPhones(data.data));
   }, []);
 
-  const startIndex = 20;
-  const endIndex = 30;
-  const itemsSubset = phones.slice(startIndex, endIndex + 1);
+  const visibleNewPhones = newPhones.slice(0, 20);
+  const visibleDiscountPhones = discountPhones.slice(0, 20);
 
   return (
     <div className={styles.container}>
@@ -26,14 +29,14 @@ export const HomePage: React.FC = () => {
       <HomeSlider />
 
       <FeaturedProducts
-        recommendedPhones={itemsSubset}
+        recommendedPhones={visibleNewPhones}
         title={RecommededTitles.Brand_new_models}
       />
 
       <CategoriesSection />
 
       <FeaturedProducts
-        recommendedPhones={itemsSubset}
+        recommendedPhones={visibleDiscountPhones}
         title={RecommededTitles.Hot_prices}
       />
     </div>

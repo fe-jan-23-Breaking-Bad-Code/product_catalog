@@ -38,3 +38,16 @@ export function getPhoneById(id: string): Promise<Phone> {
   return fetch(`${BASE_URL}/phones/${id}`)
     .then(response => response.json());
 }
+
+export function getNewPhones(): Promise<PhonesPage> {
+  return fetch(`${BASE_URL}/products/new?productType=phones
+  `)
+    .then(response => response.json());
+}
+
+export function getDiscountPhones(): Promise<PhonesPage> {
+  return fetch(`${BASE_URL}/products/discount?productType=phones
+  `)
+    .then(response => response.json());
+}
+
