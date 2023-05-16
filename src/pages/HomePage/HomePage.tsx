@@ -30,6 +30,7 @@ export const HomePage: React.FC = () => {
 
       <FeaturedProducts
         recommendedPhones={visibleNewPhones}
+
         title={RecommededTitles.Brand_new_models}
       />
 
@@ -37,6 +38,7 @@ export const HomePage: React.FC = () => {
 
       <FeaturedProducts
         recommendedPhones={visibleDiscountPhones}
+
         title={RecommededTitles.Hot_prices}
       />
     </div>
