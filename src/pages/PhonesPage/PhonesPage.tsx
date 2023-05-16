@@ -46,13 +46,13 @@ export const PhonesPage: React.FC = () => {
         styles.page__container,
       )}
     >
+      <BreadCrumb items={breadcrumbs} />
+
       <div className={styles.phones__title}>
         <PagesTitle
           title={'Phones Page'}
         />
       </div>
-
-      <BreadCrumb items={breadcrumbs} />
 
       <CardsGrid productList={currentPageList} />
 

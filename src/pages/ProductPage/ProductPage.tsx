@@ -11,6 +11,7 @@ import { BackButton } from '../../components/BackButton/BackButton';
 import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
 // eslint-disable-next-line max-len
 import ProductAcions from '../../components/ProductAcions/ProductAcions';
+import classNames from 'classnames';
 
 export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
@@ -41,7 +42,10 @@ export const ProductPage: React.FC = () => {
 
   return (
 
-    <div className={styles.product__block}>
+    <div className={classNames(
+      styles.product__block,
+      styles.container,
+    )}>
       <div className={`
       ${styles.techspecs__info}
       ${styles.grid}

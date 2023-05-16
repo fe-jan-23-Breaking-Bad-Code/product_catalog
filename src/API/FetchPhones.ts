@@ -13,10 +13,23 @@ export function getPhones(): Promise<Phones[]> {
     .then(response => response.json());
 }
 
+export function getNewModels(
+  from: number,
+  to: number,
+): Promise<PhonesPage> {
+  const queryParams = new URLSearchParams({
+    from: from.toString(),
+    to: to.toString(),
+  });
+
+  return fetch(`${BASE_URL}/products/new?${queryParams.toString()}`)
+    .then(response => response.json());
+}
+
 export function getPhonesByIds(ids: string[]): Promise<PhonesPage> {
   const queryParams = new URLSearchParams(ids.map(id => ['id', id]));
 
-  return fetch(`${BASE_URL}/phones?${queryParams.toString()}`)
+  return fetch(`${BASE_URL}/products?${queryParams.toString()}`)
     .then(response => response.json());
 }
 
