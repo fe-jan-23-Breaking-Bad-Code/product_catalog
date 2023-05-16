@@ -3,6 +3,7 @@ import styles from './FeaturedProducts.module.scss';
 import { Phones } from '../../types/Phones';
 import { Carousel } from './Carousel/Carousel';
 import { RecommededTitles } from '../../types/FeaturedPhonesTitles';
+import { useAppSelector } from '../../hooks';
 
 interface State {
   phones: Phones[],
@@ -27,6 +28,9 @@ export const FeaturedProducts: React.FC<Props> =
       animationDuration: 1000,
     };
 
+    const favourites = useAppSelector(store => store.favourites);
+    const cart = useAppSelector(store => store.cart);
+
     return (
       <div className={styles.container}>
         <Carousel
@@ -37,6 +41,8 @@ export const FeaturedProducts: React.FC<Props> =
           itemWidth={state.itemWidth}
           animationDuration={state.animationDuration}
           infinite={false}
+          favourites={favourites}
+          cart={cart}
         />
       </div>
     );

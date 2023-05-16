@@ -21,22 +21,21 @@ export const HomePage: React.FC = () => {
   const itemsSubset = phones.slice(startIndex, endIndex + 1);
 
   return (
-      <div className={styles.container}>
-        <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
-        <HomeSlider />
+    <div className={styles.container}>
+      <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
+      <HomeSlider />
 
-        <FeaturedProducts
-          recommendedPhones={itemsSubset}
-          title={RecommededTitles.Brand_new_models}
-        />
-        
-        <CategoriesSection />
+      <FeaturedProducts
+        recommendedPhones={itemsSubset}
+        title={RecommededTitles.Brand_new_models}
+      />
 
-        <FeaturedProducts
-          recommendedPhones={itemsSubset}
-          title={RecommededTitles.Hot_prices}
-        />
-      </div>
+      <CategoriesSection />
+
+      <FeaturedProducts
+        recommendedPhones={itemsSubset}
+        title={RecommededTitles.Hot_prices}
+      />
     </div>
   );
 };

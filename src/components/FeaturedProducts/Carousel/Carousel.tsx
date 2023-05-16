@@ -14,6 +14,7 @@ import {
 import { Description } from '../../../types/AuxiliaryButtons';
 import classNames from 'classnames';
 import { RecommededTitles } from '../../../types/FeaturedPhonesTitles';
+import { CartItem } from '../../../types/CartItem';
 
 type Props = {
   title: RecommededTitles;
@@ -23,6 +24,8 @@ type Props = {
   itemWidth: number;
   animationDuration: number;
   infinite: boolean;
+  favourites: string[];
+  cart: CartItem[];
 };
 
 type State = {
@@ -156,6 +159,8 @@ export class Carousel extends Component<Props, State> {
       frameSize,
       itemWidth,
       animationDuration,
+      favourites,
+      cart,
     } = this.props;
     const {
       currentFrame,
@@ -241,8 +246,8 @@ export class Carousel extends Component<Props, State> {
                 >
                   <PhoneCard
                     phone={phone}
-                    isInCart={false}
-                    isInFavourites={false}
+                    isInCart={cart.some(({ id }) => id === phone.id)}
+                    isInFavourites={favourites.includes(phone.id)}
                   />
                 </div>
               </li>
