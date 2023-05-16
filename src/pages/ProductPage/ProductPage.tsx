@@ -22,6 +22,10 @@ export const ProductPage: React.FC = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
 
+  useEffect(() => {
+    getRecommendedPhones(0, 20)
+      .then(data => setPhones(data.data));
+  }, []);
 
   useEffect(() => {
     if (productId) {
@@ -33,9 +37,6 @@ export const ProductPage: React.FC = () => {
           navigate('/page-not-found');
         });
     }
-
-    getRecommendedPhones(0, 20)
-      .then(data => setPhones(data.data));
   }, [productId, navigate]);
 
   if (!phone) {
