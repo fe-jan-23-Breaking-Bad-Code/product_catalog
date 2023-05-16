@@ -52,14 +52,31 @@ export function getPhoneById(id: string): Promise<Phone> {
     .then(response => response.json());
 }
 
-export function getNewPhones(): Promise<PhonesPage> {
-  return fetch(`${BASE_URL}/products/new?productType=phones
-  `)
+export function getNewPhones(
+  from: number,
+  to: number,
+): Promise<PhonesPage> {
+  const queryParams = new URLSearchParams({
+    productType:'phones',
+    from: from.toString(),
+    to: to.toString(),
+  });
+
+  return fetch(`${BASE_URL}/products/new?${queryParams.toString()}`)
     .then(response => response.json());
 }
 
-export function getDiscountPhones(): Promise<PhonesPage> {
-  return fetch(`${BASE_URL}/products/discount?productType=phones
+export function getDiscountPhones(
+  from: number,
+  to: number,
+): Promise<PhonesPage> {
+  const queryParams = new URLSearchParams({
+    productType:'phones',
+    from: from.toString(),
+    to: to.toString(),
+  });
+
+  return fetch(`${BASE_URL}/products/discount?${queryParams.toString()}
   `)
     .then(response => response.json());
 }

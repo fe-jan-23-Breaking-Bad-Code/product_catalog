@@ -13,15 +13,12 @@ export const HomePage: React.FC = () => {
   const [discountPhones, setDiscountPhones] = useState<Phones[]>([]);
 
   useEffect(() => {
-    getNewPhones()
+    getNewPhones(0, 20)
       .then(data => setNewPhones(data.data));
 
-    getDiscountPhones()
+    getDiscountPhones(0,20)
       .then(data => setDiscountPhones(data.data));
   }, []);
-
-  const visibleNewPhones = newPhones.slice(0, 20);
-  const visibleDiscountPhones = discountPhones.slice(0, 20);
 
   return (
     <div className={styles.container}>
@@ -29,16 +26,14 @@ export const HomePage: React.FC = () => {
       <HomeSlider />
 
       <FeaturedProducts
-        recommendedPhones={visibleNewPhones}
-
+        recommendedPhones={newPhones}
         title={RecommededTitles.Brand_new_models}
       />
 
       <CategoriesSection />
 
       <FeaturedProducts
-        recommendedPhones={visibleDiscountPhones}
-
+        recommendedPhones={discountPhones}
         title={RecommededTitles.Hot_prices}
       />
     </div>
