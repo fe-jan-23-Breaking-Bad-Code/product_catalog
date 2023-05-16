@@ -1,7 +1,17 @@
+@import '../../../public/global-styles/utils/mixins';
+
 .pagination {
   width: fit-content;
-  margin: auto;
   display: flex;
+  margin: 30px auto auto;
+
+  @include onTablet {
+    margin: 40px auto auto;
+  }
+
+  @include onDesktop {
+    margin: 45px auto auto;
+  }
 
   &_item {
     &:not(:last-child) {

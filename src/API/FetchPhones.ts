@@ -1,5 +1,6 @@
 import { Phone } from '../types/Phone';
 import { Phones } from '../types/Phones';
+import { Orders } from '../types/Orders';
 
 export const BASE_URL = 'https://product-page-duuh.onrender.com';
 
@@ -94,5 +95,44 @@ export function getRecommendedPhones(
   return fetch(`${BASE_URL}/products/${phoneId}/recomended?${queryParams.toString()}
   `)
     .then(response => response.json());
+}
+
+export function getOrders(): Orders[] {
+  return [
+    {
+      status: 'completed',
+      orderId: 5421421,
+      total: 5936,
+      data: [
+        {
+          id: 'apple-iphone-7-32gb-black',
+          quantity: 3,
+        },
+        {
+          id: 'apple-iphone-7-plus-32gb-black',
+          quantity: 2,
+        },
+        {
+          id: 'apple-iphone-11-pro-64gb-gold',
+          quantity: 1,
+        },
+        {
+          id: 'apple-iphone-11-256gb-green',
+          quantity: 2,
+        },
+      ],
+    },
+    {
+      status: 'rejected',
+      total: 2200,
+      orderId: 515422,
+      data: [
+        {
+          id: 'apple-iphone-11-pro-64gb-gold',
+          quantity: 2,
+        },
+      ],
+    },
+  ];
 }
 
