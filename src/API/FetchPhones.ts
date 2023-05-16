@@ -9,7 +9,7 @@ export interface PhonesPage {
 }
 
 export function getPhones(): Promise<Phones[]> {
-  return fetch(`${BASE_URL}/phones`)
+  return fetch(`${BASE_URL}/products`)
     .then(response => response.json());
 }
 
@@ -38,17 +38,18 @@ export function getPhonesInRange(
   to: number,
 ): Promise<PhonesPage> {
   const queryParams = new URLSearchParams({
+    productType:'phones',
     from: from.toString(),
     to: to.toString(),
   });
 
-  return fetch(`${BASE_URL}/phones?${queryParams.toString()}`)
+  return fetch(`${BASE_URL}/products?${queryParams.toString()}`)
     .then(response => response.json());
 
 }
 
 export function getPhoneById(id: string): Promise<Phone> {
-  return fetch(`${BASE_URL}/phones/${id}`)
+  return fetch(`${BASE_URL}/products/${id}`)
     .then(response => response.json());
 }
 
@@ -71,7 +72,6 @@ export function getDiscountPhones(
   to: number,
 ): Promise<PhonesPage> {
   const queryParams = new URLSearchParams({
-    productType:'phones',
     from: from.toString(),
     to: to.toString(),
   });
