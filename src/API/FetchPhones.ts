@@ -29,7 +29,7 @@ export function getNewModels(
 export function getPhonesByIds(ids: string[]): Promise<PhonesPage> {
   const queryParams = new URLSearchParams(ids.map(id => ['id', id]));
 
-  return fetch(`${BASE_URL}/phones?${queryParams.toString()}`)
+  return fetch(`${BASE_URL}/products?${queryParams.toString()}`)
     .then(response => response.json());
 }
 

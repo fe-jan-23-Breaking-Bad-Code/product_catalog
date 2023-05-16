@@ -33,7 +33,6 @@ const ProductAcions: React.FC<Props> = ({ phone }) => {
       ${styles['product-acions--margin']}
       ${styles['grid__item--tablet-10-16']}
       ${styles['grid__item--desktop-13-24']}
-      ${styles.container}
       `}
     >
       <div className={`${styles['product-acions__available-colors-container']}`}>
