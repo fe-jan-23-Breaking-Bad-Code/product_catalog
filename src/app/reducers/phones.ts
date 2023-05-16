@@ -5,6 +5,8 @@ import { PhonesPage } from '../../API/FetchPhones';
 interface PhonesState {
   list: Phones[],
   currentPageList: Phones[],
+  hotDeals: Phones[],
+  newModels: Phones[],
   total: number,
   loading: boolean,
   error: string,
@@ -13,6 +15,8 @@ interface PhonesState {
 const defaultState: PhonesState = {
   list: [],
   currentPageList: [],
+  hotDeals: [],
+  newModels: [],
   total: 0,
   loading: false,
   error: '',
@@ -40,6 +44,12 @@ const phonesSlice = createSlice({
           ({ id }) => !phones.list.some(phone => phone.id === id)
         ),
       );
+    },
+    setNewModels: (phones, action: PayloadAction<Phones[]>) => {
+      phones.newModels = action.payload;
+    },
+    setHotDeals: (phones, action: PayloadAction<Phones[]>) => {
+      phones.hotDeals = action.payload;
     },
   }
 });

@@ -40,7 +40,6 @@ const PhotosBlock: React.FC<Props> = ({ phone }) => {
   return (
     <div className={`
         ${styles.photos_container}
-        ${styles.container}
         ${styles['photos_container--margin']}
         ${styles['grid__item--desktop-1-12']}
       `}
