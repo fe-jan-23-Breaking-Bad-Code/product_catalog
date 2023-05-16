@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const CartItem: React.FC<Props> = ({ phone, count }) => {
-  const { id, image, fullPrice, name, phoneId } = phone;
+  const { id, image, fullPrice, name } = phone;
   const [quantity, setQuantity] = useState(count);
   const dispatch = useDispatch();
   const exampleUrl = BASE_URL + '/' + image;
@@ -41,15 +41,15 @@ export const CartItem: React.FC<Props> = ({ phone, count }) => {
         className={styles.cartitem__close}
         onClick={handleRemoveFromCart}
       />
-      <Link to={`/product/${phoneId}`}>
-        <img 
-          className={styles.cartitem__photo} 
-          src={exampleUrl} 
+      <Link to={`/product/${id}`}>
+        <img
+          className={styles.cartitem__photo}
+          src={exampleUrl}
           alt={name} />
       </Link>
 
-      <Link 
-        to={`/product/${phoneId}`} 
+      <Link
+        to={`/product/${id}`}
         className={styles.cartitem__name}
       >
         {name}

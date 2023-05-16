@@ -1,7 +1,6 @@
 export interface Phones {
     id: string,
     category: string,
-    phoneId: string,
     itemId: string,
     name: string,
     fullPrice: number,
