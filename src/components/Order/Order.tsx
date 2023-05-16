@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from './Order.module.scss';
 import './bababoy.png';
+import { Orders } from '../../types/Orders';
 
-export const Order: React.FC = () => {
+type Props = {
+  order: Orders,
+}
+
+export const Order: React.FC<Orders> = ({ data, status, total, orderId }) => {
   return (
     <div className={styles.order}>
       <div className={styles.baba}>
@@ -10,10 +15,12 @@ export const Order: React.FC = () => {
 
       <div>
         <p className={styles.order__id}>
-          № 392104
+          № {orderId}
         </p>
 
-        <p className={styles.order__done}>Done</p>
+        <p className={styles.order__done}>
+          {status}
+        </p>
       </div>
 
       <div className={styles.yobaba}>
@@ -22,7 +29,7 @@ export const Order: React.FC = () => {
         </p>
 
         <p className={styles.order__price}>
-          $200
+          ${total}
         </p>
       </div>
 
