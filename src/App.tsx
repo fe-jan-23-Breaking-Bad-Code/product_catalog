@@ -15,6 +15,7 @@ import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { AuthenticationPage } from './pages/AuthenticationPage';
+import { OrdersPage } from './pages/OrdersPage';
 
 
 export const App = () => {
@@ -42,6 +43,8 @@ export const App = () => {
           <Route path="/tablets" element={<TabletsPage />} />
 
           <Route path="/accesories" element={<AccessoriesPage />} />
+
+          <Route path='/orders' element={<OrdersPage />} />
 
           <Route path="/cart" element={<CartPage />} />
 
