@@ -6,13 +6,11 @@
   align-items: center;
   padding: 16px;
   border: 1px solid #e2e6e9;
-  margin: 0 16px;
 
   max-width: 752px;
 
   @include onTablet {
     flex-wrap: nowrap;
-    margin: 0 16px;
   }
 
   &__close {

@@ -5,7 +5,7 @@ import styles from './BurgerMenu.module.scss';
 import classNames from 'classnames';
 
 const MenuList: React.FC = () => {
-  const burger_links = ['home', 'phones', 'tablets', 'accessories'];
+  const burger_links = ['home', 'phones', 'tablets', 'accessories', 'login'];
 
   return (
     <div className={styles['burger-menu__list']}>

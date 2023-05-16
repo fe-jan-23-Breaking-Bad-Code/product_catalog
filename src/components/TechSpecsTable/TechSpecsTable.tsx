@@ -19,7 +19,11 @@ export const TechSpecTable:React.FC<Props> = ({ phoneTechInfo }) => {
   } = phoneTechInfo;
 
   return (
-    <div className={`${styles.tech} ${styles.container} ${styles['grid__item--desktop-13-24']}`}>
+    <div className={`
+      ${styles.tech}
+      ${styles.container}
+      ${styles['grid__item--desktop-13-24']}
+    `}>
       <h3 className={styles.tech__title}>Tech specs</h3>
 
       <div className={styles.tech__specs}>
