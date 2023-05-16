@@ -20,7 +20,17 @@ export const PhoneCard: React.FC<Props> = ({
   isInCart,
   isInFavourites,
 }) => {
-  const { id, name, price, screen, capacity, ram, image, phoneId } = phone;
+  const {
+    id,
+    name,
+    price,
+    fullPrice,
+    screen,
+    capacity,
+    ram,
+    image,
+    phoneId
+  } = phone;
   const dispatch = useDispatch();
   const imgUrl = BASE_URL + '/' + image;
 
@@ -41,10 +51,10 @@ export const PhoneCard: React.FC<Props> = ({
   return (
     <div className={styles.card}>
       <Link to={`/product/${phoneId}`}>
-        <img 
-          src={imgUrl} 
-          alt="Product_Image" 
-          className={styles.card__image} 
+        <img
+          src={imgUrl}
+          alt="Product_Image"
+          className={styles.card__image}
         />
       </Link>
 
@@ -54,6 +64,12 @@ export const PhoneCard: React.FC<Props> = ({
 
       <p className={styles.card__price}>
         ${price}
+
+        {fullPrice > price && (
+          <span className={styles['card__price--full']}>
+            ${fullPrice}
+          </span>
+        )}
       </p>
 
       <hr className={styles.card__devider} />

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,WAAW,EAAE,2BAA2B;EACxC,WAAW,EAAE,GAAG;EAChB,UAAU,EAAE,UAAU;EACtB,MAAM,EAAE,IAAI;EACZ,SAAS,EAAE,CAAC;EACZ,KAAK,EAAE,OAAO;EACd,YAAY,EAAE,GAAG;EACjB,gBAAgB,EAAE,OAAO;EACzB,MAAM,EAAE,IAAI;CAOb;;AALE,AAAD,sBAAW,CAAC;EACV,KAAK,EAAE,OAAO;EACd,MAAM,EAAE,iBAAiB;EACzB,gBAAgB,EAAE,WAAW;CAC9B",
+    "sources": [
+        "MainButton.module.scss"
+    ],
+    "names": [],
+    "file": "MainButton.module.css"
+}

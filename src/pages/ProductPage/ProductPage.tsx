@@ -6,6 +6,8 @@ import styles from './ProductPage.module.scss';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Phone } from '../../types/Phone';
 import { getPhoneById } from '../../API/FetchPhones';
+import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
+import { BackButton } from '../../components/BackButton/BackButton';
 import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
 // eslint-disable-next-line max-len
 import ProductAcions from '../../components/ProductAcions/ProductAcions';
@@ -14,6 +16,7 @@ export const ProductPage: React.FC = () => {
   const [phone, setPhone] = useState<Phone>();
   const { productId } = useParams();
   const navigate = useNavigate();
+
 
   useEffect(() => {
     if (productId) {
@@ -31,18 +34,23 @@ export const ProductPage: React.FC = () => {
     return null;
   }
 
-  console.log(phone);
+  const breadcrumbs = [
+    { path: '/phones', title: 'Phones' },
+    { path: `/product/${phone.name.toLowerCase().replace(/ /g, '-')}`, title: phone.name },
+  ];
 
   return (
+
     <div className={styles.product__block}>
       <div className={`
       ${styles.techspecs__info}
       ${styles.grid}
       ${styles['grid--desktop']}
     `}>
-        {/* Navigation component */}
+        <BreadCrumb items={breadcrumbs} />
 
-        {/* back button */}
+        <BackButton />
+
 
         <h2 className={`
           ${styles.header}

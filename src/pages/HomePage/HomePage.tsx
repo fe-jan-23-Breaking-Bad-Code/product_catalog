@@ -4,6 +4,8 @@ import { HomeSlider } from '../../components/HomeSlider/HomeSlider';
 import { FeaturedProducts } from '../../components/FeaturedProducts';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { RecommededTitles } from '../../types/FeaturedPhonesTitles';
+import { CategoriesSection } from
+  '../../components/CategoriesSection/CategoriesSection';
 
 export const HomePage: React.FC = () => {
   const [phones, setPhones] = useState([]);
@@ -19,11 +21,6 @@ export const HomePage: React.FC = () => {
   const itemsSubset = phones.slice(startIndex, endIndex + 1);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>
-        <PagesTitle title='Welcome to Nice Gadgets store!'/>
-      </div>
-
       <div className={styles.container}>
         <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
         <HomeSlider />
@@ -32,6 +29,8 @@ export const HomePage: React.FC = () => {
           recommendedPhones={itemsSubset}
           title={RecommededTitles.Brand_new_models}
         />
+        
+        <CategoriesSection />
 
         <FeaturedProducts
           recommendedPhones={itemsSubset}
@@ -41,3 +40,4 @@ export const HomePage: React.FC = () => {
     </div>
   );
 };
+

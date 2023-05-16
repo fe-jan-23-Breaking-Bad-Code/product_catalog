@@ -1,16 +1,19 @@
 .pagination {
-    display: flex;
+  width: fit-content;
+  margin: auto;
+  display: flex;
 
-    &_item {
-      &:not(:last-child) {
-        margin-right: 8px;
-      }
-      list-style: none;
+  &_item {
+    &:not(:last-child) {
+      margin-right: 8px;
     }
-
-    &_link {
-      font-size: 20px;
-      color: black;
-      text-decoration: none;
-    }
+    list-style: none;
   }
+
+  &_link {
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+  }
+}
+
