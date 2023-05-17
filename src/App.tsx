@@ -19,9 +19,9 @@ import { Descope, useDescope, useSession, useUser } from '@descope/react-sdk';
 
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { isAuthenticated, isSessionLoading } = useSession();
-  const { user, isUserLoading } = useUser();
-  const { logout } = useDescope();
+  // const { isAuthenticated, isSessionLoading } = useSession();
+  // const { user, isUserLoading } = useUser();
+  // const { logout } = useDescope();
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
