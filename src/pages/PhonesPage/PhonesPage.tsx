@@ -10,6 +10,7 @@ import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
 import { Loader } from '../../components/Loader/Loader';
 import classNames from 'classnames';
+import { SortingPhones } from './SortingPhones.1';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ export const PhonesPage: React.FC = () => {
 
   const [currentPage, setCurrentPage] = useState(pageByDefault);
   const [isLoading, setIsLoading] = useState(false);
+  const [sortedList, setSortedList] = useState(currentPageList);
 
   const firstItemIndex = itemsPerPage * (currentPage - 1);
   const lastItemIndex = currentPage === pageByDefault
@@ -41,6 +43,10 @@ export const PhonesPage: React.FC = () => {
       })
       .finally(() => setIsLoading(false));
   }, [currentPage]);
+
+  useEffect(() => {
+    setSortedList(currentPageList);
+  }, [currentPageList]);
 
   const breadcrumbs = [
     { path: '/phones', title: 'Phones' },
@@ -65,7 +71,16 @@ export const PhonesPage: React.FC = () => {
         ? <Loader />
         : (
           <>
-            <CardsGrid productList={currentPageList} />
+            <div className={styles.models_count}>
+              {`${total} models`}
+            </div>
+
+            <SortingPhones
+              currentPageList={sortedList}
+              onSort={setSortedList}
+            />
+
+            <CardsGrid productList={sortedList} />
 
             <Pagination
               total={total}
