@@ -2,37 +2,39 @@ import React from 'react';
 import styles from './PhonesPage.module.scss';
 import dropdown from './dropdow.module.scss';
 import { Phones } from '../../types/Phones';
+import { getSortedPhones } from '../../API/FetchPhones';
 
 type Props = {
-  currentPageList: Phones[],
   onSort: (phones: Phones[]) => void;
+  setItemsPerPage: (count: number) => void;
+}
+
+enum SortTypes {
+  Newest = 'year:desc',
+  Cheapest = 'price:asc',
+  Alphabetically = 'name:asc',
 }
 
 export const SortingPhones: React.FC<Props> = ({
-  currentPageList,
-  onSort
+  onSort,
+  setItemsPerPage,
 }) => {
 
   const handleSort = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedOption = event.target.value as keyof typeof SortTypes;
+    const sortType = SortTypes[selectedOption];
+
+    if (sortType) {
+      getSortedPhones(sortType)
+        .then(sortedList => onSort(sortedList))
+        .catch(error => console.error(error));
+    }
+  };
+
+  const handleItems = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedOption = event.target.value;
 
-    const sortedListCopy = [...currentPageList];
-
-    switch (selectedOption) {
-    case 'Newest':
-      sortedListCopy.sort((a, b) => b.year - a.year);
-      break;
-    case 'Cheapest':
-      sortedListCopy.sort((a, b) => a.price - b.price);
-      break;
-    case 'Most expensive':
-      sortedListCopy.sort((a, b) => b.price - a.price);
-      break;
-    default:
-      break;
-    }
-
-    onSort(sortedListCopy);
+    setItemsPerPage(+selectedOption);
   };
 
   return (
@@ -40,7 +42,7 @@ export const SortingPhones: React.FC<Props> = ({
       <div className={styles.sorting_container__block}>
         <p>Sorting by</p>
         <span className={`${dropdown['custom-dropdown']}`}>
-          <select onChange={handleSort}>
+          <select onChange={handleSort} className={`${dropdown['custom-dropdown']}`}>
             <option
               disabled
               selected
@@ -48,7 +50,7 @@ export const SortingPhones: React.FC<Props> = ({
             >Select...</option>
             <option>Newest</option>
             <option>Cheapest</option>
-            <option>Most expensive</option>
+            <option>Alphabetically</option>
           </select>
         </span>
       </div>
@@ -56,13 +58,19 @@ export const SortingPhones: React.FC<Props> = ({
       <div className={styles.sorting_container__block}>
         <p>Items on page</p>
         <span className={`${dropdown['custom-dropdown']}`}>
-          <select onChange={handleSort}>
-            <option>Sherlock Holmes</option>
-            <option>The Great Gatsby</option>
-            <option>V for Vendetta</option>
-            <option>The Wolf of Wallstreet</option>
-            <option>Quantum of Solace</option>
+          <select onChange={handleItems}>
+            <option>4</option>
+            <option>8</option>
+            <option>16</option>
+            <option>All</option>
           </select>
+        </span>
+      </div>
+
+      <div className={styles.sorting_container__block}>
+        <p>Search by your query</p>
+        <span>
+          <input type="text" className={`${dropdown['search']}`}/>
         </span>
       </div>
     </div>

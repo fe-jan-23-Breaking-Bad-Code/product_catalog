@@ -97,6 +97,15 @@ export function getRecommendedPhones(
     .then(response => response.json());
 }
 
+export function getSortedPhones(sortType: string): Promise<Phones[]> {
+  const queryParams = new URLSearchParams({
+    sort: sortType,
+  });
+
+  return fetch(`${BASE_URL}/products?${queryParams.toString()}`)
+    .then(response => response.json());
+}
+
 export function getOrders(): Orders[] {
   return [
     {

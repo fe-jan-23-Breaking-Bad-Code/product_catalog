@@ -15,13 +15,12 @@ import { SortingPhones } from './SortingPhones.1';
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
   const { currentPageList, total } = useAppSelector(store => store.phones);
-
-  const itemsPerPage = 17;
   const pageByDefault = 1;
 
   const [currentPage, setCurrentPage] = useState(pageByDefault);
   const [isLoading, setIsLoading] = useState(false);
   const [sortedList, setSortedList] = useState(currentPageList);
+  const [itemsPerPage, setItemsPerPage] = useState(16);
 
   const firstItemIndex = itemsPerPage * (currentPage - 1);
   const lastItemIndex = currentPage === pageByDefault
@@ -76,8 +75,8 @@ export const PhonesPage: React.FC = () => {
             </div>
 
             <SortingPhones
-              currentPageList={sortedList}
               onSort={setSortedList}
+              setItemsPerPage={setItemsPerPage}
             />
 
             <CardsGrid productList={sortedList} />

@@ -2,6 +2,7 @@
 
 select {
   width: 136px;
+  height: 40px;
   padding: 12px;
   border: 1px solid $icons;
   font-family: 'Mont-Regular';
@@ -28,4 +29,23 @@ select {
 }
 select::-ms-expand {
     display: none;
+}
+
+.search {
+  display: block;
+  width: 136px;
+  height: 40px;
+  padding: 12px;
+  border: 1px solid $icons;
+  font-family: 'Mont-Regular';
+
+  @include onTablet {
+    width: 187px;
+  }
+
+  @include onTablet {
+    width: 176px;
+  }
+
+  font-size: 14px;
 }
