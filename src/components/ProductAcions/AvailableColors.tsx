@@ -25,8 +25,6 @@ export const AvailableColors: React.FC<Props> = ({ phone }) => {
       {availableColors?.map((color) => {
         const isSelectedColor = selectedColor === color;
 
-        const validColor = color;
-
         const parts = phoneUrl ? phoneUrl.split('-') : [];
         parts.splice(-1, 1, color);
         const linkUrl = parts.join('-');
@@ -45,10 +43,10 @@ export const AvailableColors: React.FC<Props> = ({ phone }) => {
             <div
               className={`
                 ${styles['product-acions__available-color-container--color']}
-                ${styles[`product-acions__available-color-container--color--${validColor}`]}
+                ${styles[`product-acions__available-color-container--color--${color}`]}
               `}
               style={{
-                backgroundColor: validColor,
+                backgroundColor: color,
               }}
               onClick={() => setSelectedColor(color)} />
           </Link>
