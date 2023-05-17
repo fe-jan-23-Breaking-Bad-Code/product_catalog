@@ -2,7 +2,6 @@ import React, {useMemo, useState} from 'react';
 import CartList from './CartList';
 import styles from './CartPage.module.scss';
 import { useNavigate } from 'react-router-dom';
-import Vector from '../../img/vector-left.svg';
 import { useAppSelector } from '../../hooks';
 import { CartPhone } from '../../types/CartPhone';
 import { getPhonesByIds } from '../../API/FetchPhones';
@@ -68,7 +67,11 @@ export const CartPage: React.FC = () => {
       <div className={`${styles.container} ${styles.grid} ${styles['grid--desktop']} ${styles['grid--tablet']}`}>
         <BackButton />
 
-        <div className={`${styles['cart-list']} ${styles['grid__item--desktop-1-16']} ${styles['grid--tablet']}`}>
+        <div className={`
+          ${styles['cart-list']}
+          ${styles['grid__item--desktop-1-16']}
+          ${styles['grid__item--tablet-1-8']}
+        `}>
           <div className={styles.title}>
             <PagesTitle title="Cart" />
           </div>
@@ -80,7 +83,11 @@ export const CartPage: React.FC = () => {
 
         </div>
 
-        <div className={`${styles['checkout-block']} ${styles['grid__item--desktop-17-24']}`}>
+        <div className={`
+          ${styles['checkout-block']}
+          ${styles['grid__item--desktop-17-24']}
+          ${styles['grid__item--tablet-9-12']}
+        `}>
           <div className={styles['checkout-block__info']}>
             <p className={styles['checkout-block__cost']}>
               {`$${checkoutCost(phonesInCart)}`}

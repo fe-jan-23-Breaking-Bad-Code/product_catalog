@@ -6,8 +6,8 @@
   @include square(max-content);
   // border: 1px solid black;
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
-  justify-self: center;
   gap: 23px;
 
   &--margin {

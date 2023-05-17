@@ -4,6 +4,7 @@ import styles from './Header.module.scss';
 import Logo from './img/Logo.svg';
 import Favorites from './img/favorites.svg';
 import Cart from './img/shop_cart.svg';
+import Login from './img/login.png';
 import { Navigation } from '../Navigation';
 import BurgerMenu from '../BurgerMenu/BurgerMenu';
 import { NavLink } from 'react-router-dom';
@@ -52,6 +53,18 @@ export const Header: React.FC = () => {
         </div>
 
         <div className={styles.header_container}>
+          <p className={styles.header_cart}>
+            <NavLink
+              to="/login"
+              className={({ isActive }) => classNames(
+                styles.header_cart,
+                {[styles.header_cart__active] : isActive}
+              )}
+            >
+              <img src={Login} alt="Account" className={styles.login} />
+            </NavLink>
+          </p>
+
           <p className={styles.header_cart}>
             <NavLink
               to="/favourites"

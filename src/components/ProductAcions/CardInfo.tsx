@@ -61,7 +61,7 @@ const CardInfo: React.FC<Props> = ({ phone }) => {
 
         {priceDiscount && (
           <p className={`${styles.card__price} ${stylesAcions['price_container--price-discount']}`}>
-            {priceRegular}
+            {`$${priceRegular}`}
           </p>
         )}
       </div>

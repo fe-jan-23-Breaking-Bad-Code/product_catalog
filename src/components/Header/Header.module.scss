@@ -110,3 +110,7 @@
     color: white;
   }
 }
+
+.login {
+  @include square(20px);
+}

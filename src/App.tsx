@@ -15,11 +15,15 @@ import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { AuthenticationPage } from './pages/AuthenticationPage';
+import { Descope, useDescope, useSession, useUser } from '@descope/react-sdk';
 import { OrdersPage } from './pages/OrdersPage';
 
 
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const { isAuthenticated, isSessionLoading } = useSession();
+  const { user, isUserLoading } = useUser();
+  const { logout } = useDescope();
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
@@ -54,23 +58,8 @@ export const App = () => {
 
           <Route path="/favourites" element={<FavouritesPage />} />
 
-          <Route path="/registration" element={
-            <AuthenticationPage
-              title={'Registration'}
-              typeSign={'Sign Up'}
-              description={'Already have account? Sign In'}
-              typeToAuth={'login'}
-            />
-          }
-          />
-
           <Route path="/login" element={
-            <AuthenticationPage
-              title={'Login'}
-              typeSign={'Sign In'}
-              description={'Do not have an account? Sign Up'}
-              typeToAuth={'registration'}
-            />
+            <AuthenticationPage />
           }
           />
 
