@@ -16,7 +16,6 @@ export const AboutSection:React.FC<Props> = ({ phone }) => {
     <div className={`
       ${styles.about}
       ${styles['grid__item--desktop-1-12']}
-      ${styles.container}
     `}>
       <h1 className={styles.about__title}>About</h1>
       <div className={styles.about__info}>

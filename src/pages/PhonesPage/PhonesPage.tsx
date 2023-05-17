@@ -8,6 +8,7 @@ import { Pagination } from '../../components/Pagination';
 import { CardsGrid } from '../../components/CardsGrid';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
+import { Loader } from '../../components/Loader/Loader';
 import classNames from 'classnames';
 
 export const PhonesPage: React.FC = () => {
@@ -18,6 +19,7 @@ export const PhonesPage: React.FC = () => {
   const pageByDefault = 1;
 
   const [currentPage, setCurrentPage] = useState(pageByDefault);
+  const [isLoading, setIsLoading] = useState(false);
 
   const firstItemIndex = itemsPerPage * (currentPage - 1);
   const lastItemIndex = currentPage === pageByDefault
@@ -29,10 +31,13 @@ export const PhonesPage: React.FC = () => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
+
     getPhonesInRange(firstItemIndex, lastItemIndex - 1)
       .then(({ data, total }) => {
         dispatch(phonesActions.setPage({ data, total }));
-      });
+      })
+      .finally(() => setIsLoading(false));
   }, [currentPage]);
 
   const breadcrumbs = [
@@ -46,22 +51,29 @@ export const PhonesPage: React.FC = () => {
         styles.page__container,
       )}
     >
+      <BreadCrumb items={breadcrumbs} />
+
       <div className={styles.phones__title}>
         <PagesTitle
           title={'Phones Page'}
         />
       </div>
 
-      <BreadCrumb items={breadcrumbs} />
+      {isLoading
+        ? <Loader />
+        : (
+          <>
+            <CardsGrid productList={currentPageList} />
 
-      <CardsGrid productList={currentPageList} />
-
-      <Pagination
-        total={total}
-        perPage={itemsPerPage}
-        currentPage={currentPage}
-        onPageChange={selectPage}
-      />
+            <Pagination
+              total={total}
+              perPage={itemsPerPage}
+              currentPage={currentPage}
+              onPageChange={selectPage}
+            />
+          </>
+        )
+      }
     </div>
   );
 };

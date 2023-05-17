@@ -9,6 +9,7 @@
 
 .paginationButton {
   @extend .disabledPaginationButton;
+  border: 1px solid #B4BDC3;
 
   &:hover {
     border: 1px solid #313237;
