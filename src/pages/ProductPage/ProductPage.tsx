@@ -10,7 +10,7 @@ import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
 import { BackButton } from '../../components/BackButton/BackButton';
 import PhotosBlock from '../../components/PhotosBlock/PhotosBlock';
 // eslint-disable-next-line max-len
-import ProductAcions from '../../components/ProductAcions/ProductAcions';
+import ProductActions from '../../components/ProductAcions/ProductAcions';
 import classNames from 'classnames';
 import { FeaturedProducts } from '../../components/FeaturedProducts';
 import { RecommededTitles } from '../../types/FeaturedPhonesTitles';
@@ -75,7 +75,7 @@ export const ProductPage: React.FC = () => {
 
         {/* images component */}
         <PhotosBlock phone={phone} />
-        <ProductAcions phone={phone} />
+        <ProductActions phone={phone} />
 
         {/* Variants,actions component */}
         <AboutSection phone={phone}/>

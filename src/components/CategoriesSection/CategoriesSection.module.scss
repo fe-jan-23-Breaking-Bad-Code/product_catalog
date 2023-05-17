@@ -24,6 +24,12 @@
     &--container {
       position: relative;
       overflow: hidden;
+      transition: $transition-time;
+
+      &:hover {
+        transform: scale(105%);
+        z-index: 1;
+      }
     }
 
     &--photo {
@@ -32,6 +38,7 @@
       height: 100%;
       object-fit: cover;
       object-position: center;
+
     }
 
     &--title {
@@ -39,6 +46,11 @@
       font-family: 'Mont-Semibold', sans-serif;
       color: $primary;
       margin-bottom: 4px;
+      transition: $transition-time;
+
+      &:hover {
+        color: $secondary;
+      }
     }
 
     &--text {

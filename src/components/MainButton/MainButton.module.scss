@@ -1,3 +1,5 @@
+@import '../../../public/global-styles/index.scss';
+
 .main-button {
   font-family: 'Mont-Semibold', sans-serif;
   font-weight: 700;
@@ -8,10 +10,19 @@
   margin-right: 8px;
   background-color: #313237;
   border: none;
+  transition: $transition-time;
+
+  &:hover {
+    box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+  }
 
   &--selected {
     color: #27AE60;
     border: 1px solid #E2E6E9;
     background-color: transparent;
+
+    &:hover {
+      box-shadow: none;
+    }
   }
 }

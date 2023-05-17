@@ -9,7 +9,7 @@ type Props = {
   phone: Phone | undefined,
 }
 
-const ProductAcions: React.FC<Props> = ({ phone }) => {
+const ProductActions: React.FC<Props> = ({ phone }) => {
   return (
     <div className={`
       ${styles['product-acions']}
@@ -48,4 +48,4 @@ const ProductAcions: React.FC<Props> = ({ phone }) => {
   );
 };
 
-export default ProductAcions;
+export default ProductActions;
