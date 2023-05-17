@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import styles from './Pagination.module.scss';
-import { ImageProps, PaginationButton } from '../PaginationButton';
+import { PaginationButton } from '../PaginationButton';
 
 import nextPageIcon from './images/nextPage.svg';
 import nextPageIconDisabled from './images/nextPageDisabled.svg';

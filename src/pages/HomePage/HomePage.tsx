@@ -12,17 +12,19 @@ import { Loader } from '../../components/Loader/Loader';
 export const HomePage: React.FC = () => {
   const [newPhones, setNewPhones] = useState<Phones[]>([]);
   const [discountPhones, setDiscountPhones] = useState<Phones[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isNewPhonesLoading, setIsNewPhonesLoading] = useState(false);
+  const [isDiscountPhonesLoading, setIsDiscountPhonesLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsNewPhonesLoading(true);
 
     getNewPhones(0, 20)
       .then(data => setNewPhones(data.data))
-      .finally(() => setIsLoading(false));
+      .finally(() => setIsNewPhonesLoading(false));
 
     getDiscountPhones(0, 20)
-      .then(data => setDiscountPhones(data.data));
+      .then(data => setDiscountPhones(data.data))
+      .finally(() => setIsDiscountPhonesLoading(false));
   }, []);
 
   return (
@@ -30,7 +32,7 @@ export const HomePage: React.FC = () => {
       <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
       <HomeSlider />
 
-      {isLoading
+      {isNewPhonesLoading
         ? <Loader />
         : <FeaturedProducts
           recommendedPhones={newPhones}
@@ -39,7 +41,7 @@ export const HomePage: React.FC = () => {
 
       <CategoriesSection />
 
-      {isLoading
+      {isDiscountPhonesLoading
         ? <Loader />
         : <FeaturedProducts
           recommendedPhones={discountPhones}
