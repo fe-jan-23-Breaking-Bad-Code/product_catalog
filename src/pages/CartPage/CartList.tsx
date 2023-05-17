@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { CartItem } from '../../components/Cart/CartItem/CartItem';
 import styles from './CartPage.module.scss';
 import { CartPhone } from '../../types/CartPhone';

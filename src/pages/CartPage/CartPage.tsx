@@ -2,7 +2,6 @@ import React, {useMemo, useState} from 'react';
 import CartList from './CartList';
 import styles from './CartPage.module.scss';
 import { useNavigate } from 'react-router-dom';
-import Vector from '../../img/vector-left.svg';
 import { useAppSelector } from '../../hooks';
 import { CartPhone } from '../../types/CartPhone';
 import { getPhonesByIds } from '../../API/FetchPhones';
@@ -28,8 +27,6 @@ export const CartPage: React.FC = () => {
   const { list } = useAppSelector(store => store.phones);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(cart);
-
   const phonesInCart = useMemo(() => {
     const missingPhones = cart.map(({ id }) => id).filter(
       id => !list.some(phone => phone.id === id)
@@ -37,12 +34,16 @@ export const CartPage: React.FC = () => {
 
     if (missingPhones.length > 0) {
       setIsLoading(true);
-
       getPhonesByIds(missingPhones)
         .then(({ data }) => {
-          dispatch(phonesActions.setMany(data));
+          if (data.length !== 0) {
+            dispatch(phonesActions.setMany(data));
+          }
+
         })
-        .finally(() => setIsLoading(false));
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
 
     return list.reduce((acc: CartPhone[], phone) => {
@@ -54,7 +55,7 @@ export const CartPage: React.FC = () => {
 
       return acc;
     }, []);
-  }, [cart, list]);
+  }, [cart]);
 
   const handleCheckoutClick = () => {
     navigate('/');
