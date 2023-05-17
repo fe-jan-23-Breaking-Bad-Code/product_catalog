@@ -21,9 +21,9 @@ import { OrdersPage } from './pages/OrdersPage';
 
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const { isAuthenticated, isSessionLoading } = useSession();
-  const { user, isUserLoading } = useUser();
-  const { logout } = useDescope();
+  // const { isAuthenticated, isSessionLoading } = useSession();
+  // const { user, isUserLoading } = useUser();
+  // const { logout } = useDescope();
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
