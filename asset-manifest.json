@@ -1,7 +1,9 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.7ed9ee80.css",
-    "main.js": "/product_catalog/static/js/main.781bdd27.js",
+    "main.css": "/product_catalog/static/css/main.25348fd9.css",
+    "main.js": "/product_catalog/static/js/main.000e6322.js",
+    "static/js/669.f81839b0.chunk.js": "/product_catalog/static/js/669.f81839b0.chunk.js",
+    "static/js/229.79a0de46.chunk.js": "/product_catalog/static/js/229.79a0de46.chunk.js",
     "static/media/banner-phones.png": "/product_catalog/static/media/banner-phones.b4eeda8bd82b712057a2.png",
     "static/media/Logo.svg": "/product_catalog/static/media/Logo.ba6cb610da24822ef9348ec48e2bf1c1.svg",
     "static/media/banner-tablets.png": "/product_catalog/static/media/banner-tablets.a962057c1043a08f7737.png",
@@ -12,7 +14,6 @@
     "static/media/tablets.png": "/product_catalog/static/media/tablets.83012a755d2692c8d0cd.png",
     "static/media/phones.png": "/product_catalog/static/media/phones.20e72feaf44379701c25.png",
     "static/media/preview_banner.png": "/product_catalog/static/media/preview_banner.d709dd3c1afa1b286ce4.png",
-    "static/media/free-icon-eye-6107590.png": "/product_catalog/static/media/free-icon-eye-6107590.cbbf23e794602415bb81.png",
     "static/media/previev_banner_mobile.png": "/product_catalog/static/media/previev_banner_mobile.bfc30e4c397ce2b5d293.png",
     "static/media/slick.svg": "/product_catalog/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/product_catalog/static/media/slick.a4e97f5a2a64f0ab1323.eot",
@@ -23,7 +24,7 @@
     "static/media/favorites.svg": "/product_catalog/static/media/favorites.dbd5bfb9c3bafc92b9b402bff325383f.svg",
     "static/media/heart.svg": "/product_catalog/static/media/heart.b94e5d2f03b487d648cd.svg",
     "static/media/slick.woff": "/product_catalog/static/media/slick.295183786cd8a1389865.woff",
-    "static/media/Home.svg": "/product_catalog/static/media/Home.1816ab2ca60cac7cf0eb9e2fa68610f0.svg",
+    "static/media/Home.svg": "/product_catalog/static/media/Home.d4c29e4f137b3a79235a5293536d71a0.svg",
     "static/media/Heart-red.svg": "/product_catalog/static/media/Heart-red.a3b711b5bd5e5f67f9a8.svg",
     "index.html": "/product_catalog/index.html",
     "static/media/burger-close.svg": "/product_catalog/static/media/burger-close.b11c0434ab2a9f3b6727.svg",
@@ -34,18 +35,20 @@
     "static/media/nextPageDisabled.svg": "/product_catalog/static/media/nextPageDisabled.a36e74fa66c087c3db88ae6b2cd1af65.svg",
     "static/media/prevPage.svg": "/product_catalog/static/media/prevPage.7d3c7204a569b14ca2c58f128de43b0a.svg",
     "static/media/prevPageDisabled.svg": "/product_catalog/static/media/prevPageDisabled.4ef73287ca8607caae0d6c0ee3e8d264.svg",
-    "static/media/right-icon.svg": "/product_catalog/static/media/right-icon.6243519801266c067430d205c5f51f88.svg",
     "static/media/success.svg": "/product_catalog/static/media/success.542cf6b3006c6e5b897706b884231771.svg",
+    "static/media/right-icon.svg": "/product_catalog/static/media/right-icon.d8be0d9488d520e08fa69a4dff6240a0.svg",
     "static/media/vector-left.svg": "/product_catalog/static/media/vector-left.911fec69bc4dbef52b3c6beda4da8be8.svg",
     "static/media/vector-top.svg": "/product_catalog/static/media/vector-top.7a596121a6fc9bfe5d9f.svg",
-    "static/media/Chevron (Arrow Right).svg": "/product_catalog/static/media/Chevron (Arrow Right).5f1736c72311f3a4c7b7ac63d7546853.svg",
-    "static/media/left-icon.svg": "/product_catalog/static/media/left-icon.df6bf99a8d32da8c7d1c0239e55cf2ef.svg",
+    "static/media/Chevron (Arrow Right).svg": "/product_catalog/static/media/Chevron (Arrow Right).62c13d8971c86acca3915628a4294b65.svg",
+    "static/media/left-icon.svg": "/product_catalog/static/media/left-icon.52b1de8135fb515af2ee1d445ea0ad0d.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.4f727ec4693f6105d0f6.svg",
-    "main.7ed9ee80.css.map": "/product_catalog/static/css/main.7ed9ee80.css.map",
-    "main.781bdd27.js.map": "/product_catalog/static/js/main.781bdd27.js.map"
+    "main.25348fd9.css.map": "/product_catalog/static/css/main.25348fd9.css.map",
+    "main.000e6322.js.map": "/product_catalog/static/js/main.000e6322.js.map",
+    "669.f81839b0.chunk.js.map": "/product_catalog/static/js/669.f81839b0.chunk.js.map",
+    "229.79a0de46.chunk.js.map": "/product_catalog/static/js/229.79a0de46.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7ed9ee80.css",
-    "static/js/main.781bdd27.js"
+    "static/css/main.25348fd9.css",
+    "static/js/main.000e6322.js"
   ]
 }
