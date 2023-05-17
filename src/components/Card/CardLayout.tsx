@@ -29,7 +29,6 @@ export const PhoneCard: React.FC<Props> = ({
     capacity,
     ram,
     image,
-    phoneId
   } = phone;
   const dispatch = useDispatch();
   const imgUrl = BASE_URL + '/' + image;
@@ -50,7 +49,7 @@ export const PhoneCard: React.FC<Props> = ({
 
   return (
     <div className={styles.card}>
-      <Link to={`/product/${phoneId}`}>
+      <Link to={`/product/${id}`}>
         <img
           src={imgUrl}
           alt="Product_Image"
@@ -58,7 +57,7 @@ export const PhoneCard: React.FC<Props> = ({
         />
       </Link>
 
-      <Link to={`/product/${phoneId}`} className={styles.card__description}>
+      <Link to={`/product/${id}`} className={styles.card__description}>
         {name}
       </Link>
 

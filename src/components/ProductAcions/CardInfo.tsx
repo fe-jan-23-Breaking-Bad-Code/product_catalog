@@ -25,8 +25,8 @@ const CardInfo: React.FC<Props> = ({ phone }) => {
 
   const {
     id,
-    priceRegular = 0,
-    priceDiscount = '',
+    fullPrice: priceRegular = 0,
+    price: priceDiscount = '',
     screen = '',
     resolution = '',
     processor = '',

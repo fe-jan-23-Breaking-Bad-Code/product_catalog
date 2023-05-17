@@ -22,8 +22,15 @@ const Footer: React.FC = () => (
         </a>
       </div>
       <div className={styles.footer__button}>
-        <a href='/' className={styles.footer__button__text}>Back to top</a>
-        <button className={styles.button_back} />
+        <span
+          className={styles.footer__button__text}
+        >
+          Back to top
+        </span>
+        <button
+          className={styles.button_back}
+          onClick={() => window.scrollTo(0, 0)}
+        />
       </div>
     </footer>
   </div>
