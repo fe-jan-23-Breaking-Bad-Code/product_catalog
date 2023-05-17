@@ -25,15 +25,7 @@ export const AvailableColors: React.FC<Props> = ({ phone }) => {
       {availableColors?.map((color) => {
         const isSelectedColor = selectedColor === color;
 
-        let validColor = color;
-
-        if (validColor === 'spacegray') {
-          validColor = '#2b2f33';
-        }
-
-        if (validColor === 'rosegold') {
-          validColor = '#edd1c2';
-        }
+        const validColor = color;
 
         const parts = phoneUrl ? phoneUrl.split('-') : [];
         parts.splice(-1, 1, color);
@@ -51,7 +43,10 @@ export const AvailableColors: React.FC<Props> = ({ phone }) => {
             }}
           >
             <div
-              className={`${styles['product-acions__available-color-container--color']}`}
+              className={`
+                ${styles['product-acions__available-color-container--color']}
+                ${styles[`product-acions__available-color-container--color--${validColor}`]}
+              `}
               style={{
                 backgroundColor: validColor,
               }}
