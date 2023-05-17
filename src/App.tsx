@@ -46,7 +46,7 @@ export const App = () => {
 
           <Route path="/tablets" element={<TabletsPage />} />
 
-          <Route path="/accesories" element={<AccessoriesPage />} />
+          <Route path="/accessories" element={<AccessoriesPage />} />
 
           <Route path='/orders' element={<OrdersPage />} />
 
@@ -58,9 +58,11 @@ export const App = () => {
 
           <Route path="/favourites" element={<FavouritesPage />} />
 
-          <Route path="/login" element={
-            <AuthenticationPage />
-          }
+          <Route
+            path="/login"
+            element={
+              <AuthenticationPage />
+            }
           />
 
           <Route path="*" element={<NotFoundPage />} />
