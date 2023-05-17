@@ -15,7 +15,7 @@ export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
   const { currentPageList, total } = useAppSelector(store => store.phones);
 
-  const itemsPerPage = 8;
+  const itemsPerPage = 17;
   const pageByDefault = 1;
 
   const [currentPage, setCurrentPage] = useState(pageByDefault);
@@ -25,6 +25,8 @@ export const PhonesPage: React.FC = () => {
   const lastItemIndex = currentPage === pageByDefault
     ? itemsPerPage
     : itemsPerPage * currentPage;
+
+  console.log(firstItemIndex, lastItemIndex);
 
   const selectPage = (page: number) => {
     setCurrentPage(page);
