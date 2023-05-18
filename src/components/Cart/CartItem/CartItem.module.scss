@@ -41,6 +41,7 @@
     color: $primary;
     font-size: 14px;
     max-width: 128px;
+    transition: $transition-time;
 
     &:hover{
       color: $secondary;
@@ -70,7 +71,9 @@
       background-size: 16px 16px;
       background-position: center;
 
-      border: 1px solid #e2e6e9;
+      border: 1px solid $borders;
+
+      transition: $transition-time;
 
       &:hover {
         border-color: $primary;

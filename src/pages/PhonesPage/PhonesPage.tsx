@@ -10,23 +10,23 @@ import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { BreadCrumb } from '../../components/BreadCrumb/BreadCrumb';
 import { Loader } from '../../components/Loader/Loader';
 import classNames from 'classnames';
+import { SortingPhones } from './SortingPhones.1';
 
 export const PhonesPage: React.FC = () => {
   const dispatch = useDispatch();
   const { currentPageList, total } = useAppSelector(store => store.phones);
-
-  const itemsPerPage = 17;
   const pageByDefault = 1;
 
   const [currentPage, setCurrentPage] = useState(pageByDefault);
   const [isLoading, setIsLoading] = useState(false);
+  const [sortedType, setSortedType] = useState('year:desc');
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [searchQuery, setSearchQuery] = useState('');
 
   const firstItemIndex = itemsPerPage * (currentPage - 1);
   const lastItemIndex = currentPage === pageByDefault
     ? itemsPerPage
     : itemsPerPage * currentPage;
-
-  console.log(firstItemIndex, lastItemIndex);
 
   const selectPage = (page: number) => {
     setCurrentPage(page);
@@ -35,12 +35,16 @@ export const PhonesPage: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    getPhonesInRange(firstItemIndex, lastItemIndex - 1)
+    getPhonesInRange(firstItemIndex, lastItemIndex - 1, sortedType, searchQuery)
       .then(({ data, total }) => {
         dispatch(phonesActions.setPage({ data, total }));
       })
       .finally(() => setIsLoading(false));
-  }, [currentPage]);
+  }, [currentPage, sortedType, itemsPerPage, searchQuery]);
+
+  // useEffect(() => {
+  //   setSortedType(currentPageList);
+  // }, [currentPageList]);
 
   const breadcrumbs = [
     { path: '/phones', title: 'Phones' },
@@ -65,6 +69,20 @@ export const PhonesPage: React.FC = () => {
         ? <Loader />
         : (
           <>
+            <div className={styles.models_count}>
+              {`${total} models`}
+            </div>
+
+            <SortingPhones
+              searchQuery={searchQuery}
+              sortedType={sortedType}
+              itemsPerPage={itemsPerPage}
+              onSort={setSortedType}
+              setItemsPerPage={setItemsPerPage}
+              setSearchQuery={setSearchQuery}
+              total={total}
+            />
+
             <CardsGrid productList={currentPageList} />
 
             <Pagination

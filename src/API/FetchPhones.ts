@@ -38,12 +38,22 @@ export function getPhonesByIds(ids: string[]): Promise<PhonesPage> {
 export function getPhonesInRange(
   from: number,
   to: number,
+  sortType?: string,
+  query?: string,
 ): Promise<PhonesPage> {
   const queryParams = new URLSearchParams({
     productType:'phones',
     from: from.toString(),
     to: to.toString(),
   });
+
+  if (sortType) {
+    queryParams.set('sort', sortType);
+  }
+
+  if (query) {
+    queryParams.set('searchQuery', query);
+  }
 
   return fetch(`${BASE_URL}/products?${queryParams.toString()}`)
     .then(response => response.json());
@@ -98,7 +108,6 @@ export function getRecommendedPhones(
     .then(response => response.json());
 }
 
-
 // export function getOrders(): Orders[] {
 //   return [
 //     {
@@ -137,4 +146,5 @@ export function getRecommendedPhones(
 //     },
 //   ];
 // }
+
 

@@ -5,6 +5,11 @@
 .carousel {
   overflow: hidden;
   transition-duration: 500ms;
+  width: calc(100vw - 32px);
+
+  @include onTablet {
+    width: 100%;
+  }
 
   &__list {
     display: flex;

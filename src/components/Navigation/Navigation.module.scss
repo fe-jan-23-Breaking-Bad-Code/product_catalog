@@ -16,7 +16,7 @@
     color: $secondary;
     font-size: 12px;
     margin-right: 32px;
-    transition: 0.3s;
+    transition: $transition-time;
 
     @include onTablet {
       margin-right: 32px;

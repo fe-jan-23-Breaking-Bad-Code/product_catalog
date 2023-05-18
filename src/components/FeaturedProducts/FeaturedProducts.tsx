@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './FeaturedProducts.module.scss';
 import { Phones } from '../../types/Phones';
 import { Carousel } from './Carousel/Carousel';
@@ -20,10 +20,26 @@ type Props = {
 
 export const FeaturedProducts: React.FC<Props> =
   ({ recommendedPhones, title }) => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+      const handleWindowResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+
+      window.addEventListener('resize', handleWindowResize);
+
+      return () => {
+        window.removeEventListener('resize', handleWindowResize);
+      };
+    });
+
+    const frameSize = windowWidth < 640? 1 : 4;
+
     const state: State = {
       phones: recommendedPhones,
       step: 1,
-      frameSize: 4,
+      frameSize: frameSize,
       itemWidth: 272,
       animationDuration: 1000,
     };

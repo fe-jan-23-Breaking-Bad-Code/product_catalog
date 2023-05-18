@@ -74,6 +74,7 @@
     background-color: $primary;
     height: 48px;
     color: white;
+    transition: $transition-time;
 
     &::before {
       content: "";

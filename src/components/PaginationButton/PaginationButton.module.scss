@@ -1,10 +1,13 @@
+@import '../../../public/global-styles/index.scss';
+
 .disabledPaginationButton {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 32px;
   height: 32px; //should make micsin
-  border: 1px solid #E2E6E9;
+  border: 1px solid $borders;
+  transition: $transition-time;
 }
 
 .paginationButton {
@@ -12,12 +15,12 @@
   border: 1px solid #B4BDC3;
 
   &:hover {
-    border: 1px solid #313237;
+    border: 1px solid $primary;
   }
 }
 
 .active {
-  background-color: #313237;
+  background-color: $primary;
   color: white;
 }
 

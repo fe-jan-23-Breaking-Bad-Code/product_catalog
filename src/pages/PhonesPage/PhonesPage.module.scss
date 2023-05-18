@@ -3,3 +3,32 @@
 .phones__title {
   margin-bottom: 8px;
 }
+
+.models_count {
+  font-family: 'Mont-Regular';
+  color: $secondary;
+  margin-bottom: 32px;
+}
+
+.sorting_container {
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  padding-bottom: 24px;
+
+  @include onTablet {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: $secondary;
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+}
