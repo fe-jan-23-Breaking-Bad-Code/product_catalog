@@ -2,13 +2,13 @@
 @import '../../../public/global-styles/utils/variables';
 
 .container {
-  padding-top: 24px;
+  padding-top: calc(24px + $header-height);
   padding-bottom: 64px;
   margin: 0 auto;
 
   @include onTablet {
     max-width: 592px;
-    padding-top: 32px;
+    padding-top: calc(32px + $header-height);
   }
 
   @include breakpoint_800 {
@@ -17,7 +17,7 @@
 
   @include onDesktop {
     max-width: 1136px;
-    padding-top: 56px;
+    padding-top: calc(56px + $header-height);
     padding-bottom: 80px;
   }
 }
@@ -44,4 +44,8 @@
 
 .block {
   margin: 0 16px;
+
+  @include onTablet {
+    margin: 0;
+  }
 }
