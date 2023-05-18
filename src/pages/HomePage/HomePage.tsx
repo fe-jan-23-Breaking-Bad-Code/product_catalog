@@ -32,21 +32,25 @@ export const HomePage: React.FC = () => {
       <h1 className={styles.title}>Welcome to Nice Gadgets store!</h1>
       <HomeSlider />
 
-      {isNewPhonesLoading
-        ? <Loader />
-        : <FeaturedProducts
-          recommendedPhones={newPhones}
-          title={RecommededTitles.Brand_new_models}
-        />}
+      <div className={styles.block}>
+        {isNewPhonesLoading
+          ? <Loader />
+          : <FeaturedProducts
+              recommendedPhones={newPhones}
+              title={RecommededTitles.Brand_new_models}
+            />
+          }
 
-      <CategoriesSection />
+        <CategoriesSection />
 
-      {isDiscountPhonesLoading
-        ? <Loader />
-        : <FeaturedProducts
-          recommendedPhones={discountPhones}
-          title={RecommededTitles.Hot_prices}
-        />}
+        {isDiscountPhonesLoading
+          ? <Loader />
+          : <FeaturedProducts
+              recommendedPhones={discountPhones}
+              title={RecommededTitles.Hot_prices}
+            />
+          }
+      </div>
     </div>
   );
 };
