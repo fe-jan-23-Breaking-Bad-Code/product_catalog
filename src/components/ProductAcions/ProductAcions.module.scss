@@ -42,6 +42,18 @@
       @include square(32px);
       border-radius: 50%;
 
+      &--spacegray {
+        background-color: #2b2f33;
+      }
+
+      &--rosegold {
+        background-color: #edd1c2;
+      }
+
+      &--midnightgreen {
+        background-color: #3b4e2cfd;
+      }
+
       &:hover {
         cursor: pointer;
       }
