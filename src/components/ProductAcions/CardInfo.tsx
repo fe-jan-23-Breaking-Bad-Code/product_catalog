@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../Card/CardLayout.module.scss';
 import stylesAcions from './ProductAcions.module.scss';
 import { Phone } from '../../types/Phone';

@@ -74,6 +74,11 @@
       text-decoration: none;
       text-transform: uppercase;
       margin-bottom: 16px;
+      transition: $transition-time;
+
+      &:hover {
+        color: $primary;
+      }
 
       &:last-child {
         margin-bottom: 0;
@@ -113,6 +118,7 @@
   background-image: url(../../img/vector-top.svg);
   background-repeat: no-repeat;
   background-position: center;
+  transition: $transition-time;
 
   &:hover {
     border: 1px solid black;

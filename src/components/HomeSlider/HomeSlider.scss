@@ -113,6 +113,10 @@
   top: 0;
   transform: translateY(0%);
 
+  &:hover {
+    color: black;
+  }
+
   @include onTablet {
     display: flex;
     height: 189px;

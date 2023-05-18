@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 
 type Styles = {
   readonly [key: string]: string;
@@ -20,7 +19,6 @@ export function getGridClasses(
   const [desktopFrom, desktopTo] = getFromTo(index + 1, onDesktop, desktopGrid);
   const [tabletFrom, tabletTo] = getFromTo(index + 1, onTablet, tabletGrid);
   // const [phoneFrom, phoneTo] = getFromTo(index + 1, onPhone, phoneGrid);
-  console.log(`grid__item--tablet-${tabletFrom}-${tabletTo}`);
   return [
     styles[`grid__item--desktop-${desktopFrom}-${desktopTo}`],
     styles[`grid__item--tablet-${tabletFrom}-${tabletTo}`],

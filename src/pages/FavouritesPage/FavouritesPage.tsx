@@ -32,7 +32,9 @@ export const FavouritesPage: React.FC = () => {
         .then(({ data }) => {
           dispatch(phonesActions.setMany(data));
         })
-        .finally(() => setIsLoading(false));
+        .finally(() => {
+          setIsLoading(false);
+        });
     }
 
     return list.filter(({ id }) => favourites.includes(id));

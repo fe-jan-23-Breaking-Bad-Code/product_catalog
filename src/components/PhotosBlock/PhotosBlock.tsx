@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './PhotosBlock.module.scss';
-import { BASE_URL, getPhoneById } from '../../API/FetchPhones';
+import { BASE_URL } from '../../API/FetchPhones';
 import { Phone } from '../../types/Phone';
 
 type Props = {
