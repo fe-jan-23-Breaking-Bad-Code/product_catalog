@@ -122,6 +122,7 @@ export const SortingPhones: React.FC<Props> = ({
           <input
             type="text"
             value={currentQuery}
+            placeholder='Your search'
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             className={`${dropdown['search']}`}/>

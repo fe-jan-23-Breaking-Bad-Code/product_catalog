@@ -11,10 +11,17 @@
 }
 
 .sorting_container {
-  display: flex;
+  display: block;
   width: max-content;
-  gap: 16px;
-  margin-bottom: 24px;
+  margin: 0 auto;
+  padding-bottom: 24px;
+
+  @include onTablet {
+    display: flex;
+    gap: 16px;
+    margin: 0;
+    padding: 0;
+  }
 
   &__block {
     display: flex;
@@ -22,5 +29,6 @@
     gap: 4px;
     color: $secondary;
     font-size: 12px;
+    margin-bottom: 24px;
   }
 }

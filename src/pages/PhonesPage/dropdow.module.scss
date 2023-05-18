@@ -1,7 +1,7 @@
 @import '../../../public/global-styles/index.scss';
 
 select {
-  width: 136px;
+  width: 287px;
   height: 40px;
   padding: 12px;
   border: 1px solid $icons;
@@ -33,7 +33,7 @@ select::-ms-expand {
 
 .search {
   display: block;
-  width: 136px;
+  width: 287px;
   height: 40px;
   padding: 12px;
   border: 1px solid $icons;
@@ -44,7 +44,7 @@ select::-ms-expand {
   }
 
   @include onTablet {
-    width: 176px;
+    width: 200px;
   }
 
   font-size: 14px;
