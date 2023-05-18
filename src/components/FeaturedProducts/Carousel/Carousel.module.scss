@@ -5,7 +5,7 @@
 .carousel {
   overflow: hidden;
   transition-duration: 500ms;
-  width: 100vw;
+  width: calc(100vw - 32px);
 
   @include onTablet {
     width: 100%;
