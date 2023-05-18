@@ -2,8 +2,8 @@ import { Phone } from '../types/Phone';
 import { Phones } from '../types/Phones';
 import { Orders } from '../types/Orders';
 
-// export const BASE_URL = 'https://product-page-duuh.onrender.com';
-export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'https://product-page-duuh.onrender.com';
+// export const BASE_URL = 'http://localhost:3000';
 
 export interface PhonesPage {
   data: Phones[],
