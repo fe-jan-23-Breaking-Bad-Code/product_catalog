@@ -3,11 +3,8 @@ import styles from './Order.module.scss';
 import './bababoy.png';
 import { Orders } from '../../types/Orders';
 
-type Props = {
-  order: Orders,
-}
 
-export const Order: React.FC<Orders> = ({ data, status, total, orderId }) => {
+export const Order: React.FC<Orders> = ({ status, total, orderId }) => {
   return (
     <div className={styles.order}>
       <div className={styles.baba}>

@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './AuthenticationPage.module.scss';
-import { Descope, useUser } from '@descope/react-sdk';
+import { Descope } from '@descope/react-sdk';
 import { useNavigate } from 'react-router-dom';
+import { syncUser } from '../../API/FetchUsers';
 
 export const AuthenticationPage: React.FC = () => {
   const navigate = useNavigate();
@@ -15,10 +16,19 @@ export const AuthenticationPage: React.FC = () => {
         flowId="sign-up-or-in"
         theme="light"
         onSuccess={(e) => {
-          console.log(e.detail.user.name);
-          console.log(e.detail.user.email);
-          console.log(e.detail.user.userId);
-          navigate('/');
+          const {
+            userId,
+            name,
+            email,
+          } = e.detail.user;
+
+          syncUser({
+            googleId: userId,
+            email,
+            name,
+          });
+
+          navigate('/orders');
         }}
         onError={(err) => {
           console.log('Error!', err);

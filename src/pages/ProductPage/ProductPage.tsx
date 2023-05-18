@@ -30,6 +30,7 @@ export const ProductPage: React.FC = () => {
   }, [phone]);
 
   useEffect(() => {
+    console.log('getGhobne', productId);
     if (productId) {
       getPhoneById(productId)
         .then((data) => {
@@ -39,7 +40,7 @@ export const ProductPage: React.FC = () => {
           navigate('/page-not-found');
         });
     }
-  }, [productId, navigate]);
+  }, [productId]);
 
   if (!phone || !phone.name) {
     return null;
