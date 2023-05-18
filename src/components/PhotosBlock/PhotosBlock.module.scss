@@ -42,6 +42,11 @@
       @include square(50px);
       border: 1px solid #C4C4C4;
       padding: 20px;
+      transition: $transition-time;
+
+      &:hover {
+        border: 1px solid $primary;
+      }
 
       @include onTablet {
         @include square(35px);

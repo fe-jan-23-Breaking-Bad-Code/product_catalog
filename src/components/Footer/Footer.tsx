@@ -29,7 +29,7 @@ const Footer: React.FC = () => (
         </span>
         <button
           className={styles.button_back}
-          onClick={() => window.scrollTo(0, 0)}
+          onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
         />
       </div>
     </footer>

@@ -41,6 +41,7 @@
     &--color {
       @include square(32px);
       border-radius: 50%;
+      transition: $transition-time;
 
       &--spacegray {
         background-color: #2b2f33;
@@ -56,6 +57,7 @@
 
       &:hover {
         cursor: pointer;
+        box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.2);
       }
     }
   }
@@ -75,9 +77,10 @@
       padding: 8px;
       height: 32px;
       width: max-content;
+      transition: $transition-time;
 
       &:hover {
-        box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.4);
+        box-shadow: 0px 3px 13px rgba(23, 32, 49, 0.2);
       }
     }
   }
