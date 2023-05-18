@@ -14,6 +14,13 @@ const cartSlice = createSlice({
   reducers: {
     set: (cart, action: PayloadAction<CartItem[]>) => {
       cart = action.payload;
+      localStorage.setItem(CART, JSON.stringify(cart));
+
+      return cart;
+    },
+    clear: () => {
+      localStorage.setItem(CART, JSON.stringify([]));
+      return [];
     },
     add: (cart, action: PayloadAction<CartItem>) => {
       cart.push(action.payload);

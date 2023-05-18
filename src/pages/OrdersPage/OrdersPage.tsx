@@ -3,15 +3,18 @@ import styles from './OrdersPage.module.scss';
 import { BackButton } from '../../components/BackButton/BackButton';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { OrderList } from './OrderList';
-import { getOrders } from '../../API/FetchPhones';
 import { Orders } from '../../types/Orders';
+import { getUserOrders } from '../../API/FetchUsers';
+import { useAppSelector } from '../../hooks';
+
 
 export const OrdersPage: React.FC = () => {
+  const { googleId } = useAppSelector(store => store.user);
   const [orders, setOrders] = useState<Orders[]>([]);
 
-  const getOrdersFromServer = async () => {
+  const getOrdersFromServer = async (userId: string) => {
     try {
-      const ordersFromServer = await getOrders();
+      const ordersFromServer = await getUserOrders(userId);
 
       setOrders(ordersFromServer);
     } catch (error) {
@@ -20,8 +23,11 @@ export const OrdersPage: React.FC = () => {
   };
 
   useEffect(() => {
-    getOrdersFromServer();
-  }, []);
+    if (googleId) {
+      getOrdersFromServer(googleId);
+    }
+
+  }, [googleId]);
 
   return (
     <>

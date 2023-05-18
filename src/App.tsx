@@ -1,6 +1,6 @@
 import styles from './App.module.scss';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { PhonesPage } from './pages/PhonesPage';
@@ -15,15 +15,62 @@ import { TabletsPage } from './pages/TabletsPage/TabletsPage';
 import { AccessoriesPage } from './pages/AccesoriesPage/AccesoriesPage';
 import { FavouritesPage } from './pages/FavouritesPage';
 import { AuthenticationPage } from './pages/AuthenticationPage';
-import { Descope, useDescope, useSession, useUser } from '@descope/react-sdk';
 import { OrdersPage } from './pages/OrdersPage';
+import { useAppSelector } from './hooks';
+import {
+  getCart,
+  getFavourites,
+  saveCart,
+  saveFavourites,
+} from './API/FetchUsers';
+import { useDispatch } from 'react-redux';
+import { actions as favouritesActions } from './app/reducers/favourites';
+import { actions as cartActions } from './app/reducers/cart';
 
 
 export const App = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  // const { isAuthenticated, isSessionLoading } = useSession();
-  // const { user, isUserLoading } = useUser();
-  // const { logout } = useDescope();
+  const { googleId } = useAppSelector(store => store.user);
+  const cart = useAppSelector(store => store.cart);
+  const favourites = useAppSelector(store => store.favourites);
+  const dispatch = useDispatch();
+  const [isCartSynced, setIsCartSynced] = useState(false);
+  const [isFavouritesSynced, setIsFavouritesSynced] = useState(false);
+
+  useEffect(() => {
+    if (!googleId || !isCartSynced) {
+      return;
+    }
+
+    saveCart(googleId, cart);
+  }, [cart]);
+
+  useEffect(() => {
+    if (!googleId || !isFavouritesSynced) {
+      return;
+    }
+
+    saveFavourites(googleId, favourites);
+  }, [favourites]);
+
+  useEffect(() => {
+    if (!googleId) {
+      return;
+    }
+
+    getFavourites(googleId)
+      .then(data => {
+        setIsFavouritesSynced(true);
+        dispatch(favouritesActions.set(data));
+      });
+
+    getCart(googleId)
+      .then(data => {
+        setIsCartSynced(true);
+        dispatch(cartActions.set(data));
+      });
+
+  }, [googleId]);
 
   const handleCloseModal = () => {
     setIsModalVisible(false);
