@@ -17,14 +17,17 @@ export const CategoriesSection = () => {
       <div
         className={`${styles.categories__category} ${styles['grid__item--tablet-1-4']} ${styles['grid__item--desktop-1-8']}`}
       >
-        <div className={styles['categories__category--container']}>
-          <img
-            src={phonesImg}
-            alt="phones"
-            className={styles['categories__category--photo']}
-          />
-        </div>
-        <Link 
+        <Link
+          to="/phones">
+          <div className={styles['categories__category--container']}>
+            <img
+              src={phonesImg}
+              alt="phones"
+              className={styles['categories__category--photo']}
+            />
+          </div>
+        </Link>
+        <Link
           to ="/phones "
           className={styles['categories__category--title']}>
         Mobile phones
@@ -35,15 +38,18 @@ export const CategoriesSection = () => {
       <div
         className={`${styles.categories__category} ${styles['grid__item--tablet-5-8']} ${styles['grid__item--desktop-9-16']}`}
       >
-        <div className={styles['categories__category--container']}>
-          <img
-            src={tabletsImg}
-            alt="tablets"
-            className={styles['categories__category--photo']}
-          />
-        </div>
-        <Link 
-          to="/tablets" 
+        <Link
+          to="/tablets">
+          <div className={styles['categories__category--container']}>
+            <img
+              src={tabletsImg}
+              alt="tablets"
+              className={styles['categories__category--photo']}
+            />
+          </div>
+        </Link>
+        <Link
+          to="/tablets"
           className={styles['categories__category--title']}>
             Tablets
         </Link>
@@ -53,14 +59,17 @@ export const CategoriesSection = () => {
       <div
         className={`${styles.categories__category} ${styles['grid__item--tablet-9-12']} ${styles['grid__item--desktop-17-24']}`}
       >
-        <div className={styles['categories__category--container']}>
-          <img
-            src={accImg}
-            alt="accesorises"
-            className={styles['categories__category--photo']}
-          />
-        </div>
-        <Link 
+        <Link
+          to="/accessories">
+          <div className={styles['categories__category--container']}>
+            <img
+              src={accImg}
+              alt="accesorises"
+              className={styles['categories__category--photo']}
+            />
+          </div>
+        </Link>
+        <Link
           to="/accessories"
           className={styles['categories__category--title']}>
             Accessories
