@@ -36,20 +36,20 @@ export const HomePage: React.FC = () => {
         {isNewPhonesLoading
           ? <Loader />
           : <FeaturedProducts
-              recommendedPhones={newPhones}
-              title={RecommededTitles.Brand_new_models}
-            />
-          }
+            recommendedPhones={newPhones}
+            title={RecommededTitles.Brand_new_models}
+          />
+        }
 
         <CategoriesSection />
 
         {isDiscountPhonesLoading
           ? <Loader />
           : <FeaturedProducts
-              recommendedPhones={discountPhones}
-              title={RecommededTitles.Hot_prices}
-            />
-          }
+            recommendedPhones={discountPhones}
+            title={RecommededTitles.Hot_prices}
+          />
+        }
       </div>
     </div>
   );
