@@ -15,6 +15,7 @@ export const Header: React.FC = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const cartCount = useAppSelector(store => store.cart).length;
   const favouritesCount = useAppSelector(store => store.favourites).length;
+  const user = useAppSelector(store => store.user);
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -55,7 +56,7 @@ export const Header: React.FC = () => {
         <div className={styles.header_container}>
           <p className={styles.header_cart}>
             <NavLink
-              to="/login"
+              to={ user.googleId ? '/orders' : '/login' }
               className={({ isActive }) => classNames(
                 styles.header_cart,
                 {[styles.header_cart__active] : isActive}

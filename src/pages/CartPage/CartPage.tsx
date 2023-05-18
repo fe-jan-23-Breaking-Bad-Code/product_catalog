@@ -10,6 +10,8 @@ import { actions as phonesActions} from '../../app/reducers/phones';
 import { PagesTitle } from '../../components/PagesTitle/PagesTitle';
 import { BackButton } from '../../components/BackButton/BackButton';
 import { Loader } from '../../components/Loader/Loader';
+import { sendOrder } from '../../API/FetchUsers';
+import { actions as cartActions } from '../../app/reducers/cart';
 
 // type Props = {
 //   setIsModalVisible: (boolean: boolean) => void;
@@ -24,6 +26,7 @@ export const CartPage: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useAppSelector(store => store.cart);
+  const user = useAppSelector(store => store.user);
   const { list } = useAppSelector(store => store.phones);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -57,11 +60,32 @@ export const CartPage: React.FC = () => {
     }, []);
   }, [cart]);
 
-  const handleCheckoutClick = () => {
+  const placeOrder = async () => {
+    if (!user.googleId) {
+      navigate('/login');
+
+      return;
+    }
+
+    try {
+      await sendOrder(user.googleId, {
+        total: checkoutCost(phonesInCart),
+        status: 'created',
+        data: cart,
+      });
+
+      dispatch(cartActions.clear());
+    }
+    catch (err) {
+      console.log(err);
+    }
+
     navigate('/');
-    setTimeout(() => {
-      // setIsModalVisible(true);
-    }, 1000);
+    // setIsModalVisible(true);
+  };
+
+  const handleCheckoutClick = () => {
+    placeOrder();
   };
 
   return (
