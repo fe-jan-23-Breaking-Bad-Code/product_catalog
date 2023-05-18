@@ -37,7 +37,6 @@ export const HomePage: React.FC = () => {
           title={RecommededTitles.Brand_new_models}
         />}
 
-      <CategoriesSection />
 
       {isLoading
         ? <Loader />

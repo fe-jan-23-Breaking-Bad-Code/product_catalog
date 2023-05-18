@@ -218,11 +218,7 @@ export class Carousel extends Component<Props, State> {
 
         <div
           className={styles.carousel}
-          style={{
-            width: ((frameSize * itemWidth) + 48),
-          }}
         >
-
           <ul
             className={styles.carousel__list}
             style={{
