@@ -3,10 +3,11 @@
 @import '../../../public/global-styles/utils/variables';
 
 .page__container {
-  border: 1px solid #E2E6E9;
+  display: flex;
   align-items: center;
+  border: 1px solid #E2E6E9;
   align-self: center;
   height: 400px;
-  width: 400px;
+  width: 500px;
   margin: 1% auto;
 }

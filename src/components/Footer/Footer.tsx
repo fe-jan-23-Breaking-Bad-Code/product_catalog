@@ -11,7 +11,12 @@ const Footer: React.FC = () => (
         </a>
       </div>
       <div className={styles.footer__info}>
-        <a href='/' className={styles.footer__info__link}>
+        <a
+          href='https://github.com/fe-jan-23-Breaking-Bad-Code'
+          className={styles.footer__info__link}
+          target="_blank"
+          rel="noreferrer"
+        >
           Github
         </a>
         <a href='/' className={styles.footer__info__link}>

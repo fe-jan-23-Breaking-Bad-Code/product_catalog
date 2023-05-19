@@ -123,8 +123,13 @@ export const CartPage: React.FC = () => {
             </p>
           </div>
           <button
-            className={styles['checkout-block__button']}
-            onClick={handleCheckoutClick}>
+            className={`
+              ${styles['checkout-block__button']}
+              // ${styles['checkout-block__button--disabled']}
+            `}
+            onClick={handleCheckoutClick}
+            // disabled={disabled}
+          >
               Checkout
           </button>
         </div>
