@@ -85,7 +85,9 @@ export const CartPage: React.FC = () => {
   };
 
   const handleCheckoutClick = () => {
-    placeOrder();
+    if (cart.length > 0) {
+      placeOrder();
+    }
   };
 
   return (
@@ -124,11 +126,9 @@ export const CartPage: React.FC = () => {
           </div>
           <button
             className={`
-              ${styles['checkout-block__button']}
-              // ${styles['checkout-block__button--disabled']}
+              ${cart.length === 0 ? styles['checkout-block__button-disabled'] : styles['checkout-block__button']}
             `}
             onClick={handleCheckoutClick}
-            // disabled={disabled}
           >
               Checkout
           </button>

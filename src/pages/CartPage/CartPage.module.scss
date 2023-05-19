@@ -76,10 +76,6 @@
     color: white;
     transition: $transition-time;
 
-    // &--disabled {
-    //   background-color: gray;
-    // }
-
     &::before {
       content: "";
       position: absolute;
@@ -100,6 +96,17 @@
       box-shadow: 0;
       border: 1px solid $icons;
     }
+  }
+
+  &__button-disabled {
+    position: relative;
+    margin: 24px 24px 0 24px;
+    display: block;
+    background-color: gray;
+    height: 48px;
+    color: white;
+    transition: $transition-time;
+    cursor: not-allowed;
   }
 }
 
