@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from './PhonesPage.module.scss';
 import dropdown from './dropdow.module.scss';
+import { Phones } from '../../types/Phones';
+
 
 type Props = {
   total: number,

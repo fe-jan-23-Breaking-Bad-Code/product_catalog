@@ -76,6 +76,10 @@
     color: white;
     transition: $transition-time;
 
+    // &--disabled {
+    //   background-color: gray;
+    // }
+
     &::before {
       content: "";
       position: absolute;
