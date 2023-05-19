@@ -31,6 +31,26 @@ select::-ms-expand {
     display: none;
 }
 
+select option {
+  color: $secondary;
+}
+
+select option:active {
+  color: $primary;
+  background-color: #FAFBFC;
+}
+
+select option:checked {
+  /* Стили для выбранного элемента */
+  color: $primary;
+  background-color: #FAFBFC;
+}
+
+select:focus {
+  /* Убрать выделение при фокусе */
+  outline: none;
+}
+
 .search {
   display: block;
   width: 287px;
@@ -48,4 +68,9 @@ select::-ms-expand {
   }
 
   font-size: 14px;
+}
+
+.search:focus {
+  /* Убрать выделение при фокусе */
+  outline: none;
 }
