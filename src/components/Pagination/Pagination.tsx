@@ -35,11 +35,37 @@ export const Pagination: FC<Props> = (props) => {
     onPageChange,
   } = props;
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  });
+
   const [nextPage, setNextPage] = useState(nextPageIcon);
   const [prevPage, setPrevPage] = useState(prevPageIconDisabled);
 
   const pagesCount = Math.ceil(total / perPage);
-  const pages = getNumbers(1, pagesCount);
+  const prevPagesCount = 2; // Number of previous pages to show
+  const nextPagesCount = 2; // Number of next pages to show
+  const prevPagesVisible = getNumbers(
+    Math.max(currentPage - prevPagesCount, 1), currentPage - 1
+  );
+  const nextPagesVisible = getNumbers(
+    currentPage + 1, Math.min(currentPage + nextPagesCount, pagesCount)
+  );
+  let pages = getNumbers(1, pagesCount);
+
+  if (windowWidth < 640) {
+    pages = [...prevPagesVisible, currentPage, ...nextPagesVisible];
+  }
 
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === pagesCount;
