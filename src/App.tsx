@@ -26,6 +26,7 @@ import {
 import { useDispatch } from 'react-redux';
 import { actions as favouritesActions } from './app/reducers/favourites';
 import { actions as cartActions } from './app/reducers/cart';
+import { OrderDetailsPage } from './pages/OrderDetailsPage';
 
 
 export const App = () => {
@@ -96,6 +97,8 @@ export const App = () => {
           <Route path="/accessories" element={<AccessoriesPage />} />
 
           <Route path='/orders' element={<OrdersPage />} />
+
+          <Route path='/orders/:orderId' element={<OrderDetailsPage />} />
 
           <Route path="/cart" element={<CartPage />} />
 

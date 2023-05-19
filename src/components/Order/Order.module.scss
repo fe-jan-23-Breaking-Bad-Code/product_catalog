@@ -11,6 +11,7 @@
   margin: 0 16px;
   height: 200px;
   font-size: 14px;
+  color: inherit;
 
   @include onTablet {
     flex-direction: row;

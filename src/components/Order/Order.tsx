@@ -2,11 +2,16 @@ import React from 'react';
 import styles from './Order.module.scss';
 import './bababoy.png';
 import { Orders } from '../../types/Orders';
+import { Link } from 'react-router-dom';
 
 
 export const Order: React.FC<Orders> = ({ status, total, orderId }) => {
+
   return (
-    <div className={styles.order}>
+    <Link
+      to={`/orders/${orderId}`}
+      className={styles.order}
+    >
       <div className={styles.baba}>
       </div>
 
@@ -31,6 +36,6 @@ export const Order: React.FC<Orders> = ({ status, total, orderId }) => {
       </div>
 
       <img src="./bababoy.png" alt="" />
-    </div>
+    </Link>
   );
 };
