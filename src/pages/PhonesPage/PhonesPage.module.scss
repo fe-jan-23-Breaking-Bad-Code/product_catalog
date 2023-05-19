@@ -32,3 +32,14 @@
     margin-bottom: 24px;
   }
 }
+
+.searchButton {
+  display: block;
+  width: 100px;
+  height: 40px;
+  padding: 12px;
+  margin-top: 16px;
+  border: 1px solid $icons;
+  font-family: 'Mont-Regular';
+  font-size: 14px;
+}

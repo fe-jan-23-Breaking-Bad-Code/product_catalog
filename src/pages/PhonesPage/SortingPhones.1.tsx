@@ -71,6 +71,15 @@ export const SortingPhones: React.FC<Props> = ({
     }
   };
 
+  const handleClick = () => {
+    setSearchQuery(currentQuery);
+  };
+
+  const handleReset = () => {
+    setCurrentQuery('');
+    setSearchQuery('');
+  };
+
 
   const handleItems = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const selectedOption = event.target.value;
@@ -126,7 +135,25 @@ export const SortingPhones: React.FC<Props> = ({
             onChange={handleInputChange}
             onKeyDown={handleKeyDown}
             className={`${dropdown['search']}`}/>
+
         </span>
+      </div>
+      <div className={styles.sorting_container__block}>
+        <button
+          className={styles.searchButton}
+          onClick={handleClick}
+        >
+          Search
+        </button>
+      </div>
+
+      <div className={styles.sorting_container__block}>
+        <button
+          className={styles.searchButton}
+          onClick={handleReset}
+        >
+          Reset
+        </button>
       </div>
     </div>
   );
