@@ -1,6 +1,6 @@
 import { CartItem } from '../types/CartItem';
+import { OrderItem } from '../types/OrderItem';
 import { Orders } from '../types/Orders';
-import { Phones } from '../types/Phones';
 import { User } from '../types/User';
 import { BASE_URL } from './FetchPhones';
 
@@ -26,14 +26,23 @@ export function getUserOrders(userId: string): Promise<Orders[]> {
     .then(response => response.json());
 }
 
+export function getOrderById(orderId: number): Promise<OrderItem[]> {
+  return fetch(`${BASE_URL}/users/orders/${orderId}`)
+    .then(response => response.json());
+}
+
 
 export function sendOrder(
   userId: string,
-  order: Omit<Orders, 'orderId'>
+  total: number,
+  data: CartItem[],
 ): Promise<Orders[]> {
   return fetch(`${BASE_URL}/users/orders/new`, {
     method: 'post',
-    body: JSON.stringify({ userId, order }),
+    body: JSON.stringify({ userId, order: {
+      total,
+      data,
+    }}),
     headers: {
       'Content-Type': 'application/json',
     }

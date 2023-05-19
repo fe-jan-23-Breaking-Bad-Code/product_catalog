@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import CartList from './CartList';
 import styles from './CartPage.module.scss';
 import { useNavigate } from 'react-router-dom';
@@ -30,7 +30,7 @@ export const CartPage: React.FC = () => {
   const { list } = useAppSelector(store => store.phones);
   const [isLoading, setIsLoading] = useState(false);
 
-  const phonesInCart = useMemo(() => {
+  useEffect(() => {
     const missingPhones = cart.map(({ id }) => id).filter(
       id => !list.some(phone => phone.id === id)
     );
@@ -48,6 +48,9 @@ export const CartPage: React.FC = () => {
           setIsLoading(false);
         });
     }
+  }, [cart]);
+
+  const phonesInCart = useMemo(() => {
 
     return list.reduce((acc: CartPhone[], phone) => {
       const cartItem = cart.find(item => item.id === phone.id);
@@ -58,7 +61,8 @@ export const CartPage: React.FC = () => {
 
       return acc;
     }, []);
-  }, [cart]);
+  }, [cart, list]);
+
 
   const placeOrder = async () => {
     if (!user.googleId) {
@@ -68,11 +72,11 @@ export const CartPage: React.FC = () => {
     }
 
     try {
-      await sendOrder(user.googleId, {
-        total: checkoutCost(phonesInCart),
-        status: 'created',
-        data: cart,
-      });
+      await sendOrder(
+        user.googleId,
+        checkoutCost(phonesInCart),
+        cart,
+      );
 
       dispatch(cartActions.clear());
     }

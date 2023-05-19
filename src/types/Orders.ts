@@ -3,6 +3,6 @@ import { CartItem } from './CartItem';
 export interface Orders {
   status: string,
   total: number,
-  data: CartItem[],
+  updatetAt: Date,
   orderId: number,
 }

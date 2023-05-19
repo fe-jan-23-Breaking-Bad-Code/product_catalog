@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import styles from './FavouritesPage.module.scss';
 import { useAppSelector } from '../../hooks';
 import { CardsGrid } from '../../components/CardsGrid';
@@ -20,7 +20,7 @@ export const FavouritesPage: React.FC = () => {
     { path: '/favourites', title: 'Favourites' },
   ];
 
-  const favouritePhones = useMemo(() => {
+  useEffect(() => {
     const missingPhones = favourites.filter(
       id => !list.some(phone => phone.id === id)
     );
@@ -36,6 +36,9 @@ export const FavouritesPage: React.FC = () => {
           setIsLoading(false);
         });
     }
+  }, [favourites]);
+
+  const favouritePhones = useMemo(() => {
 
     return list.filter(({ id }) => favourites.includes(id));
   }, [favourites, list]);

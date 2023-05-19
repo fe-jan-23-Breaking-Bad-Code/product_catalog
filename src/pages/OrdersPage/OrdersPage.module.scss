@@ -1,21 +1,4 @@
-@import '../../../public/global-styles/utils/grid.scss';
-@import '../../../public/global-styles/utils/variables';
-@import '../../../public/global-styles/utils/mixins';
-
-.container {
-  display: block;
-  max-width: 1136px;
-  margin: 41px 8px 0 16px;
-  position: relative;
-
-  @include onTablet {
-    margin: 41px 20px;
-  }
-
-  @include onDesktop {
-    margin: 41px auto;
-  }
-}
+@import '../../../public/global-styles/index.scss';
 
 .title {
   margin-bottom: 32px;
@@ -23,4 +6,17 @@
   @include onDesktop {
     font-size: 48px;
   }
+}
+
+.list {
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.logout-btn {
+  display: flex;
+  margin-bottom: 10px;
 }
