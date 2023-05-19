@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.a0648b93.css",
-    "main.js": "/product_catalog/static/js/main.ac2db169.js",
+    "main.css": "/product_catalog/static/css/main.12fd4178.css",
+    "main.js": "/product_catalog/static/js/main.64b2bbab.js",
     "static/js/669.f81839b0.chunk.js": "/product_catalog/static/js/669.f81839b0.chunk.js",
     "static/js/229.79a0de46.chunk.js": "/product_catalog/static/js/229.79a0de46.chunk.js",
     "static/media/banner-phones.png": "/product_catalog/static/media/banner-phones.b4eeda8bd82b712057a2.png",
@@ -43,13 +43,13 @@
     "static/media/Chevron (Arrow Right).svg": "/product_catalog/static/media/Chevron (Arrow Right).62c13d8971c86acca3915628a4294b65.svg",
     "static/media/left-icon.svg": "/product_catalog/static/media/left-icon.52b1de8135fb515af2ee1d445ea0ad0d.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.4f727ec4693f6105d0f6.svg",
-    "main.a0648b93.css.map": "/product_catalog/static/css/main.a0648b93.css.map",
-    "main.ac2db169.js.map": "/product_catalog/static/js/main.ac2db169.js.map",
+    "main.12fd4178.css.map": "/product_catalog/static/css/main.12fd4178.css.map",
+    "main.64b2bbab.js.map": "/product_catalog/static/js/main.64b2bbab.js.map",
     "669.f81839b0.chunk.js.map": "/product_catalog/static/js/669.f81839b0.chunk.js.map",
     "229.79a0de46.chunk.js.map": "/product_catalog/static/js/229.79a0de46.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a0648b93.css",
-    "static/js/main.ac2db169.js"
+    "static/css/main.12fd4178.css",
+    "static/js/main.64b2bbab.js"
   ]
 }
