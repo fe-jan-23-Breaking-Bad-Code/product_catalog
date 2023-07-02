@@ -65,35 +65,33 @@ export const PhonesPage: React.FC = () => {
         />
       </div>
 
+
+      <div className={styles.models_count}>
+        {`${total} models`}
+      </div>
+
+      <SortingPhones
+        searchQuery={searchQuery}
+        sortedType={sortedType}
+        itemsPerPage={itemsPerPage}
+        onSort={setSortedType}
+        setItemsPerPage={setItemsPerPage}
+        setSearchQuery={setSearchQuery}
+        total={total}
+      />
+
       {isLoading
-        ? <Loader />
-        : (
-          <>
-            <div className={styles.models_count}>
-              {`${total} models`}
-            </div>
-
-            <SortingPhones
-              searchQuery={searchQuery}
-              sortedType={sortedType}
-              itemsPerPage={itemsPerPage}
-              onSort={setSortedType}
-              setItemsPerPage={setItemsPerPage}
-              setSearchQuery={setSearchQuery}
-              total={total}
-            />
-
-            <CardsGrid productList={currentPageList} />
-
-            <Pagination
-              total={total}
-              perPage={itemsPerPage}
-              currentPage={currentPage}
-              onPageChange={selectPage}
-            />
-          </>
-        )
+        ? <CardsGrid skeletonCount={itemsPerPage - 1} />
+        : <CardsGrid productList={currentPageList} />
       }
+
+
+      <Pagination
+        total={total}
+        perPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={selectPage}
+      />
     </div>
   );
 };

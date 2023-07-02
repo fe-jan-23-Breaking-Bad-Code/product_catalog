@@ -34,21 +34,35 @@ export const HomePage: React.FC = () => {
 
       <div className={styles.block}>
         {isNewPhonesLoading
-          ? <Loader />
-          : <FeaturedProducts
-            recommendedPhones={newPhones}
-            title={RecommededTitles.Brand_new_models}
-          />
+          ? (
+            <FeaturedProducts
+              title={RecommededTitles.Brand_new_models}
+              skeletonCount={10}
+            />
+          )
+          : (
+            <FeaturedProducts
+              recommendedPhones={newPhones}
+              title={RecommededTitles.Brand_new_models}
+            />
+          )
         }
 
         <CategoriesSection />
 
         {isDiscountPhonesLoading
-          ? <Loader />
-          : <FeaturedProducts
-            recommendedPhones={discountPhones}
-            title={RecommededTitles.Hot_prices}
-          />
+          ? (
+            <FeaturedProducts
+              title={RecommededTitles.Hot_prices}
+              skeletonCount={10}
+            />
+          )
+          : (
+            <FeaturedProducts
+              recommendedPhones={discountPhones}
+              title={RecommededTitles.Hot_prices}
+            />
+          )
         }
       </div>
     </div>

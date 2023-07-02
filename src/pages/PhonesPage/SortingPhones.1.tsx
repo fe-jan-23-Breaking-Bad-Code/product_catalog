@@ -38,10 +38,6 @@ export const SortingPhones: React.FC<Props> = ({
     'All': total + 1,
   };
 
-  console.log(
-    sortedType,
-    itemsPerPage,
-  );
   const indexOfType = Object.values(SortTypes).indexOf(sortedType as SortTypes);
   const key = Object.keys(SortTypes)[indexOfType];
   const indexOfTypeAll = Object.values(typeAll).indexOf(itemsPerPage);
