@@ -66,7 +66,7 @@ export const CartPage: React.FC = () => {
 
   const placeOrder = async () => {
     if (!user.googleId) {
-      navigate('/login');
+      navigate('/login?fallback=cart');
 
       return;
     }

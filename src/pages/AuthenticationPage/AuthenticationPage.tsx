@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './AuthenticationPage.module.scss';
 import { Descope } from '@descope/react-sdk';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { syncUser } from '../../API/FetchUsers';
 import { useDispatch } from 'react-redux';
 import { actions as userActions } from '../../app/reducers/user';
@@ -9,6 +9,8 @@ import { actions as userActions } from '../../app/reducers/user';
 export const AuthenticationPage: React.FC = () => {
   const navigate = useNavigate();
   // const { user, isUserLoading } = useUser();
+  const [searchparams] = useSearchParams();
+  const fallback = searchparams.get('fallback');
 
   // console.log(user); // Object with current user
 
@@ -32,7 +34,12 @@ export const AuthenticationPage: React.FC = () => {
             name,
           }));
 
-          navigate('/orders');
+          if (fallback !== null) {
+            navigate(`/${fallback}`);
+          } else {
+            navigate('/orders');
+          }
+
         }}
         onError={(err) => {
           console.log('Error!', err);
