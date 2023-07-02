@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product_catalog/static/css/main.12fd4178.css",
-    "main.js": "/product_catalog/static/js/main.64b2bbab.js",
+    "main.css": "/product_catalog/static/css/main.c8395352.css",
+    "main.js": "/product_catalog/static/js/main.c1b9e08f.js",
     "static/js/669.f81839b0.chunk.js": "/product_catalog/static/js/669.f81839b0.chunk.js",
     "static/js/229.79a0de46.chunk.js": "/product_catalog/static/js/229.79a0de46.chunk.js",
     "static/media/banner-phones.png": "/product_catalog/static/media/banner-phones.b4eeda8bd82b712057a2.png",
@@ -26,8 +26,8 @@
     "static/media/heart.svg": "/product_catalog/static/media/heart.b94e5d2f03b487d648cd.svg",
     "static/media/slick.woff": "/product_catalog/static/media/slick.295183786cd8a1389865.woff",
     "static/media/Home.svg": "/product_catalog/static/media/Home.d4c29e4f137b3a79235a5293536d71a0.svg",
-    "static/media/Heart-red.svg": "/product_catalog/static/media/Heart-red.a3b711b5bd5e5f67f9a8.svg",
     "index.html": "/product_catalog/index.html",
+    "static/media/Heart-red.svg": "/product_catalog/static/media/Heart-red.a3b711b5bd5e5f67f9a8.svg",
     "static/media/burger-close.svg": "/product_catalog/static/media/burger-close.b11c0434ab2a9f3b6727.svg",
     "static/media/Close.svg": "/product_catalog/static/media/Close.50c10c10972396ba0238.svg",
     "static/media/burger-menu.svg": "/product_catalog/static/media/burger-menu.3eda38e880976ed7dd57.svg",
@@ -43,13 +43,13 @@
     "static/media/Chevron (Arrow Right).svg": "/product_catalog/static/media/Chevron (Arrow Right).62c13d8971c86acca3915628a4294b65.svg",
     "static/media/left-icon.svg": "/product_catalog/static/media/left-icon.52b1de8135fb515af2ee1d445ea0ad0d.svg",
     "static/media/Minus.svg": "/product_catalog/static/media/Minus.4f727ec4693f6105d0f6.svg",
-    "main.12fd4178.css.map": "/product_catalog/static/css/main.12fd4178.css.map",
-    "main.64b2bbab.js.map": "/product_catalog/static/js/main.64b2bbab.js.map",
+    "main.c8395352.css.map": "/product_catalog/static/css/main.c8395352.css.map",
+    "main.c1b9e08f.js.map": "/product_catalog/static/js/main.c1b9e08f.js.map",
     "669.f81839b0.chunk.js.map": "/product_catalog/static/js/669.f81839b0.chunk.js.map",
     "229.79a0de46.chunk.js.map": "/product_catalog/static/js/229.79a0de46.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.12fd4178.css",
-    "static/js/main.64b2bbab.js"
+    "static/css/main.c8395352.css",
+    "static/js/main.c1b9e08f.js"
   ]
 }
