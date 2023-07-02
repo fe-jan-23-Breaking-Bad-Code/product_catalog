@@ -10,21 +10,27 @@ export interface ImageProps {
 type Props = {
   content: string;
   handler: () => void;
-  isSelected: boolean
+  isSelected: boolean;
+  isSkeleton?: boolean;
 }
 
 export const MainButton: React.FC<Props> = ({
   content,
   handler,
   isSelected,
+  isSkeleton=false,
 }) => {
   return (
     <button
       className={classNames(
         styles['main-button'],
-        { [styles['main-button--selected']]: isSelected }
+        {
+          [styles['main-button--selected']]: isSelected,
+          'placeholder': isSkeleton,
+        }
       )}
       onClick={handler}
+      disabled={isSkeleton}
     >
       {content}
     </button>

@@ -18,7 +18,7 @@ import { CartItem } from '../../../types/CartItem';
 
 type Props = {
   title: RecommededTitles;
-  phones: Phones[];
+  phones?: Phones[];
   step: number;
   frameSize: number;
   itemWidth: number;
@@ -26,6 +26,7 @@ type Props = {
   infinite: boolean;
   favourites: string[];
   cart: CartItem[];
+  skeletonCount?: number;
 };
 
 type State = {
@@ -55,8 +56,9 @@ export class Carousel extends Component<Props, State> {
       frameSize,
       infinite,
       phones,
+      skeletonCount,
     } = this.props;
-    const count = phones.length;
+    const count = phones?.length || skeletonCount || 0;
     const { currentFrame, hasPrevious } = this.state;
 
     const nextFrame = getNextFrame(
@@ -96,8 +98,9 @@ export class Carousel extends Component<Props, State> {
       infinite,
       frameSize,
       phones,
+      skeletonCount,
     } = this.props;
-    const count = phones.length;
+    const count =  phones?.length || skeletonCount || 0;
     const { currentFrame, hasNext } = this.state;
 
     const previousFrame = getPreviousFrame(
@@ -161,12 +164,17 @@ export class Carousel extends Component<Props, State> {
       animationDuration,
       favourites,
       cart,
+      skeletonCount,
     } = this.props;
     const {
       currentFrame,
       hasNext,
       hasPrevious,
     } = this.state;
+
+    const filler = phones
+      ? phones
+      : Array(skeletonCount).fill(undefined);
 
     return (
       <div className={styles.content}>
@@ -226,9 +234,9 @@ export class Carousel extends Component<Props, State> {
               transitionDuration: `${animationDuration}ms`,
             }}
           >
-            {phones.map((phone) => (
+            {filler.map((phone, index) => (
               <li
-                key={phone.id}
+                key={phone?.id || index}
                 className={styles.carousel__item}
               >
                 <div
@@ -236,15 +244,25 @@ export class Carousel extends Component<Props, State> {
                     classNames(styles['carousel__phone'],
                       {
                         'carousel__phone--visible':
-                          this.inVisibleArea(Number(phone.id)),
+                          this.inVisibleArea(Number(phone?.id || index)),
                       })
                   }
                 >
-                  <PhoneCard
-                    phone={phone}
-                    isInCart={cart.some(({ id }) => id === phone.id)}
-                    isInFavourites={favourites.includes(phone.id)}
-                  />
+                  {phones
+                    ? (
+                      <PhoneCard
+                        phone={phone}
+                        isInCart={cart.some(({ id }) => id === phone.id)}
+                        isInFavourites={favourites.includes(phone.id)}
+                      />
+                    )
+                    : (
+                      <PhoneCard
+                        isInCart={false}
+                        isInFavourites={false}
+                      />
+                    )}
+
                 </div>
               </li>
             ))}

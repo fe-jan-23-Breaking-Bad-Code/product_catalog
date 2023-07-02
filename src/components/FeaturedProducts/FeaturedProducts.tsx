@@ -6,7 +6,7 @@ import { RecommededTitles } from '../../types/FeaturedPhonesTitles';
 import { useAppSelector } from '../../hooks';
 
 interface State {
-  phones: Phones[],
+  phones?: Phones[],
   step: number,
   frameSize: number,
   itemWidth: number,
@@ -14,12 +14,13 @@ interface State {
 }
 
 type Props = {
-  recommendedPhones: Phones[];
+  recommendedPhones?: Phones[];
+  skeletonCount? : number;
   title: RecommededTitles;
 }
 
 export const FeaturedProducts: React.FC<Props> =
-  ({ recommendedPhones, title }) => {
+  ({ recommendedPhones, title, skeletonCount }) => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
     useEffect(() => {
@@ -59,6 +60,7 @@ export const FeaturedProducts: React.FC<Props> =
           infinite={false}
           favourites={favourites}
           cart={cart}
+          skeletonCount={skeletonCount}
         />
       </div>
     );

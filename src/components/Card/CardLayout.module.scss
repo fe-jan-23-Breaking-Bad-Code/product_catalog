@@ -41,6 +41,10 @@ $name-height: 21px;
     @include onTablet {
       height: 195px;
     }
+
+    &--placeholder {
+      width: 100%;
+    }
   }
 
   &__description {
@@ -90,6 +94,7 @@ $name-height: 21px;
     justify-content: space-between;
     font-size: 12px;
     margin-bottom: 8px;
+    width: 100%;
 
     &--description {
       width: 34%;

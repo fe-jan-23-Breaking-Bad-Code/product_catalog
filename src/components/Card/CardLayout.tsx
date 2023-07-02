@@ -10,7 +10,7 @@ import { MainButton } from '../MainButton';
 import { Link } from 'react-router-dom';
 
 type Props = {
-  phone: Phones;
+  phone?: Phones;
   isInCart: boolean;
   isInFavourites: boolean;
 };
@@ -19,7 +19,84 @@ export const PhoneCard: React.FC<Props> = ({
   phone,
   isInCart,
   isInFavourites,
+
 }) => {
+
+  const isSkeleton = !phone;
+  if (isSkeleton) {
+    return (
+      <div className={classNames(styles.card, 'placeholder-glow')}>
+        <div
+          className={classNames(
+            styles['card__image'],
+            styles['card__image--placeholder'],
+            'placeholder'
+          )}
+        />
+
+        <div className={classNames(
+          styles.card__description,
+          'placeholder',
+          'w-100'
+        )}>
+        </div>
+
+        <p className={classNames(styles.card__price, 'placeholder', 'w-50')}>
+        </p>
+
+        <hr className={styles.card__devider} />
+
+        <div className={styles.card__information}>
+          <p className={classNames(
+            styles['card__information--description'])}>
+            Screen
+          </p>
+
+          <p className={classNames(
+            styles['card__information--description'], 'placeholder')}>
+          </p>
+
+          <p className={classNames(
+            styles['card__information--description'])}>
+            Capacity
+          </p>
+
+          <p className={classNames(
+            styles['card__information--description'], 'placeholder')}>
+          </p>
+          <p className={classNames(
+            styles['card__information--description'])}>
+            RAM
+          </p>
+
+          <p className={classNames(
+            styles['card__information--description'], 'placeholder')}>
+          </p>
+        </div>
+
+        <div className={styles.card__buttons}>
+          <MainButton
+            content={isInCart ? 'Added to cart' : 'Add to cart'}
+            isSelected={isInCart}
+            handler={() => { console.log(); }}
+            isSkeleton={isSkeleton}
+          />
+
+          <button
+            className={classNames(
+              styles.card__buttons_favourite,
+              'placeholder',
+              {
+                [styles['card__buttons_favourite--selected']]: isInFavourites,
+              }
+            )}
+            disabled={isSkeleton}
+          />
+        </div>
+      </div>
+    );
+  }
+
   const {
     id,
     name,
@@ -29,6 +106,7 @@ export const PhoneCard: React.FC<Props> = ({
     capacity,
     ram,
     image,
+
   } = phone;
   const dispatch = useDispatch();
   const imgUrl = BASE_URL + '/' + image;
