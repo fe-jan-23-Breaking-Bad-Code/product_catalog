@@ -68,7 +68,7 @@ export const App = () => {
     getCart(googleId)
       .then(data => {
         setIsCartSynced(true);
-        dispatch(cartActions.set(data));
+        dispatch(cartActions.set(cart.length > 0 ? cart : data));
       });
 
   }, [googleId]);
