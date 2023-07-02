@@ -1,6 +1,6 @@
-# Nice Gadgets Stack Masters 👌
+# Welcome to Nice Gadgets store! 👌
 
-Welcome to Welcome to the Nice Gadgets Stack Masters website!👌, an online shop where you can explore and purchase a wide range of phones, tablets, and accessories. This project was developed by our team with the goal of providing a seamless shopping experience for gadget enthusiasts.
+Welcome to the Nice Gadgets store!👌, an online shop where you can explore and purchase a wide range of phones, tablets, and accessories. This project was developed by our team with the goal of providing a seamless shopping experience for gadget enthusiasts.
 
 ## Project Description
 The project is a comprehensive online gadget shop called NICE GADGETS. It consists of a frontend, backend, and a database, all working together to provide a seamless shopping experience for users.
